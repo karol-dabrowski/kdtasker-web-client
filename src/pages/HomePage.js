@@ -2,7 +2,7 @@ import React from 'react';
 
 const HomePage = () => {
     return (
-        <div className="page-container">
+        <div className="container">
             Temporary home page content
         </div>
     );
