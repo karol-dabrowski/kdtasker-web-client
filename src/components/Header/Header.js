@@ -14,7 +14,9 @@ const Header = ({isLogged}) => {
                 </Typography>
 
                 {isLogged ? (
-                    ''
+                    <Typography color="inherit" noWrap component={Link} to="/dashboard">
+                        Dashboard
+                    </Typography>
                 ) : (
                     <Button color="primary" variant="outlined" component={Link} to="/login">
                         Sign in
