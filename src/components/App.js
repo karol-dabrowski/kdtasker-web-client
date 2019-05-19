@@ -6,6 +6,8 @@ import HeaderContainer from "./Header/HeaderContainer";
 import LoginPage from "../pages/LoginPage";
 import {connect} from "react-redux";
 import DashboardPage from "../pages/DashboardPage";
+import NotFoundPage from "../pages/error/NotFoundPage";
+import ForbiddenPage from "../pages/error/ForbiddenPage";
 
 class App extends Component {
     render() {
@@ -20,8 +22,9 @@ class App extends Component {
                         {this.props.authorized ? (
                             <Route path="/dashboard" component={DashboardPage}/>
                         ) : (
-                            ''
+                            <Route path="/dashboard" component={ForbiddenPage}/>
                         )}
+                        <Route component={NotFoundPage} />
                     </Switch>
                 </Router>
             </div>
