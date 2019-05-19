@@ -2,29 +2,35 @@ import React from "react";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from "@material-ui/core/Button";
-import {Link} from 'react-router-dom';
+import {Link} from "react-router-dom";
+import {withStyles} from "@material-ui/core";
+import HeaderMenu from "./HeaderMenu";
+import HeaderUserMenu from "./HeaderUserMenu";
 
-const Header = ({isLogged}) => {
+const Header = (props) => {
+    const {isLogged, classes} = props;
     return (
         <AppBar position="static" color="default">
             <Toolbar>
-                <Typography variant="title" color="inherit" noWrap>
-                    Tasker
+                <Typography variant="title" noWrap className={classes.toolbarTitle}>
+                    <Link to='/' className={classes.toolbarTitleLink}>Tasker</Link>
                 </Typography>
-
-                {isLogged ? (
-                    <Typography color="inherit" noWrap component={Link} to="/dashboard">
-                        Dashboard
-                    </Typography>
-                ) : (
-                    <Button color="primary" variant="outlined" component={Link} to="/login">
-                        Sign in
-                    </Button>
-                )}
+                <HeaderMenu isLogged={isLogged} />
+                <HeaderUserMenu isLogged={isLogged} />
             </Toolbar>
         </AppBar>
     );
 };
 
-export default Header;
+const styles = theme => ({
+    toolbarTitle: {
+        flex: 1
+    },
+    toolbarTitleLink: {
+        outline: 0,
+        color: theme.palette.primary.main,
+        textDecoration: 'none'
+    }
+});
+
+export default withStyles(styles)(Header);
