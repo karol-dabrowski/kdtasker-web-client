@@ -1,9 +1,10 @@
 import React from 'react';
+import LoginContainer from "../components/Login/LoginContainer";
 
 const LoginPage = () => {
     return (
         <div className="main-container">
-            Temporary login page content
+            <LoginContainer/>
         </div>
     );
 };
