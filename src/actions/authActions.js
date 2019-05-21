@@ -10,10 +10,18 @@ const loginRequest = () => {
 };
 
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-const loginSuccess = (data) => {
+const loginSuccess = data => {
     return {
         type: LOGIN_SUCCESS,
         data
+    }
+};
+
+export const LOGIN_FAILURE = 'LOGIN_FAILURE';
+const loginFailure = error => {
+    return {
+        type: LOGIN_FAILURE,
+        error
     }
 };
 
@@ -30,8 +38,8 @@ export const login = (email, password) => {
         axios.post(endpoint, data)
             .then(response => {
                 dispatch(loginSuccess(response.data));
-            }).catch(error => {
-                //@TODO implement error handling
+            }).catch(response => {
+                dispatch(loginFailure(response.response.data.error));
             });
     };
 };
