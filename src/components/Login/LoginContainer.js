@@ -2,8 +2,13 @@ import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import {connect} from "react-redux";
 import LoginForm from "./LoginForm";
+import {login} from "../../actions/authActions";
 
 class LoginContainer extends Component {
+    handleLoginFormSubmit = (email, password) => {
+        this.props.dispatch(login(email, password));
+    };
+
     render() {
         const {authorized, loading} = this.props;
 
@@ -14,7 +19,7 @@ class LoginContainer extends Component {
         if(loading) {
             return 'loading';
         } else {
-            return <LoginForm/>;
+            return <LoginForm handleSubmit={this.handleLoginFormSubmit} />;
         }
     };
 }
