@@ -1,30 +1,22 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import {CssBaseline} from "@material-ui/core";
-import Home from '../pages/HomePage'
-import HeaderContainer from "./Header/HeaderContainer";
-import LoginPage from "../pages/LoginPage";
-import {connect} from "react-redux";
-import DashboardPage from "../pages/DashboardPage";
-import NotFoundPage from "../pages/error/NotFoundPage";
-import ForbiddenPage from "../pages/error/ForbiddenPage";
+import {CssBaseline, withStyles} from "@material-ui/core";
+
+import Static from "../pages/layouts/Static";
+import Dashboard from "../pages/layouts/Dashboard";
+import Auth from "../pages/layouts/Auth";
 
 class App extends Component {
     render() {
+        const {classes} = this.props;
         return (
-            <div className="app">
+            <div className={classes.appWrapper}>
                 <CssBaseline/>
                 <Router>
-                    <HeaderContainer/>
                     <Switch>
-                        <Route exact path="/" component={Home} />
-                        <Route path="/login" component={LoginPage}/>
-                        {this.props.authorized ? (
-                            <Route path="/dashboard" component={DashboardPage}/>
-                        ) : (
-                            <Route path="/dashboard" component={ForbiddenPage}/>
-                        )}
-                        <Route component={NotFoundPage} />
+                        <Route path="/dashboard" component={Dashboard} />
+                        <Route path="/login" component={Auth} exact />
+                        <Route component={Static} />
                     </Switch>
                 </Router>
             </div>
@@ -32,10 +24,10 @@ class App extends Component {
     };
 }
 
-const mapStateToProps = (state) => {
-    return {
-        authorized: state.auth.authorized
-    };
-};
+const styles = theme => ({
+    appWrapper: {
+        minHeight: '100vh',
+    },
+});
 
-export default connect(mapStateToProps)(App);
+export default withStyles(styles)(App);
