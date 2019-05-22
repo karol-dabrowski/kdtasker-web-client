@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import {connect} from "react-redux";
-import LoginForm from "./LoginForm";
+import LoginForm from "../Login/LoginForm";
 import {login} from "../../actions/authActions";
 
-class LoginContainer extends Component {
+class Login extends Component {
     handleLoginFormSubmit = (email, password) => {
         this.props.dispatch(login(email, password));
     };
@@ -31,4 +31,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(LoginContainer);
+export default connect(mapStateToProps)(Login);
