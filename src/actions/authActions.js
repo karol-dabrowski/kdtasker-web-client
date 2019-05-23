@@ -1,4 +1,5 @@
 import path from '../path';
+import history from '../history';
 
 const axios = require('axios');
 
@@ -38,6 +39,7 @@ export const login = (email, password) => {
         axios.post(endpoint, data)
             .then(response => {
                 dispatch(loginSuccess(response.data));
+                history.push('/dashboard');
             }).catch(response => {
                 dispatch(loginFailure(response.response.data.error));
             });
