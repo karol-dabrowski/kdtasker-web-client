@@ -6,11 +6,19 @@ import classNames from "classnames";
 import DashboardPage from "../DashboardPage";
 import DashboardHeader from "../../components/containers/DashboardHeader";
 import MenuSidebar from "../../components/containers/MenuSidebar";
+import {connect} from "react-redux";
 
 class Dashboard extends Component {
     state = {
         open: false
     };
+
+    componentDidMount() {
+        const {history, authorized} = this.props;
+        if(!authorized) {
+            history.push('/');
+        }
+    }
 
     handleDrawerOpen = () => {
         this.setState({ open: true });
@@ -44,6 +52,12 @@ class Dashboard extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        authorized: state.auth.authorized
+    };
+};
+
 const styles = theme => ({
     dashboardContainer: {
         backgroundColor: theme.palette.background.default,
@@ -59,4 +73,4 @@ const styles = theme => ({
     }
 });
 
-export default withStyles(styles)(Dashboard);
+export default connect(mapStateToProps)(withStyles(styles)(Dashboard));
