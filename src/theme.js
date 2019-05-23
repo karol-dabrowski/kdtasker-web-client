@@ -8,6 +8,11 @@ const theme = createMuiTheme({
         background: {
             auth: '#bdbdbd'
         }
+    },
+    props: {
+        SidebarMenu: {
+            width: 280
+        }
     }
 });
 
