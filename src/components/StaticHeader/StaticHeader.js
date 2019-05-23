@@ -12,8 +12,8 @@ const StaticHeader = (props) => {
     return (
         <AppBar position="static" color="default">
             <Toolbar>
-                <Typography variant="title" noWrap className={classes.toolbarTitle}>
-                    <Link to='/' className={classes.toolbarTitleLink}>Tasker</Link>
+                <Typography variant="title" noWrap className={classes.staticToolbarTitle}>
+                    <Link to='/' className={classes.staticToolbarTitleLink}>Tasker</Link>
                 </Typography>
                 <StaticHeaderMenu isLogged={isLogged} />
                 <StaticHeaderUserMenu isLogged={isLogged} />
@@ -23,10 +23,10 @@ const StaticHeader = (props) => {
 };
 
 const styles = theme => ({
-    toolbarTitle: {
+    staticToolbarTitle: {
         flex: 1
     },
-    toolbarTitleLink: {
+    staticToolbarTitleLink: {
         outline: 0,
         color: theme.palette.primary.main,
         textDecoration: 'none'
