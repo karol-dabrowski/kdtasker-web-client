@@ -1,9 +1,9 @@
 import React, {Component, Fragment} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {withStyles} from "@material-ui/core";
 
 import HomePage from "../HomePage";
-import {withStyles} from "@material-ui/core";
-import Header from "../../components/containers/Header";
+import StaticHeader from "../../components/containers/StaticHeader";
 
 class Static extends Component {
     render() {
@@ -11,7 +11,7 @@ class Static extends Component {
 
         return (
             <Fragment>
-                <Header type="static" />
+                <StaticHeader />
                 <div className={classes.staticContainer}>
                     <Router>
                         <Switch>
