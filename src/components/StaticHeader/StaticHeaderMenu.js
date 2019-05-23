@@ -2,7 +2,7 @@ import React, {Fragment} from "react";
 import Typography from "@material-ui/core/Typography";
 import {Link} from "react-router-dom";
 
-const HeaderMenu = (props) => {
+const StaticHeaderMenu = (props) => {
     const {isLogged} = props;
 
     return (
@@ -18,4 +18,4 @@ const HeaderMenu = (props) => {
     );
 };
 
-export default HeaderMenu;
+export default StaticHeaderMenu;

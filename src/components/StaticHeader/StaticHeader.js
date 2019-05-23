@@ -4,10 +4,10 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import {Link} from "react-router-dom";
 import {withStyles} from "@material-ui/core";
-import HeaderMenu from "./HeaderMenu";
-import HeaderUserMenu from "./HeaderUserMenu";
+import StaticHeaderMenu from "./StaticHeaderMenu";
+import StaticHeaderUserMenu from "./StaticHeaderUserMenu";
 
-const Header = (props) => {
+const StaticHeader = (props) => {
     const {isLogged, classes} = props;
     return (
         <AppBar position="static" color="default">
@@ -15,8 +15,8 @@ const Header = (props) => {
                 <Typography variant="title" noWrap className={classes.toolbarTitle}>
                     <Link to='/' className={classes.toolbarTitleLink}>Tasker</Link>
                 </Typography>
-                <HeaderMenu isLogged={isLogged} />
-                <HeaderUserMenu isLogged={isLogged} />
+                <StaticHeaderMenu isLogged={isLogged} />
+                <StaticHeaderUserMenu isLogged={isLogged} />
             </Toolbar>
         </AppBar>
     );
@@ -33,4 +33,4 @@ const styles = theme => ({
     }
 });
 
-export default withStyles(styles)(Header);
+export default withStyles(styles)(StaticHeader);

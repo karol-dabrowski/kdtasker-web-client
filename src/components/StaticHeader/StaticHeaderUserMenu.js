@@ -2,7 +2,7 @@ import React, {Fragment} from "react";
 import {Link} from "react-router-dom";
 import Button from "@material-ui/core/Button";
 
-const HeaderUserMenu = (props) => {
+const StaticHeaderUserMenu = (props) => {
     const {isLogged} = props;
 
     return (
@@ -18,4 +18,4 @@ const HeaderUserMenu = (props) => {
     );
 };
 
-export default HeaderUserMenu;
+export default StaticHeaderUserMenu;
