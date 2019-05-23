@@ -37,7 +37,8 @@ const mapStateToProps = (state) => {
 const styles = theme => ({
     authContainer: {
         backgroundColor: theme.palette.background.auth,
-        width: '100%'
+        width: '100%',
+        flex: 1
     },
 });
 
