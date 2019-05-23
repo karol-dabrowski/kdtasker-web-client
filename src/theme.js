@@ -13,7 +13,10 @@ const theme = createMuiTheme({
         SidebarMenu: {
             width: 280
         }
-    }
+    },
+    typography: {
+        useNextVariants: true,
+    },
 });
 
 export default theme;

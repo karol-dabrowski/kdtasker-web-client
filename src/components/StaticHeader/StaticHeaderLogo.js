@@ -6,7 +6,7 @@ import {withStyles} from "@material-ui/core";
 const StaticHeaderLogo = (props) => {
     const {classes} = props;
     return (
-        <Typography variant="title" noWrap className={classes.staticToolbarTitle}>
+        <Typography variant="h6" noWrap className={classes.staticToolbarTitle}>
             <Link to='/' className={classes.staticToolbarTitleLink}>Tasker</Link>
         </Typography>
     );
