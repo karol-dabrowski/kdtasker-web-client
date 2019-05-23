@@ -26,7 +26,9 @@ class App extends Component {
 
 const styles = theme => ({
     appWrapper: {
+        display: 'flex',
         minHeight: '100vh',
+        width: '100vw'
     },
 });
 
