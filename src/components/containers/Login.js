@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import {Redirect} from 'react-router-dom';
 import {connect} from "react-redux";
-import LoginForm from "../Login/LoginForm";
+import LoginForm from "../Forms/LoginForm";
 import {login} from "../../actions/authActions";
 
 class Login extends Component {
@@ -10,11 +9,7 @@ class Login extends Component {
     };
 
     render() {
-        const {authorized, loading} = this.props;
-
-        if(authorized) {
-            return <Redirect to='/dashboard'/>
-        }
+        const {loading} = this.props;
 
         if(loading) {
             return 'loading';
@@ -26,7 +21,6 @@ class Login extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        authorized: state.auth.authorized,
         loading: state.auth.loading
     };
 };
