@@ -1,5 +1,9 @@
 import React from 'react';
-import { withFormik, ErrorMessage } from 'formik';
+import {withFormik} from 'formik';
+
+import PasswordField from './elements/PasswordField';
+import SubmitButton from './elements/SubmitButton';
+import EmailField from "./elements/EmailField";
 
 const initialValues = {
     email: '',
@@ -12,30 +16,28 @@ const Form = props => {
         handleChange,
         handleBlur,
         handleSubmit,
+        touched,
+        errors
     } = props;
     return (
         <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                onChange={handleChange}
-                onBlur={handleBlur}
+            <EmailField
+                handleChange={handleChange}
+                handleBlur={handleBlur}
                 value={values.email}
-                placeholder="Email"
-                name="email"
+                touched={touched.email}
+                error={errors.email}
             />
-            <ErrorMessage component="span" name="email" />
 
-            <input
-                type="password"
-                onChange={handleChange}
-                onBlur={handleBlur}
+            <PasswordField
+                handleChange={handleChange}
+                handleBlur={handleBlur}
                 value={values.password}
-                placeholder="Password"
-                name="password"
+                touched={touched.password}
+                error={errors.password}
             />
-            <ErrorMessage component="span" name="password" />
 
-            <button type="submit">Submit</button>
+            <SubmitButton />
         </form>
     );
 };

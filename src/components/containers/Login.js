@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import LoginForm from "../Forms/LoginForm";
 import {login} from "../../actions/authActions";
+import AuthWrapper from "../AuthWrapper";
 
 class Login extends Component {
     handleLoginFormSubmit = (email, password) => {
@@ -14,7 +15,12 @@ class Login extends Component {
         if(loading) {
             return 'loading';
         } else {
-            return <LoginForm handleSubmit={this.handleLoginFormSubmit} />;
+            const formTitle = 'Sign in';
+            return (
+                <AuthWrapper title={formTitle}>
+                    <LoginForm handleSubmit={this.handleLoginFormSubmit} />
+                </AuthWrapper>
+            );
         }
     };
 }

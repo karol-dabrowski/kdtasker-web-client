@@ -6,7 +6,8 @@ const theme = createMuiTheme({
             main: '#0000B7'
         },
         background: {
-            auth: '#bdbdbd'
+            auth: '#fafafa',
+            authWrapper: '#ffffff'
         }
     },
     props: {
