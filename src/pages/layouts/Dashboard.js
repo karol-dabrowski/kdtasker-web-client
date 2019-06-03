@@ -34,7 +34,7 @@ class Dashboard extends Component {
         return (
             <Fragment>
                 <DashboardHeader drawerIsOpen={this.state.open} />
-                <MenuSidebar open={this.state.open} />
+                <MenuSidebar open={this.state.open} handleClose={this.handleDrawerClose} />
                 <div className={classNames(
                     classes.dashboardContainer,
                     {[classes.dashboardContainerShift]: this.state.open}
@@ -64,12 +64,14 @@ const styles = theme => ({
         width: '100%'
     },
     dashboardContainerShift: {
-        width: `calc(100% - ${theme.props.SidebarMenu.width}px)`,
-        marginLeft: theme.props.SidebarMenu.width,
-        transition: theme.transitions.create(['margin', 'width'], {
-            easing: theme.transitions.easing.easeOut,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
+        [theme.breakpoints.up('lg')]: {
+            width: `calc(100% - ${theme.props.SidebarMenu.width}px)`,
+            marginLeft: theme.props.SidebarMenu.width,
+            transition: theme.transitions.create(['margin', 'width'], {
+                easing: theme.transitions.easing.easeOut,
+                duration: theme.transitions.duration.enteringScreen,
+            }),
+        }
     }
 });
 

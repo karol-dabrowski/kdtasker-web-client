@@ -6,7 +6,7 @@ import {withStyles} from "@material-ui/core";
 
 const DashboardHeader = (props) => {
     const {classes, drawerIsOpen} = props;
-    console.log(props);
+
     return (
         <AppBar position="static" color="default" className={classNames(
             classes.appBar,
@@ -27,12 +27,14 @@ const styles = theme => ({
         }),
     },
     appBarShift: {
-        width: `calc(100% - ${theme.props.SidebarMenu.width}px)`,
-        marginLeft: theme.props.SidebarMenu.width,
-        transition: theme.transitions.create(['margin', 'width'], {
-            easing: theme.transitions.easing.easeOut,
-            duration: theme.transitions.duration.enteringScreen,
-        }),
+        [theme.breakpoints.up('lg')]: {
+            width: `calc(100% - ${theme.props.SidebarMenu.width}px)`,
+            marginLeft: theme.props.SidebarMenu.width,
+            transition: theme.transitions.create(['margin', 'width'], {
+                easing: theme.transitions.easing.easeOut,
+                duration: theme.transitions.duration.enteringScreen,
+            }),
+        }
     },
 });
 
