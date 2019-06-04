@@ -4,6 +4,7 @@ import {withFormik} from 'formik';
 import PasswordField from './elements/PasswordField';
 import SubmitButton from './elements/SubmitButton';
 import EmailField from "./elements/EmailField";
+import {LoginFormSchema} from '../../validators/LoginFormValidator';
 
 const initialValues = {
     email: '',
@@ -47,20 +48,7 @@ const LoginForm = withFormik({
         email: initialValues.email,
         password: initialValues.password
     }),
-
-    validate: values => {
-        const errors = {};
-
-        if (!values.email) {
-            errors.email = 'Required';
-        }
-        if (!values.password) {
-            errors.password = 'Required';
-        }
-
-        return errors;
-    },
-
+    validationSchema: LoginFormSchema,
     handleSubmit: (values, {props}) => {
         props.handleSubmit(values.email, values.password);
     }
