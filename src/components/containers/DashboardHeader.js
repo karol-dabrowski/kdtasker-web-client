@@ -3,9 +3,11 @@ import AppBar from "@material-ui/core/AppBar/index";
 import Toolbar from "@material-ui/core/Toolbar/index";
 import classNames from 'classnames';
 import {withStyles} from "@material-ui/core";
+import IconButton from '@material-ui/core/IconButton';
+import Menu from '@material-ui/icons/Menu';
 
 const DashboardHeader = (props) => {
-    const {classes, drawerIsOpen} = props;
+    const {classes, drawerIsOpen, toggleDrawer} = props;
 
     return (
         <AppBar position="static" color="default" className={classNames(
@@ -13,6 +15,14 @@ const DashboardHeader = (props) => {
             {[classes.appBarShift]: drawerIsOpen}
         )}>
             <Toolbar>
+                <IconButton
+                    aria-label="More"
+                    aria-controls="long-menu"
+                    aria-haspopup="true"
+                    onClick={toggleDrawer}
+                >
+                    <Menu />
+                </IconButton>
                 Toolbar
             </Toolbar>
         </AppBar>
@@ -25,6 +35,7 @@ const styles = theme => ({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
+        marginBottom: theme.spacing(6)
     },
     appBarShift: {
         [theme.breakpoints.up('lg')]: {

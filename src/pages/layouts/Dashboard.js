@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import {Button, withStyles} from "@material-ui/core";
+import {withStyles} from "@material-ui/core";
 import classNames from "classnames";
 
 import DashboardPage from "../DashboardPage";
@@ -20,8 +20,8 @@ class Dashboard extends Component {
         }
     }
 
-    handleDrawerOpen = () => {
-        this.setState({ open: true });
+    toggleDrawer = () => {
+        this.setState({ open: !this.state.open });
     };
 
     handleDrawerClose = () => {
@@ -33,7 +33,7 @@ class Dashboard extends Component {
 
         return (
             <Fragment>
-                <DashboardHeader drawerIsOpen={this.state.open} />
+                <DashboardHeader drawerIsOpen={this.state.open} toggleDrawer={this.toggleDrawer} />
                 <MenuSidebar open={this.state.open} handleClose={this.handleDrawerClose} />
                 <div className={classNames(
                     classes.dashboardContainer,
@@ -44,8 +44,6 @@ class Dashboard extends Component {
                             <Route path="/dashboard" component={DashboardPage} exact />
                         </Switch>
                     </Router>
-                    <Button onClick={this.handleDrawerOpen}>Open drawer</Button>
-                    <Button onClick={this.handleDrawerClose}>Close drawer</Button>
                 </div>
             </Fragment>
         );
@@ -61,7 +59,9 @@ const mapStateToProps = (state) => {
 const styles = theme => ({
     dashboardContainer: {
         backgroundColor: theme.palette.background.default,
-        width: '100%'
+        width: '100%',
+        paddingLeft: theme.spacing(3),
+        paddingRight: theme.spacing(3)
     },
     dashboardContainerShift: {
         [theme.breakpoints.up('lg')]: {
