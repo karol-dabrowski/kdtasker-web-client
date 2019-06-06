@@ -1,8 +1,15 @@
 import React from 'react';
+import Grid from "@material-ui/core/Grid";
+import TodaysTasks from "../components/DashboardWidgets/TodaysTasks/TodaysTasks";
 
 const DashboardPage = () => {
     return (
-        'Temporary dashboard page content'
+        <Grid container>
+            <Grid item xs={12}>
+                <TodaysTasks />
+            </Grid>
+        </Grid>
+
     );
 };
 
