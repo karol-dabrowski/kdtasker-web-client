@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import tasks from './tasks'
+import todaysTasks from './todaysTasks'
 import auth from './auth'
 
 export default combineReducers({
     auth,
-    tasks
+    todaysTasks
 });
