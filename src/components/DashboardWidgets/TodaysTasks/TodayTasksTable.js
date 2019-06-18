@@ -11,7 +11,7 @@ const TodaysTasksTable = props => {
     const {tasks, classes} = props;
 
     const rows = tasks.map(task =>
-        <TodaysTasksTableRow task={task} />
+        <TodaysTasksTableRow key={task.id} task={task} />
     );
 
     return (

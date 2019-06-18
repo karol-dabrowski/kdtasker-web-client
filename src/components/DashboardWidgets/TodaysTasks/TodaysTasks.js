@@ -1,29 +1,36 @@
 import React, {Component} from 'react';
+import {connect} from "react-redux";
 import WidgetWrapper from "../WidgetWrapper";
 import TodaysTasksTable from "./TodayTasksTable";
+import {getTasksForToday} from "../../../actions/taskActions";
+import Preloader from "../../Preloader";
 
 class TodaysTasks extends Component {
+    componentDidMount() {
+        this.props.dispatch(getTasksForToday(this.props.jwtToken));
+    }
+
     render() {
-        const tasks = [
-            {
-                id: 'fe0d9c22-6310-453b-bfa2-9a191d53f938',
-                deadlineDay: '2019-06-06',
-                deadlineTime: '',
-                title: 'Test task'
-            },
-            {
-                id: '76a58b0e-d58d-4de1-ba27-0166f634fe5c',
-                deadlineDay: '2019-06-06',
-                deadlineTime: '17:50:00',
-                title: 'another test task'
-            }
-        ];
+        const {loading, list} = this.props;
+
         return (
-            <WidgetWrapper title="Today's tasks">
-                <TodaysTasksTable tasks={tasks} />
+            <WidgetWrapper title="Today">
+                { loading ? (
+                    <Preloader />
+                ) :
+                    <TodaysTasksTable tasks={list} />
+                }
             </WidgetWrapper>
         );
     }
 }
 
-export default TodaysTasks;
+const mapStateToProps = (state) => {
+    return {
+        loading: state.todaysTasks.loading,
+        list: state.todaysTasks.list,
+        jwtToken: state.auth.jwt.token
+    };
+};
+
+export default connect(mapStateToProps)(TodaysTasks);
