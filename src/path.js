@@ -5,6 +5,11 @@ const config = {
     auth: {
         auth: '/auth',
         login: '/login'
+    },
+    api: {
+        api: '/api',
+        tasks: '/tasks',
+        tasksForToday: '/getTodaysTasks'
     }
 };
 
