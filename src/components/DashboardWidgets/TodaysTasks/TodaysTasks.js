@@ -8,13 +8,17 @@ import Preloader from "../../Preloader";
 class TodaysTasks extends Component {
     componentDidMount() {
         this.props.dispatch(getTasksForToday(this.props.jwtToken));
-    }
+    };
+
+    refresh = () => {
+        console.log('Temporary response');
+    };
 
     render() {
         const {loading, list} = this.props;
 
         return (
-            <WidgetWrapper title="Today">
+            <WidgetWrapper title="Today" refreshButton={true} handleRefresh={this.refresh}>
                 { loading ? (
                     <Preloader />
                 ) :
