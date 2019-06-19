@@ -16,7 +16,7 @@ const todaysTasks = (state = defaultState, action) => {
             return Object.assign({}, state, {
                 loading: false,
                 date: action.data.date,
-                list: action.data.tasks_list
+                list: action.data.tasks_list ? action.data.tasks_list : []
             });
         case GET_TASKS_FOR_TODAY_FAILURE:
             return Object.assign({}, state, {

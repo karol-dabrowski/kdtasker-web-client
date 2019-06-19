@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
@@ -15,18 +15,22 @@ const TodaysTasksTable = props => {
     );
 
     return (
-        <Table>
-            <TableHead>
-                <TableRow>
-                    <TableCell className={classes.deadlineCell} align="left">Time</TableCell>
-                    <TableCell align="left">Title</TableCell>
-                    <TableCell align="left">Actions</TableCell>
-                </TableRow>
-            </TableHead>
-            <TableBody>
-                {rows}
-            </TableBody>
-        </Table>
+        <Fragment>
+            {rows.length > 0 ? (
+                <Table>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell className={classes.deadlineCell} align="left">Time</TableCell>
+                            <TableCell align="left">Title</TableCell>
+                            <TableCell align="left">Actions</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {rows}
+                    </TableBody>
+                </Table>
+            ) : 'You don\'t have any tasks for today' }
+        </Fragment>
     );
 };
 
