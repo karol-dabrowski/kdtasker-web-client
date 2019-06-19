@@ -11,7 +11,7 @@ class TodaysTasks extends Component {
     };
 
     refresh = () => {
-        console.log('Temporary response');
+        this.props.dispatch(getTasksForToday(this.props.jwtToken));
     };
 
     render() {
