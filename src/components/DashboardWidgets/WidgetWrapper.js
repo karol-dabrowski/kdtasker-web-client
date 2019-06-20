@@ -8,13 +8,13 @@ import Refresh from '@material-ui/icons/Refresh';
 import {withStyles} from "@material-ui/core";
 
 const WidgetWrapper = props => {
-    const {title, classes, widgetMenu, refreshButton, handleRefresh, children} = props;
+    const {title, classes, widgetMenu, refreshButton, handleRefresh, children, loading} = props;
 
     const actions =
         <Fragment>
             {refreshButton ? (
-                <IconButton aria-label="Refresh" onClick={handleRefresh} className={classes.wrapperRefreshIcon}>
-                    <Refresh  />
+                <IconButton aria-label="Refresh" disabled={loading} onClick={handleRefresh} className={classes.wrapperRefreshIcon}>
+                    <Refresh />
                 </IconButton>
             ) : ''}
             {widgetMenu ? (

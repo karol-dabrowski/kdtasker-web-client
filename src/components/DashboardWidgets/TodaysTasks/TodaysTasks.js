@@ -18,7 +18,7 @@ class TodaysTasks extends Component {
         const {loading, list} = this.props;
 
         return (
-            <WidgetWrapper title="Today" refreshButton={true} handleRefresh={this.refresh}>
+            <WidgetWrapper title="Today" loading={loading} refreshButton={true} handleRefresh={this.refresh}>
                 { loading ? (
                     <Preloader />
                 ) :
