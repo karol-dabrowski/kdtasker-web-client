@@ -7,10 +7,12 @@ import DashboardPage from "../DashboardPage";
 import DashboardHeader from "../../components/containers/DashboardHeader";
 import MenuSidebar from "../../components/containers/MenuSidebar";
 import {connect} from "react-redux";
+import NewTaskModal from "../../components/NewTaskModal";
 
 class Dashboard extends Component {
     state = {
-        open: false
+        drawerIsOpened: false,
+        newTaskModalIsOpened: false
     };
 
     componentDidMount() {
@@ -21,11 +23,19 @@ class Dashboard extends Component {
     }
 
     toggleDrawer = () => {
-        this.setState({ open: !this.state.open });
+        this.setState({ drawerIsOpened: !this.state.drawerIsOpened });
     };
 
     handleDrawerClose = () => {
-        this.setState({ open: false });
+        this.setState({ drawerIsOpened: false });
+    };
+
+    openNewTaskModal = () => {
+        this.setState({ newTaskModalIsOpened: true });
+    };
+
+    closeNewTaskModal = () => {
+        this.setState({ newTaskModalIsOpened: false });
     };
 
     render() {
@@ -33,11 +43,11 @@ class Dashboard extends Component {
 
         return (
             <Fragment>
-                <DashboardHeader drawerIsOpen={this.state.open} toggleDrawer={this.toggleDrawer} />
-                <MenuSidebar open={this.state.open} handleClose={this.handleDrawerClose} />
+                <DashboardHeader drawerIsOpen={this.state.drawerIsOpened} openNewTaskModal={this.openNewTaskModal} toggleDrawer={this.toggleDrawer} />
+                <MenuSidebar open={this.state.drawerIsOpened} handleClose={this.handleDrawerClose} />
                 <div className={classNames(
                     classes.dashboardContainer,
-                    {[classes.dashboardContainerShift]: this.state.open}
+                    {[classes.dashboardContainerShift]: this.state.drawerIsOpened}
                 )}>
                     <Router>
                         <Switch>
@@ -45,6 +55,7 @@ class Dashboard extends Component {
                         </Switch>
                     </Router>
                 </div>
+                <NewTaskModal isOpened={this.state.newTaskModalIsOpened} handleClose={this.closeNewTaskModal} />
             </Fragment>
         );
     }
