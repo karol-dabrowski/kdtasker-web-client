@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import {withStyles} from "@material-ui/core";
 import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/icons/Menu';
+import Add from '@material-ui/icons/Add';
 
 const DashboardHeader = (props) => {
     const {classes, drawerIsOpen, toggleDrawer} = props;
@@ -23,7 +24,10 @@ const DashboardHeader = (props) => {
                 >
                     <Menu />
                 </IconButton>
-                Toolbar
+                <span>Toolbar</span>
+                <IconButton aria-label="Add">
+                    <Add className={classes.addTaskButton} />
+                </IconButton>
             </Toolbar>
         </AppBar>
     );
@@ -47,6 +51,9 @@ const styles = theme => ({
             }),
         }
     },
+    addTaskButton: {
+        color: theme.palette.common.black
+    }
 });
 
 export default withStyles(styles)(DashboardHeader);
