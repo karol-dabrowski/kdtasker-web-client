@@ -8,6 +8,8 @@ const config = {
     },
     api: {
         api: '/api',
+        task: '/task',
+        create: '/create',
         tasks: '/tasks',
         tasksForToday: '/getTodaysTasks'
     }
