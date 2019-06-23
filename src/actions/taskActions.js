@@ -1,3 +1,5 @@
+import uuid from "uuid";
+
 import path from '../path';
 
 const axios = require('axios');
@@ -25,7 +27,28 @@ const getTasksForTodayFailure = error => {
     }
 };
 
-export const getTasksForToday = (token) => {
+export const CREATE_TASK_REQUEST = 'CREATE_TASK_REQUEST';
+const createTaskRequest = () => {
+    return {
+        type: CREATE_TASK_REQUEST
+    }
+};
+
+export const CREATE_TASK_SUCCESS = 'CREATE_TASK_SUCCESS';
+const createTaskSuccess = () => {
+    return {
+        type: CREATE_TASK_SUCCESS
+    }
+};
+
+export const CREATE_TASK_FAILURE = 'CREATE_TASK_FAILURE';
+const createTaskFailure = () => {
+    return {
+        type: CREATE_TASK_FAILURE
+    }
+};
+
+export const getTasksForToday = token => {
     return dispatch => {
         dispatch(getTasksForTodayRequest());
 
@@ -41,6 +64,35 @@ export const getTasksForToday = (token) => {
                 dispatch(getTasksForTodaySuccess(response.data));
             }).catch(response => {
                 dispatch(getTasksForTodayFailure(response.response.data.error));
+        });
+    };
+};
+
+export const createTask = (token, title, date, time) => {
+    return dispatch => {
+        dispatch(createTaskRequest());
+
+        const endpoint = path.apiUrl + path.api.api + path.api.task + path.api.create;
+        const data = {
+            payload: {
+                title: title,
+                task_id: uuid.v4(),
+                deadline_date: date,
+                deadline_time: time
+            }
+        };
+
+        axios({
+            url: endpoint,
+            method: 'POST',
+            data: data,
+            headers: {
+                'Authorization': token
+            }
+        }).then(response => {
+            dispatch(createTaskSuccess());
+        }).catch(response => {
+            dispatch(createTaskFailure());
         });
     };
 };
