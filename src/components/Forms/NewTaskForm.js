@@ -49,9 +49,10 @@ const NewTaskForm = withFormik({
     handleSubmit: (values, {props}) => {
         const month = (values.date.getMonth() + 1).toString();
         const monthString = month.length <= 1 ? '0' + month : month;
+        const dateString = values.date.getFullYear() + '-' + monthString + '-' + values.date.getDate();
         const timeString = values.time.getHours() + ':' + values.time.getMinutes();
 
-        props.handleSubmit(values.title, monthString, timeString);
+        props.handleSubmit(values.title, dateString, timeString);
     }
 })(Form);
 
