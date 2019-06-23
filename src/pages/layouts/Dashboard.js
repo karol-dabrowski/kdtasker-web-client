@@ -2,12 +2,13 @@ import React, {Component, Fragment} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {withStyles} from "@material-ui/core";
 import classNames from "classnames";
+import {connect} from "react-redux";
 
 import DashboardPage from "../DashboardPage";
 import DashboardHeader from "../../components/containers/DashboardHeader";
 import MenuSidebar from "../../components/containers/MenuSidebar";
-import {connect} from "react-redux";
 import NewTaskModal from "../../components/NewTaskModal";
+import {createTask} from "../../actions/taskActions";
 
 class Dashboard extends Component {
     state = {
@@ -38,6 +39,12 @@ class Dashboard extends Component {
         this.setState({ newTaskModalIsOpened: false });
     };
 
+    handleNewTaskSubmit = (title, date, time) => {
+        const {dispatch, jwtToken} = this.props;
+        dispatch(createTask(jwtToken, title, date, time));
+        this.setState({ newTaskModalIsOpened: false });
+    };
+
     render() {
         const {classes} = this.props;
 
@@ -55,7 +62,7 @@ class Dashboard extends Component {
                         </Switch>
                     </Router>
                 </div>
-                <NewTaskModal isOpened={this.state.newTaskModalIsOpened} handleClose={this.closeNewTaskModal} />
+                <NewTaskModal isOpened={this.state.newTaskModalIsOpened} handleClose={this.closeNewTaskModal} handleSubmit={this.handleNewTaskSubmit} />
             </Fragment>
         );
     }
@@ -63,7 +70,8 @@ class Dashboard extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        authorized: state.auth.authorized
+        authorized: state.auth.authorized,
+        jwtToken: state.auth.jwt.token
     };
 };
 
