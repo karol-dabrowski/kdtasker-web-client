@@ -53,9 +53,13 @@ const NewTaskForm = withFormik({
         const month = (values.date.getMonth() + 1).toString();
         const monthString = month.length <= 1 ? '0' + month : month;
         const dateString = values.date.getFullYear() + '-' + monthString + '-' + values.date.getDate();
-        const timeString = values.useTime ? values.time.getHours() + ':' + values.time.getMinutes() : null;
+        const hour = values.time.getHours().toString();
+        const hourString = hour.length <= 1 ? '0' + hour : hour;
+        const minute = values.time.getMinutes().toString();
+        const minuteString = minute.length <= 1 ? '0' + minute : minute;
+        const timeString = values.useTime ? hourString + ':' + minuteString : null;
 
-        props.handleSubmit(values.title, dateString, timeString, values.useTime);
+        props.handleSubmit(values.title, dateString, timeString);
     }
 })(Form);
 
