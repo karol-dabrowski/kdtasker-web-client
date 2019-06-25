@@ -14,7 +14,7 @@ class NewTaskModal extends Component {
         const {isOpened, handleClose, handleSubmit, loading} = this.props;
 
         return (
-            <Dialog open={isOpened || loading} maxWidth={"md"}>
+            <Dialog open={isOpened || loading} maxWidth={"sm"}>
                 <DialogTitle>New task</DialogTitle>
                 <DialogContent>
                     <NewTaskForm handleSubmit={handleSubmit}/>
