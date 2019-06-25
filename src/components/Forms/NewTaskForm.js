@@ -8,6 +8,7 @@ import SubmitButton from "./elements/SubmitButton";
 
 const initialValues = {
     title: '',
+    useTime: false,
     dateTime: addDays(Date.now(), 1)
 };
 
@@ -34,6 +35,7 @@ const Form = props => {
                 dateValue={values.date}
                 timeValue={values.time}
                 setFieldValue={setFieldValue}
+                disableTime={!values.useTime}
             />
             <SubmitButton />
         </form>
@@ -44,15 +46,16 @@ const NewTaskForm = withFormik({
     mapPropsToValues: () => ({
         title: initialValues.title,
         date: initialValues.dateTime,
-        time: initialValues.dateTime
+        time: initialValues.dateTime,
+        useTime: initialValues.useTime
     }),
     handleSubmit: (values, {props}) => {
         const month = (values.date.getMonth() + 1).toString();
         const monthString = month.length <= 1 ? '0' + month : month;
         const dateString = values.date.getFullYear() + '-' + monthString + '-' + values.date.getDate();
-        const timeString = values.time.getHours() + ':' + values.time.getMinutes();
+        const timeString = values.useTime ? values.time.getHours() + ':' + values.time.getMinutes() : null;
 
-        props.handleSubmit(values.title, dateString, timeString);
+        props.handleSubmit(values.title, dateString, timeString, values.useTime);
     }
 })(Form);
 
