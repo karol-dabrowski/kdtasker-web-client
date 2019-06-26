@@ -48,6 +48,27 @@ const createTaskFailure = () => {
     }
 };
 
+export const COMPLETE_TASK_REQUEST = 'COMPLETE_TASK_REQUEST';
+const completeTaskRequest = () => {
+    return {
+        type: COMPLETE_TASK_REQUEST
+    }
+};
+
+export const COMPLETE_TASK_SUCCESS = 'COMPLETE_TASK_SUCCESS';
+const completeTaskSuccess = () => {
+    return {
+        type: COMPLETE_TASK_SUCCESS
+    }
+};
+
+export const COMPLETE_TASK_FAILURE = 'COMPLETE_TASK_FAILURE';
+const completeTaskFailure = () => {
+    return {
+        type: COMPLETE_TASK_FAILURE
+    }
+};
+
 export const getTasksForToday = token => {
     return dispatch => {
         dispatch(getTasksForTodayRequest());
@@ -93,6 +114,26 @@ export const createTask = (token, title, date, time) => {
             dispatch(createTaskSuccess());
         }).catch(response => {
             dispatch(createTaskFailure());
+        });
+    };
+};
+
+export const completeTask = (token, taskId) => {
+    return dispatch => {
+        dispatch(completeTaskRequest());
+
+        const endpoint = path.apiUrl + path.api.api + path.api.task + path.api.complete + `/${taskId}`;
+
+        axios({
+            url: endpoint,
+            method: 'PATCH',
+            headers: {
+                'Authorization': token
+            }
+        }).then(response => {
+            dispatch(completeTaskSuccess());
+        }).catch(response => {
+            dispatch(completeTaskFailure());
         });
     };
 };
