@@ -10,6 +10,7 @@ const config = {
         api: '/api',
         task: '/task',
         create: '/create',
+        complete: '/finish',
         tasks: '/tasks',
         tasksForToday: '/getTodaysTasks'
     }
