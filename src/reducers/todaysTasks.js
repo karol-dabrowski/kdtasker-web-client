@@ -12,7 +12,6 @@ const todaysTasks = (state = defaultState, action) => {
                 loading: true
             });
         case GET_TASKS_FOR_TODAY_SUCCESS:
-            console.log(action.data);
             return Object.assign({}, state, {
                 loading: false,
                 list: action.data ? action.data : []
