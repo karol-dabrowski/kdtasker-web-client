@@ -7,14 +7,16 @@ import Edit from '@material-ui/icons/Edit';
 import Delete from '@material-ui/icons/Delete';
 
 const TodaysTasksTableRow = props => {
-    const {task} = props;
+    const {task, handleConfirm} = props;
 
     return (
         <TableRow>
             <TableCell align="left">{task.deadline_time}</TableCell>
             <TableCell align="left">{task.title}</TableCell>
             <TableCell align="left">
-                <IconButton aria-label="Done">
+                <IconButton aria-label="Done" onClick={() => {
+                    handleConfirm(task.task_id);
+                }}>
                     <Done />
                 </IconButton>
                 <IconButton aria-label="Edit">

@@ -8,10 +8,10 @@ import {withStyles} from "@material-ui/core";
 import TodaysTasksTableRow from "./TodaysTasksTableRow";
 
 const TodaysTasksTable = props => {
-    const {tasks, classes} = props;
+    const {tasks, classes, handleConfirm} = props;
 
     const rows = tasks.map(task =>
-        <TodaysTasksTableRow key={task.task_id} task={task} />
+        <TodaysTasksTableRow key={task.task_id} task={task} handleConfirm={handleConfirm} />
     );
 
     return (
