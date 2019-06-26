@@ -35,9 +35,10 @@ const createTaskRequest = () => {
 };
 
 export const CREATE_TASK_SUCCESS = 'CREATE_TASK_SUCCESS';
-const createTaskSuccess = () => {
+const createTaskSuccess = newTask => {
     return {
-        type: CREATE_TASK_SUCCESS
+        type: CREATE_TASK_SUCCESS,
+        newTask
     }
 };
 
@@ -111,7 +112,7 @@ export const createTask = (token, title, date, time) => {
                 'Authorization': token
             }
         }).then(response => {
-            dispatch(createTaskSuccess());
+            dispatch(createTaskSuccess(data.payload));
         }).catch(response => {
             dispatch(createTaskFailure());
         });
