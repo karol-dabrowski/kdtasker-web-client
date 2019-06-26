@@ -11,7 +11,7 @@ const TodaysTasksTableRow = props => {
 
     return (
         <TableRow>
-            <TableCell align="left">{task.time}</TableCell>
+            <TableCell align="left">{task.deadline_time}</TableCell>
             <TableCell align="left">{task.title}</TableCell>
             <TableCell align="left">
                 <IconButton aria-label="Done">

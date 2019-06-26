@@ -2,7 +2,6 @@ import {GET_TASKS_FOR_TODAY_REQUEST, GET_TASKS_FOR_TODAY_SUCCESS, GET_TASKS_FOR_
 
 const defaultState = {
     loading: false,
-    date: null,
     list: []
 };
 
@@ -13,10 +12,10 @@ const todaysTasks = (state = defaultState, action) => {
                 loading: true
             });
         case GET_TASKS_FOR_TODAY_SUCCESS:
+            console.log(action.data);
             return Object.assign({}, state, {
                 loading: false,
-                date: action.data.date,
-                list: action.data.tasks_list ? action.data.tasks_list : []
+                list: action.data ? action.data : []
             });
         case GET_TASKS_FOR_TODAY_FAILURE:
             return Object.assign({}, state, {
