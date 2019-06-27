@@ -4,7 +4,10 @@ import {
     GET_TASKS_FOR_TODAY_FAILURE,
     CREATE_TASK_REQUEST,
     CREATE_TASK_SUCCESS,
-    CREATE_TASK_FAILURE
+    CREATE_TASK_FAILURE,
+    COMPLETE_TASK_REQUEST,
+    COMPLETE_TASK_SUCCESS,
+    COMPLETE_TASK_FAILURE
 } from '../actions/taskActions';
 
 const defaultState = {
@@ -44,6 +47,21 @@ const todaysTasks = (state = defaultState, action) => {
             });
             return newStateForCreateTaskSuccess;
         case CREATE_TASK_FAILURE:
+            return Object.assign({}, state, {
+                loading: false
+            });
+        case COMPLETE_TASK_REQUEST:
+            return  Object.assign({}, state, {
+                loading: true
+            });
+        case COMPLETE_TASK_SUCCESS:
+            return Object.assign({}, state, {
+                loading: false,
+                list: state.list.filter(task => {
+                    return task.task_id !== action.taskId;
+                })
+            });
+        case COMPLETE_TASK_FAILURE:
             return Object.assign({}, state, {
                 loading: false
             });

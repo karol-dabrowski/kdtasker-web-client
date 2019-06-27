@@ -57,9 +57,10 @@ const completeTaskRequest = () => {
 };
 
 export const COMPLETE_TASK_SUCCESS = 'COMPLETE_TASK_SUCCESS';
-const completeTaskSuccess = () => {
+const completeTaskSuccess = taskId => {
     return {
-        type: COMPLETE_TASK_SUCCESS
+        type: COMPLETE_TASK_SUCCESS,
+        taskId
     }
 };
 
@@ -132,7 +133,7 @@ export const completeTask = (token, taskId) => {
                 'Authorization': token
             }
         }).then(response => {
-            dispatch(completeTaskSuccess());
+            dispatch(completeTaskSuccess(taskId));
         }).catch(response => {
             dispatch(completeTaskFailure());
         });
