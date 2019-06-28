@@ -11,6 +11,7 @@ const config = {
         task: '/task',
         create: '/create',
         complete: '/finish',
+        delete: '/delete',
         tasks: '/tasks',
         tasksForToday: '/getTodaysTasks'
     }
