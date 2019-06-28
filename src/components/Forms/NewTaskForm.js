@@ -5,6 +5,7 @@ import {addDays} from 'date-fns';
 import TaskTitleField from "./elements/TaskTitleField";
 import DateTimePicker from "./elements/DateTimePicker";
 import SubmitButton from "./elements/SubmitButton";
+import {NewTaskFormSchema} from '../../validators/NewTaskFormValidator';
 
 const initialValues = {
     title: '',
@@ -49,6 +50,7 @@ const NewTaskForm = withFormik({
         time: initialValues.dateTime,
         useTime: initialValues.useTime
     }),
+    validationSchema: NewTaskFormSchema,
     handleSubmit: (values, {props}) => {
         const month = (values.date.getMonth() + 1).toString();
         const monthString = month.length <= 1 ? '0' + month : month;
