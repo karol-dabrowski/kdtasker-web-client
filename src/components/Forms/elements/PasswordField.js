@@ -1,11 +1,11 @@
-import React, {Fragment} from "react";
+import React from "react";
 import {TextField, withStyles} from "@material-ui/core";
 import {ErrorMessage} from "formik";
 
 const PasswordField = (props) => {
     const {classes, handleChange, handleBlur, value, touched, error} = props;
     return (
-        <Fragment>
+        <div className={classes.passwordFieldWrapper}>
             <TextField
                 type="password"
                 onChange={handleChange}
@@ -20,11 +20,14 @@ const PasswordField = (props) => {
                 className={touched && error ? classes.errorField : ''}
             />
             <ErrorMessage className={classes.errorMessage} component="div" name="password" />
-        </Fragment>
+        </div>
     );
 };
 
 const style = theme => ({
+    passwordFieldWrapper: {
+        marginBottom: theme.spacing(2)
+    },
     errorMessage: {
         color: theme.palette.error.main
     },

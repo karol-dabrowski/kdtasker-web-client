@@ -19,7 +19,7 @@ const SubmitButton = (props) => {
 
 const style = theme => ({
     submitButton: {
-        'margin-top': theme.spacing(3)
+        'margin-top': theme.spacing(1)
     }
 });
 

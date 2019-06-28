@@ -1,11 +1,11 @@
-import React, {Fragment} from "react";
+import React from "react";
 import {TextField, withStyles} from "@material-ui/core";
 import {ErrorMessage} from "formik";
 
 const TitleField = (props) => {
     const {classes, handleChange, handleBlur, value, touched, error} = props;
     return (
-        <Fragment>
+        <div className={classes.titleFieldWrapper}>
             <TextField
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -20,11 +20,14 @@ const TitleField = (props) => {
                 className={touched && error ? classes.errorField : ''}
             />
             <ErrorMessage className={classes.errorMessage} component="div" name="title" />
-        </Fragment>
+        </div>
     );
 };
 
 const style = theme => ({
+    titleFieldWrapper: {
+        marginBottom: theme.spacing(2)
+    },
     errorMessage: {
         color: theme.palette.error.main
     },

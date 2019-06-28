@@ -1,12 +1,13 @@
-import React, {Fragment} from "react";
+import React from "react";
 import {DatePicker, TimePicker} from "@material-ui/pickers";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
+import {withStyles} from "@material-ui/core";
 
 const DateTimePicker = (props) => {
-    const {dateValue, timeValue, setFieldValue, disableTime} = props;
+    const {classes, dateValue, timeValue, setFieldValue, disableTime} = props;
     return (
-        <Fragment>
+        <div className={classes.dateTimeWrapper}>
             <DatePicker
                 name="date"
                 label="Deadline date"
@@ -28,6 +29,7 @@ const DateTimePicker = (props) => {
                         onChange={(event, value) => {
                             setFieldValue("useTime", value);
                         }}
+                        className={classes.timeCheckbox}
                     />
                 }
                 label="Time"
@@ -46,8 +48,17 @@ const DateTimePicker = (props) => {
                 }}
                 value={timeValue}
             />
-        </Fragment>
+        </div>
     );
 };
 
-export default DateTimePicker;
+const style = theme => ({
+    dateTimeWrapper: {
+        marginBottom: theme.spacing(2)
+    },
+    timeCheckbox: {
+        padding: theme.spacing(0.5)
+    }
+});
+
+export default withStyles(style)(DateTimePicker);
