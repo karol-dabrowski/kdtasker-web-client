@@ -7,7 +7,10 @@ import {
     CREATE_TASK_FAILURE,
     COMPLETE_TASK_REQUEST,
     COMPLETE_TASK_SUCCESS,
-    COMPLETE_TASK_FAILURE
+    COMPLETE_TASK_FAILURE,
+    DELETE_TASK_REQUEST,
+    DELETE_TASK_SUCCESS,
+    DELETE_TASK_FAILURE
 } from '../actions/taskActions';
 
 const defaultState = {
@@ -66,6 +69,21 @@ const todaysTasks = (state = defaultState, action) => {
                 })
             });
         case COMPLETE_TASK_FAILURE:
+            return Object.assign({}, state, {
+                loading: false
+            });
+        case DELETE_TASK_REQUEST:
+            return  Object.assign({}, state, {
+                loading: true
+            });
+        case DELETE_TASK_SUCCESS:
+            return Object.assign({}, state, {
+                loading: false,
+                list: state.list.filter(task => {
+                    return task.task_id !== action.taskId;
+                })
+            });
+        case DELETE_TASK_FAILURE:
             return Object.assign({}, state, {
                 loading: false
             });
