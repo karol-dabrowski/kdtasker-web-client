@@ -13,6 +13,7 @@ const DateTimePicker = (props) => {
                 label="Deadline date"
                 format="dd.MM.yyyy"
                 inputVariant="outlined"
+                className={classes.datePicker}
                 onChange={value => {
                     setFieldValue("date", value);
                 }}
@@ -41,6 +42,7 @@ const DateTimePicker = (props) => {
                 label="Deadline time"
                 format="HH:mm"
                 inputVariant="outlined"
+                className={classes.timePicker}
                 ampm={false}
                 disabled={disableTime}
                 onChange={value => {
@@ -54,7 +56,14 @@ const DateTimePicker = (props) => {
 
 const style = theme => ({
     dateTimeWrapper: {
-        marginBottom: theme.spacing(2)
+        marginBottom: theme.spacing(2),
+        textAlign: 'center'
+    },
+    datePicker: {
+        float: 'left'
+    },
+    timePicker: {
+        float: 'right'
     },
     timeCheckbox: {
         padding: theme.spacing(0.5)
