@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Grid from "@material-ui/core/Grid";
 import {connect} from "react-redux";
 
-import {completeTask} from "../actions/taskActions";
+import {completeTask, deleteTask} from "../actions/taskActions";
 import TodaysTasks from "../components/DashboardWidgets/TodaysTasks/TodaysTasks";
 
 class DashboardPage extends Component{
@@ -11,11 +11,16 @@ class DashboardPage extends Component{
         dispatch(completeTask(jwtToken, taskId));
     };
 
+    handleTaskDeletion = (taskId) => {
+        const {dispatch, jwtToken} = this.props;
+        dispatch(deleteTask(jwtToken, taskId));
+    };
+
     render() {
         return (
             <Grid container>
                 <Grid item xs={12}>
-                    <TodaysTasks handleConfirm={this.handleTaskConfirmation}/>
+                    <TodaysTasks handleConfirm={this.handleTaskConfirmation} handleDelete={this.handleTaskDeletion} />
                 </Grid>
             </Grid>
 
