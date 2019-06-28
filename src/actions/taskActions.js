@@ -71,6 +71,28 @@ const completeTaskFailure = () => {
     }
 };
 
+export const DELETE_TASK_REQUEST = 'DELETE_TASK_REQUEST';
+const deleteTaskRequest = () => {
+    return {
+        type: DELETE_TASK_REQUEST
+    }
+};
+
+export const DELETE_TASK_SUCCESS = 'DELETE_TASK_SUCCESS';
+const deleteTaskSuccess = taskId => {
+    return {
+        type: DELETE_TASK_SUCCESS,
+        taskId
+    }
+};
+
+export const DELETE_TASK_FAILURE = 'DELETE_TASK_FAILURE';
+const deleteTaskFailure = () => {
+    return {
+        type: DELETE_TASK_FAILURE
+    }
+};
+
 export const getTasksForToday = token => {
     return dispatch => {
         dispatch(getTasksForTodayRequest());
@@ -136,6 +158,26 @@ export const completeTask = (token, taskId) => {
             dispatch(completeTaskSuccess(taskId));
         }).catch(response => {
             dispatch(completeTaskFailure());
+        });
+    };
+};
+
+export const deleteTask = (token, taskId) => {
+    return dispatch => {
+        dispatch(deleteTaskRequest());
+
+        const endpoint = path.apiUrl + path.api.api + path.api.task + path.api.delete + `/${taskId}`;
+
+        axios({
+            url: endpoint,
+            method: 'PATCH',
+            headers: {
+                'Authorization': token
+            }
+        }).then(response => {
+            dispatch(deleteTaskSuccess(taskId));
+        }).catch(response => {
+            dispatch(deleteTaskFailure());
         });
     };
 };
