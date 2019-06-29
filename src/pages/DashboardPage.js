@@ -18,8 +18,8 @@ class DashboardPage extends Component{
 
     render() {
         return (
-            <Grid container>
-                <Grid item xs={12}>
+            <Grid container spacing={3}>
+                <Grid item xs={12} lg={6}>
                     <TodaysTasks handleConfirm={this.handleTaskConfirmation} handleDelete={this.handleTaskDeletion} />
                 </Grid>
             </Grid>
