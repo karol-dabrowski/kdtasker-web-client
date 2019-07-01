@@ -10,6 +10,7 @@ const config = {
         api: '/api',
         task: '/task',
         create: '/create',
+        edit: '/edit',
         complete: '/finish',
         delete: '/delete',
         tasks: '/tasks',
