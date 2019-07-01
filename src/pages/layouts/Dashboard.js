@@ -13,7 +13,11 @@ import {createTask} from "../../actions/taskActions";
 class Dashboard extends Component {
     state = {
         drawerIsOpened: false,
-        newTaskModalIsOpened: false
+        newTaskModalIsOpened: false,
+        editTaskModal: {
+            isOpened: false,
+            taskId: null
+        }
     };
 
     componentDidMount() {
@@ -62,7 +66,7 @@ class Dashboard extends Component {
                         </Switch>
                     </Router>
                 </div>
-                <TaskModal isOpened={this.state.newTaskModalIsOpened} handleClose={this.closeNewTaskModal} handleSubmit={this.handleNewTaskSubmit} />
+                <TaskModal isOpened={this.state.newTaskModalIsOpened || this.state.editTaskModal.isOpened} handleClose={this.closeNewTaskModal} handleSubmit={this.handleNewTaskSubmit} />
             </Fragment>
         );
     }

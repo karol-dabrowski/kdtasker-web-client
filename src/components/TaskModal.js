@@ -30,7 +30,7 @@ class TaskModal extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        loading: state.createTask.loading
+        loading: state.createTask.loading || state.editTask.loading
     };
 };
 
