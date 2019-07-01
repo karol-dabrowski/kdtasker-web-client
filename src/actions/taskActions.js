@@ -49,6 +49,29 @@ const createTaskFailure = () => {
     }
 };
 
+export const EDIT_TASK_REQUEST = 'EDIT_TASK_REQUEST';
+const editTaskRequest = () => {
+    return {
+        type: EDIT_TASK_REQUEST
+    }
+};
+
+export const EDIT_TASK_SUCCESS = 'EDIT_TASK_SUCCESS';
+const editTaskSuccess = (taskId, taskData) => {
+    return {
+        type: EDIT_TASK_SUCCESS,
+        taskId,
+        taskData
+    }
+};
+
+export const EDIT_TASK_FAILURE = 'EDIT_TASK_FAILURE';
+const editTaskFailure = () => {
+    return {
+        type: EDIT_TASK_FAILURE
+    }
+};
+
 export const COMPLETE_TASK_REQUEST = 'COMPLETE_TASK_REQUEST';
 const completeTaskRequest = () => {
     return {
@@ -138,6 +161,34 @@ export const createTask = (token, title, date, time) => {
             dispatch(createTaskSuccess(data.payload));
         }).catch(response => {
             dispatch(createTaskFailure());
+        });
+    };
+};
+
+export const editTask = (token, taskId, title, date, time) => {
+    return dispatch => {
+        dispatch(editTaskRequest());
+
+        const endpoint = path.apiUrl + path.api.api + path.api.task + path.api.edit + `/${taskId}`;
+        const data = {
+            payload: {
+                title: title,
+                deadline_date: date,
+                deadline_time: time
+            }
+        };
+
+        axios({
+            url: endpoint,
+            method: 'PATCH',
+            data: data,
+            headers: {
+                'Authorization': token
+            }
+        }).then(response => {
+            dispatch(editTaskSuccess(taskId, data.payload));
+        }).catch(response => {
+            dispatch(editTaskFailure());
         });
     };
 };
