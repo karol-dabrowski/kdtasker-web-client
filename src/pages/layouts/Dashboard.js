@@ -7,7 +7,7 @@ import {connect} from "react-redux";
 import DashboardPage from "../DashboardPage";
 import DashboardHeader from "../../components/containers/DashboardHeader";
 import MenuSidebar from "../../components/containers/MenuSidebar";
-import NewTaskModal from "../../components/NewTaskModal";
+import TaskModal from "../../components/TaskModal";
 import {createTask} from "../../actions/taskActions";
 
 class Dashboard extends Component {
@@ -62,7 +62,7 @@ class Dashboard extends Component {
                         </Switch>
                     </Router>
                 </div>
-                <NewTaskModal isOpened={this.state.newTaskModalIsOpened} handleClose={this.closeNewTaskModal} handleSubmit={this.handleNewTaskSubmit} />
+                <TaskModal isOpened={this.state.newTaskModalIsOpened} handleClose={this.closeNewTaskModal} handleSubmit={this.handleNewTaskSubmit} />
             </Fragment>
         );
     }

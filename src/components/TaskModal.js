@@ -8,7 +8,7 @@ import {connect} from "react-redux";
 
 import NewTaskForm from './Forms/NewTaskForm';
 
-class NewTaskModal extends Component {
+class TaskModal extends Component {
     render() {
         const {isOpened, handleClose, handleSubmit, loading} = this.props;
 
@@ -34,4 +34,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(NewTaskModal);
+export default connect(mapStateToProps)(TaskModal);
