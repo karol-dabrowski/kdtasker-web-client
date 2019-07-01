@@ -39,8 +39,24 @@ class Dashboard extends Component {
         this.setState({ newTaskModalIsOpened: true });
     };
 
-    closeNewTaskModal = () => {
-        this.setState({ newTaskModalIsOpened: false });
+    openEditTaskModal = taskId => {
+        this.setState({
+            editTaskModal: {
+                isOpened: true,
+                taskId: taskId
+            }
+        });
+        console.log(taskId);
+    };
+
+    closeTaskModal = () => {
+        this.setState({
+            newTaskModalIsOpened: false,
+            editTaskModal: {
+                isOpened: false,
+                taskId: null
+            }
+        });
     };
 
     handleNewTaskSubmit = (title, date, time) => {
@@ -62,11 +78,13 @@ class Dashboard extends Component {
                 )}>
                     <Router>
                         <Switch>
-                            <Route path="/dashboard" component={DashboardPage} exact />
+                            <Route exact path="/dashboard" render={() => (
+                                <DashboardPage handleEditModalOpen={this.openEditTaskModal} />
+                            )} />
                         </Switch>
                     </Router>
                 </div>
-                <TaskModal isOpened={this.state.newTaskModalIsOpened || this.state.editTaskModal.isOpened} handleClose={this.closeNewTaskModal} handleSubmit={this.handleNewTaskSubmit} />
+                <TaskModal isOpened={this.state.newTaskModalIsOpened || this.state.editTaskModal.isOpened} handleClose={this.closeTaskModal} handleSubmit={this.handleNewTaskSubmit} />
             </Fragment>
         );
     }
