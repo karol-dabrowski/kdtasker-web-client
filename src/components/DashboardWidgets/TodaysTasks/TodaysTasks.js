@@ -15,14 +15,14 @@ class TodaysTasks extends Component {
     };
 
     render() {
-        const {loading, list, handleConfirm, handleDelete} = this.props;
+        const {loading, list, handleConfirm, handleDelete, handleEdit} = this.props;
 
         return (
             <WidgetWrapper title="Today" loading={loading} refreshButton={true} handleRefresh={this.refresh}>
                 { loading ? (
                     <Preloader />
                 ) :
-                    <TodaysTasksTable tasks={list} handleConfirm={handleConfirm} handleDelete={handleDelete} />
+                    <TodaysTasksTable tasks={list} handleConfirm={handleConfirm} handleDelete={handleDelete} handleEdit={handleEdit} />
                 }
             </WidgetWrapper>
         );

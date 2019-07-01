@@ -17,10 +17,12 @@ class DashboardPage extends Component{
     };
 
     render() {
+        const {handleEditModalOpen} = this.props;
+
         return (
             <Grid container spacing={3}>
                 <Grid item xs={12} lg={6}>
-                    <TodaysTasks handleConfirm={this.handleTaskConfirmation} handleDelete={this.handleTaskDeletion} />
+                    <TodaysTasks handleConfirm={this.handleTaskConfirmation} handleDelete={this.handleTaskDeletion} handleEdit={handleEditModalOpen} />
                 </Grid>
             </Grid>
 

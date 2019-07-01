@@ -46,7 +46,6 @@ class Dashboard extends Component {
                 taskId: taskId
             }
         });
-        console.log(taskId);
     };
 
     closeTaskModal = () => {
