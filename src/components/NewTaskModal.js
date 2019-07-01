@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import {withStyles} from "@material-ui/core";
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -29,14 +28,10 @@ class NewTaskModal extends Component {
     }
 }
 
-const styles = theme => ({
-
-});
-
 const mapStateToProps = (state) => {
     return {
         loading: state.createTask.loading
     };
 };
 
-export default connect(mapStateToProps)(withStyles(styles)(NewTaskModal));
+export default connect(mapStateToProps)(NewTaskModal);
