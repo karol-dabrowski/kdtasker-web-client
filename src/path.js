@@ -14,6 +14,7 @@ const config = {
         complete: '/finish',
         delete: '/delete',
         tasks: '/tasks',
+        get: '/get',
         tasksForToday: '/getTodaysTasks'
     }
 };
