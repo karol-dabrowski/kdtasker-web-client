@@ -83,7 +83,12 @@ class Dashboard extends Component {
                         </Switch>
                     </Router>
                 </div>
-                <TaskModal isOpened={this.state.newTaskModalIsOpened || this.state.editTaskModal.isOpened} handleClose={this.closeTaskModal} handleSubmit={this.handleNewTaskSubmit} />
+                <TaskModal
+                    isOpened={this.state.newTaskModalIsOpened || this.state.editTaskModal.isOpened}
+                    taskId={this.state.editTaskModal.taskId}
+                    handleClose={this.closeTaskModal}
+                    handleSubmit={this.handleNewTaskSubmit}
+                />
             </Fragment>
         );
     }

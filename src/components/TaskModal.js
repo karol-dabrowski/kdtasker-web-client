@@ -10,11 +10,12 @@ import NewTaskForm from './Forms/NewTaskForm';
 
 class TaskModal extends Component {
     render() {
-        const {isOpened, handleClose, handleSubmit, loading} = this.props;
+        const {isOpened, handleClose, handleSubmit, loading, taskId} = this.props;
+        const title = taskId ? 'Edit task' : 'New task';
 
         return (
             <Dialog open={isOpened || loading} maxWidth={"sm"} fullWidth>
-                <DialogTitle>New task</DialogTitle>
+                <DialogTitle>{title}</DialogTitle>
                 <DialogContent>
                     <NewTaskForm handleSubmit={handleSubmit}/>
                 </DialogContent>
