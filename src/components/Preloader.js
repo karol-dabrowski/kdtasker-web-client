@@ -14,7 +14,8 @@ const Preloader = (props) => {
 const styles = theme => ({
     preloaderWrapper: {
         display: 'flex',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        minHeight: theme.spacing(8)
     }
 });
 
