@@ -8,6 +8,7 @@ import SubmitButton from "./elements/SubmitButton";
 import {NewTaskFormSchema} from '../../validators/NewTaskFormValidator';
 
 const initialValues = {
+    taskId: null,
     title: '',
     useTime: false,
     dateTime: addDays(Date.now(), 1)
@@ -44,11 +45,12 @@ const Form = props => {
 };
 
 const NewTaskForm = withFormik({
-    mapPropsToValues: () => ({
-        title: initialValues.title,
-        date: initialValues.dateTime,
-        time: initialValues.dateTime,
-        useTime: initialValues.useTime
+    mapPropsToValues: props => ({
+        taskId: props.task.taskId ? props.task.taskId : initialValues.taskId,
+        title: props.task.title ? props.task.title : initialValues.title,
+        date: props.task.deadlineDate ? (new Date(props.task.deadlineDate)) : initialValues.dateTime,
+        time: props.task.deadlineTime ? (new Date(props.task.deadlineDate + ' ' + props.task.deadlineTime)) : initialValues.dateTime,
+        useTime: props.task.deadlineTime ? true : initialValues.useTime
     }),
     validationSchema: NewTaskFormSchema,
     handleSubmit: (values, {props}) => {
@@ -63,7 +65,7 @@ const NewTaskForm = withFormik({
         const minuteString = minute.length <= 1 ? '0' + minute : minute;
         const timeString = values.useTime ? hourString + ':' + minuteString : null;
 
-        props.handleSubmit(values.title, dateString, timeString);
+        props.handleSubmit(values.taskId, values.title, dateString, timeString);
     }
 })(Form);
 
