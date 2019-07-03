@@ -27,6 +27,7 @@ const DateTimePicker = (props) => {
                 control={
                     <Checkbox
                         color="primary"
+                        checked={!disableTime}
                         onChange={(event, value) => {
                             setFieldValue("useTime", value);
                         }}
