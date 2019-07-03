@@ -8,7 +8,7 @@ import DashboardPage from "../DashboardPage";
 import DashboardHeader from "../../components/containers/DashboardHeader";
 import MenuSidebar from "../../components/containers/MenuSidebar";
 import TaskModal from "../../components/TaskModal";
-import {createTask} from "../../actions/taskActions";
+import {createTask, editTask, getTaskToEdit} from "../../actions/taskActions";
 
 class Dashboard extends Component {
     state = {
@@ -40,6 +40,9 @@ class Dashboard extends Component {
     };
 
     openEditTaskModal = taskId => {
+        const {dispatch, jwtToken} = this.props;
+        dispatch(getTaskToEdit(jwtToken, taskId));
+
         this.setState({
             editTaskModal: {
                 isOpened: true,
@@ -58,10 +61,22 @@ class Dashboard extends Component {
         });
     };
 
-    handleNewTaskSubmit = (title, date, time) => {
+    handleNewTaskSubmit = (taskId, title, date, time) => {
         const {dispatch, jwtToken} = this.props;
-        dispatch(createTask(jwtToken, title, date, time));
-        this.setState({ newTaskModalIsOpened: false });
+
+        if(taskId) {
+            dispatch(editTask(jwtToken, taskId, title, date, time));
+        } else {
+            dispatch(createTask(jwtToken, title, date, time));
+        }
+
+        this.setState({
+            newTaskModalIsOpened: false,
+            editTaskModal: {
+                isOpened: false,
+                taskId: null
+            }
+        });
     };
 
     render() {
