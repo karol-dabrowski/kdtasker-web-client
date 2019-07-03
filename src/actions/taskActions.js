@@ -49,6 +49,13 @@ const getTaskToEditFailure = () => {
     }
 };
 
+export const CLEAR_TASK_TO_EDIT_REQUEST = 'CLEAR_TASK_TO_EDIT_REQUEST';
+const clearTaskToEditRequest = () => {
+    return {
+        type: CLEAR_TASK_TO_EDIT_REQUEST
+    }
+};
+
 export const CREATE_TASK_REQUEST = 'CREATE_TASK_REQUEST';
 const createTaskRequest = () => {
     return {
@@ -176,6 +183,12 @@ export const getTaskToEdit = (token, taskId) => {
             dispatch(getTaskToEditFailure());
         });
     };
+};
+
+export const clearTaskToEdit = () => {
+    return dispatch => {
+        dispatch(clearTaskToEditRequest());
+    }
 };
 
 export const createTask = (token, title, date, time) => {

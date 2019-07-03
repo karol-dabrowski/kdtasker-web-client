@@ -8,7 +8,7 @@ import DashboardPage from "../DashboardPage";
 import DashboardHeader from "../../components/containers/DashboardHeader";
 import MenuSidebar from "../../components/containers/MenuSidebar";
 import TaskModal from "../../components/TaskModal";
-import {createTask, editTask, getTaskToEdit} from "../../actions/taskActions";
+import {createTask, editTask, getTaskToEdit, clearTaskToEdit} from "../../actions/taskActions";
 
 class Dashboard extends Component {
     state = {
@@ -36,6 +36,8 @@ class Dashboard extends Component {
     };
 
     openNewTaskModal = () => {
+        const {dispatch} = this.props;
+        dispatch(clearTaskToEdit());
         this.setState({ newTaskModalIsOpened: true });
     };
 

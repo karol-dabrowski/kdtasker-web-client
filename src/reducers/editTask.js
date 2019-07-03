@@ -1,4 +1,4 @@
-import {GET_TASK_TO_EDIT_REQUEST, GET_TASK_TO_EDIT_SUCCESS, GET_TASK_TO_EDIT_FAILURE} from '../actions/taskActions';
+import {GET_TASK_TO_EDIT_REQUEST, GET_TASK_TO_EDIT_SUCCESS, GET_TASK_TO_EDIT_FAILURE, CLEAR_TASK_TO_EDIT_REQUEST} from '../actions/taskActions';
 
 const defaultState = {
     loading: false,
@@ -39,6 +39,8 @@ const editTask = (state = defaultState, action) => {
                     title: null
                 }
             });
+        case CLEAR_TASK_TO_EDIT_REQUEST:
+            return defaultState;
         default:
             return state;
     }
