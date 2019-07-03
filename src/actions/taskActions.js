@@ -27,6 +27,28 @@ const getTasksForTodayFailure = error => {
     }
 };
 
+export const GET_TASK_TO_EDIT_REQUEST = 'GET_TASK_TO_EDIT_REQUEST';
+const getTaskToEditRequest = () => {
+    return {
+        type: GET_TASK_TO_EDIT_REQUEST
+    }
+};
+
+export const GET_TASK_TO_EDIT_SUCCESS = 'GET_TASK_TO_EDIT_SUCCESS';
+const getTaskToEditSuccess = data => {
+    return {
+        type: GET_TASK_TO_EDIT_SUCCESS,
+        data
+    }
+};
+
+export const GET_TASK_TO_EDIT_FAILURE = 'GET_TASK_TO_EDIT_FAILURE';
+const getTaskToEditFailure = () => {
+    return {
+        type: GET_TASK_TO_EDIT_FAILURE
+    }
+};
+
 export const CREATE_TASK_REQUEST = 'CREATE_TASK_REQUEST';
 const createTaskRequest = () => {
     return {
@@ -132,6 +154,26 @@ export const getTasksForToday = token => {
                 dispatch(getTasksForTodaySuccess(response.data));
             }).catch(response => {
                 dispatch(getTasksForTodayFailure(response.response.data.error));
+        });
+    };
+};
+
+export const getTaskToEdit = (token, taskId) => {
+    return dispatch => {
+        dispatch(getTaskToEditRequest());
+
+        const endpoint = path.apiUrl + path.api.api + path.api.task + path.api.get + `/${taskId}`;
+
+        axios({
+            url: endpoint,
+            method: 'GET',
+            headers: {
+                'Authorization': token
+            }
+        }).then(response => {
+            dispatch(getTaskToEditSuccess(response.data));
+        }).catch(response => {
+            dispatch(getTaskToEditFailure());
         });
     };
 };
