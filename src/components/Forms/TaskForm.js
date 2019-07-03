@@ -44,7 +44,7 @@ const Form = props => {
     );
 };
 
-const NewTaskForm = withFormik({
+const TaskForm = withFormik({
     mapPropsToValues: props => ({
         taskId: props.task.taskId ? props.task.taskId : initialValues.taskId,
         title: props.task.title ? props.task.title : initialValues.title,
@@ -69,4 +69,4 @@ const NewTaskForm = withFormik({
     }
 })(Form);
 
-export default NewTaskForm;
+export default TaskForm;

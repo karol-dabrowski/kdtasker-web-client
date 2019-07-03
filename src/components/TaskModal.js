@@ -6,7 +6,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import {connect} from "react-redux";
 
-import NewTaskForm from './Forms/NewTaskForm';
+import TaskForm from './Forms/TaskForm';
 import Preloader from "./Preloader";
 
 class TaskModal extends Component {
@@ -22,7 +22,7 @@ class TaskModal extends Component {
                     <Fragment>
                         <DialogTitle>{title}</DialogTitle>
                         <DialogContent>
-                            <NewTaskForm handleSubmit={handleSubmit} task={taskToEdit} />
+                            <TaskForm handleSubmit={handleSubmit} task={taskToEdit} />
                         </DialogContent>
                         <DialogActions>
                             <Button onClick={handleClose} color="primary">Close</Button>
