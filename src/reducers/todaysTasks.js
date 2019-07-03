@@ -41,9 +41,8 @@ const todaysTasks = (state = defaultState, action) => {
             const newStateForCreateTaskSuccess = Object.assign({}, state, {
                 loading: false
             });
-            const taskDate = new Date(action.newTask.deadline_date);
-            const todaysDate = new Date();
-            if(taskDate.toDateString() === todaysDate.toDateString()) {
+            const createdTaskDate = new Date(action.newTask.deadline_date);
+            if(createdTaskDate.toDateString() === (new Date()).toDateString()) {
                 newStateForCreateTaskSuccess.list.push(action.newTask);
                 newStateForCreateTaskSuccess.list.sort((a, b) => {
                     const result = a.deadline_time === null && b.deadline_time !== null
