@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 
 import {completeTask, deleteTask} from "../actions/taskActions";
 import TodaysTasks from "../components/DashboardWidgets/TodaysTasks/TodaysTasks";
+import NextDaysTasks from "../components/DashboardWidgets/NextDaysTasks/NextDaysTasks";
 
 class DashboardPage extends Component{
     handleTaskConfirmation = (taskId) => {
@@ -23,6 +24,9 @@ class DashboardPage extends Component{
             <Grid container spacing={3}>
                 <Grid item xs={12} lg={6}>
                     <TodaysTasks handleConfirm={this.handleTaskConfirmation} handleDelete={this.handleTaskDeletion} handleEdit={handleEditModalOpen} />
+                </Grid>
+                <Grid item xs={12} lg={6}>
+                    <NextDaysTasks />
                 </Grid>
             </Grid>
 
