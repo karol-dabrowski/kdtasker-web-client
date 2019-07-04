@@ -3,9 +3,9 @@ import {connect} from "react-redux";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 
-import StaticHeaderMenu from "../StaticHeader/StaticHeaderMenu";
-import StaticHeaderUserMenu from "../StaticHeader/StaticHeaderUserMenu";
-import StaticHeaderLogo from "../StaticHeader/StaticHeaderLogo";
+import StaticHeaderMenu from "./StaticHeaderMenu";
+import StaticHeaderUserMenu from "./StaticHeaderUserMenu";
+import StaticHeaderLogo from "./StaticHeaderLogo";
 
 class StaticHeader extends Component {
     render() {

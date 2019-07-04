@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {withStyles} from "@material-ui/core";
 
 import HomePage from "../HomePage";
-import StaticHeader from "../../components/containers/StaticHeader";
+import StaticHeader from "../../components/StaticHeader/StaticHeader";
 
 class Static extends Component {
     render() {
