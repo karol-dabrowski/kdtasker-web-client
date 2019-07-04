@@ -18,6 +18,22 @@ const theme = createMuiTheme({
     typography: {
         useNextVariants: true,
     },
+    overrides: {
+        MuiTableRow: {
+            root: {
+                "&:last-child td": {
+                    borderBottom: 0
+                }
+            }
+        },
+        MuiCardContent: {
+            root: {
+                "&:last-child": {
+                    paddingBottom: '16px'
+                }
+            }
+        }
+    }
 });
 
 export default theme;
