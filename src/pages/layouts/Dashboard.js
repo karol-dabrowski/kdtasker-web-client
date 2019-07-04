@@ -5,7 +5,7 @@ import classNames from "classnames";
 import {connect} from "react-redux";
 
 import DashboardPage from "../DashboardPage";
-import DashboardHeader from "../../components/containers/DashboardHeader";
+import DashboardHeader from "../../components/DashboardHeader/DashboardHeader";
 import MenuSidebar from "../../components/containers/MenuSidebar";
 import TaskModal from "../../components/TaskModal";
 import {createTask, editTask, getTaskToEdit, clearTaskToEdit} from "../../actions/taskActions";
