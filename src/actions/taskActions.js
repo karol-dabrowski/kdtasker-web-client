@@ -27,6 +27,29 @@ const getTasksForTodayFailure = error => {
     }
 };
 
+export const GET_TASKS_FOR_NEXT_DAYS_REQUEST = 'GET_TASKS_FOR_NEXT_DAYS_REQUEST';
+const getTasksForNextDaysRequest = () => {
+    return {
+        type: GET_TASKS_FOR_NEXT_DAYS_REQUEST
+    }
+};
+
+export const GET_TASKS_FOR_NEXT_DAYS_SUCCESS = 'GET_TASKS_FOR_NEXT_DAYS_SUCCESS';
+const getTasksForNextDaysSuccess = data => {
+    return {
+        type: GET_TASKS_FOR_NEXT_DAYS_SUCCESS,
+        data
+    }
+};
+
+export const GET_TASKS_FOR_NEXT_DAYS_FAILURE = 'GET_TASKS_FOR_NEXT_DAYS_FAILURE';
+const getTasksForNextDaysFailure = error => {
+    return {
+        type: GET_TASKS_FOR_NEXT_DAYS_FAILURE,
+        error
+    }
+};
+
 export const GET_TASK_TO_EDIT_REQUEST = 'GET_TASK_TO_EDIT_REQUEST';
 const getTaskToEditRequest = () => {
     return {
@@ -161,6 +184,26 @@ export const getTasksForToday = token => {
                 dispatch(getTasksForTodaySuccess(response.data));
             }).catch(response => {
                 dispatch(getTasksForTodayFailure(response.response.data.error));
+        });
+    };
+};
+
+export const getTasksForNextDays = (token, numberOfDays) => {
+    return dispatch => {
+        dispatch(getTasksForNextDaysRequest());
+
+        const endpoint = path.apiUrl + path.api.api + path.api.tasks + path.api.openTasks + '?' + path.api.numberOfDays + '=' + numberOfDays;
+
+        axios({
+            url: endpoint,
+            method: 'GET',
+            headers: {
+                'Authorization': token
+            }
+        }).then(response => {
+            dispatch(getTasksForNextDaysSuccess(response.data));
+        }).catch(response => {
+            dispatch(getTasksForNextDaysFailure(response.response.data.error));
         });
     };
 };
