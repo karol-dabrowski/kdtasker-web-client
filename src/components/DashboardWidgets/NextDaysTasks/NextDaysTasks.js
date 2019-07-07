@@ -3,11 +3,15 @@ import {connect} from "react-redux";
 
 import WidgetWrapper from "../WidgetWrapper";
 import NextDaysTasksTable from "./NextDaysTasksTable";
-import {getTasksForNextDays} from "../../../actions/taskActions";
+import {getTasksForNextDays, getTasksForToday} from "../../../actions/taskActions";
 import Preloader from "../../Preloader";
 
 class NextDaysTasks extends Component {
     componentDidMount() {
+        this.props.dispatch(getTasksForNextDays(this.props.jwtToken, 7));
+    };
+
+    refresh = () => {
         this.props.dispatch(getTasksForNextDays(this.props.jwtToken, 7));
     };
 
@@ -27,7 +31,7 @@ class NextDaysTasks extends Component {
         );
 
         return (
-            <WidgetWrapper title="Next 7 days" loading={loading} refreshButton={true}>
+            <WidgetWrapper title="Next 7 days" loading={loading} refreshButton={true} handleRefresh={this.refresh}>
                 { loading ? (
                         <Preloader />
                     ) : (
