@@ -11,7 +11,7 @@ const NextDaysTasksTable = props => {
     const currentDayOfTheWeek = (new Date(day)).getDay();
 
     const rows = dayTasks.map(task =>
-        <NextDaysTasksTableRow task={task} />
+        <NextDaysTasksTableRow key={task.task_id} task={task} />
     );
 
     return (
