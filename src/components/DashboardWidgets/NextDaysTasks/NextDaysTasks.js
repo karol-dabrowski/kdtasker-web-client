@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 
 import WidgetWrapper from "../WidgetWrapper";
 import NextDaysTasksTable from "./NextDaysTasksTable";
-import {getTasksForNextDays, getTasksForToday} from "../../../actions/taskActions";
+import {getTasksForNextDays} from "../../../actions/taskActions";
 import Preloader from "../../Preloader";
 
 class NextDaysTasks extends Component {
