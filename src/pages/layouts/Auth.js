@@ -1,40 +1,17 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {withStyles} from "@material-ui/core";
-import {connect} from "react-redux";
-
-import LoginPage from "../LoginPage";
-import RegisterPage from "../RegisterPage";
 
 class Auth extends Component {
-    componentDidMount() {
-        const {history, authorized} = this.props;
-        if(authorized) {
-            history.push('/dashboard');
-        }
-    }
-
     render() {
-        const {classes} = this.props;
+        const {classes, children} = this.props;
 
         return (
             <div className={classes.authContainer}>
-                <Router>
-                    <Switch>
-                        <Route path="/login" component={LoginPage} exact />
-                        <Route path="/register" component={RegisterPage} exact />
-                    </Switch>
-                </Router>
+                {children}
             </div>
         );
     }
 }
-
-const mapStateToProps = (state) => {
-    return {
-        authorized: state.auth.authorized
-    };
-};
 
 const styles = theme => ({
     authContainer: {
@@ -44,4 +21,4 @@ const styles = theme => ({
     },
 });
 
-export default connect(mapStateToProps)(withStyles(styles)(Auth));
+export default withStyles(styles)(Auth);

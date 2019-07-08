@@ -1,10 +1,8 @@
 import React, {Component, Fragment} from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {withStyles} from "@material-ui/core";
 import classNames from "classnames";
 import {connect} from "react-redux";
 
-import DashboardPage from "../DashboardPage";
 import DashboardHeader from "../../components/DashboardHeader/DashboardHeader";
 import MenuSidebar from "../../components/MenuSidebar/MenuSidebar";
 import TaskModal from "../../components/TaskModal";
@@ -19,13 +17,6 @@ class Dashboard extends Component {
             taskId: null
         }
     };
-
-    componentDidMount() {
-        const {history, authorized} = this.props;
-        if(!authorized) {
-            history.push('/');
-        }
-    }
 
     toggleDrawer = () => {
         this.setState({ drawerIsOpened: !this.state.drawerIsOpened });
@@ -82,7 +73,7 @@ class Dashboard extends Component {
     };
 
     render() {
-        const {classes} = this.props;
+        const {classes, children} = this.props;
 
         return (
             <Fragment>
@@ -92,13 +83,7 @@ class Dashboard extends Component {
                     classes.dashboardContainer,
                     {[classes.dashboardContainerShift]: this.state.drawerIsOpened}
                 )}>
-                    <Router>
-                        <Switch>
-                            <Route exact path="/dashboard" render={() => (
-                                <DashboardPage handleEditModalOpen={this.openEditTaskModal} />
-                            )} />
-                        </Switch>
-                    </Router>
+                    {React.cloneElement(children, {handleEditModalOpen: this.openEditTaskModal})}
                 </div>
                 <TaskModal
                     isOpened={this.state.newTaskModalIsOpened || this.state.editTaskModal.isOpened}
@@ -113,7 +98,6 @@ class Dashboard extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        authorized: state.auth.authorized,
         jwtToken: state.auth.jwt.token
     };
 };

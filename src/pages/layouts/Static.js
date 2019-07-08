@@ -1,23 +1,17 @@
 import React, {Component, Fragment} from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {withStyles} from "@material-ui/core";
 
-import HomePage from "../HomePage";
 import StaticHeader from "../../components/StaticHeader/StaticHeader";
 
 class Static extends Component {
     render() {
-        const {classes} = this.props;
+        const {classes, children} = this.props;
 
         return (
             <Fragment>
                 <StaticHeader />
                 <div className={classes.staticContainer}>
-                    <Router>
-                        <Switch>
-                            <Route path="/" component={HomePage} exact />
-                        </Switch>
-                    </Router>
+                    {children}
                 </div>
             </Fragment>
         );
