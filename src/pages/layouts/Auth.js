@@ -4,6 +4,7 @@ import {withStyles} from "@material-ui/core";
 import {connect} from "react-redux";
 
 import LoginPage from "../LoginPage";
+import RegisterPage from "../RegisterPage";
 
 class Auth extends Component {
     componentDidMount() {
@@ -21,6 +22,7 @@ class Auth extends Component {
                 <Router>
                     <Switch>
                         <Route path="/login" component={LoginPage} exact />
+                        <Route path="/register" component={RegisterPage} exact />
                     </Switch>
                 </Router>
             </div>

@@ -1,21 +1,31 @@
 import React, {Fragment} from "react";
+import {withStyles} from "@material-ui/core";
 import {Link} from "react-router-dom";
 import Button from "@material-ui/core/Button";
 
 const StaticHeaderUserMenu = (props) => {
-    const {isLogged} = props;
+    const {classes, isLogged} = props;
 
     return (
-        <Fragment>
-            {isLogged ? (
-                ''
-            ) : (
+        isLogged ? (
+            ''
+        ) : (
+            <Fragment>
                 <Button color="primary" variant="outlined" component={Link} to="/login">
                     Sign in
                 </Button>
-            )}
-        </Fragment>
+                <Button className={classes.registerButton} color="primary" variant="outlined" component={Link} to="/register">
+                    Sign up
+                </Button>
+            </Fragment>
+        )
     );
 };
 
-export default StaticHeaderUserMenu;
+const styles = theme => ({
+    registerButton: {
+        marginLeft: theme.spacing(2)
+    },
+});
+
+export default withStyles(styles)(StaticHeaderUserMenu);
