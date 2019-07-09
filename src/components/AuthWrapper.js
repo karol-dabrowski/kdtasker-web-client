@@ -22,10 +22,14 @@ const styles = theme => ({
         backgroundColor: theme.palette.background.authWrapper,
         marginTop: theme.spacing(8),
         padding: theme.spacing(5),
-        'box-shadow': theme.shadows[12]
+        boxShadow: theme.shadows[12],
+        [theme.breakpoints.down('xs')]: {
+            marginTop: theme.spacing(5),
+            padding: theme.spacing(2)
+        },
     },
     wrapperTitle: {
-        'margin-bottom': theme.spacing(2)
+        marginBottom: theme.spacing(2)
     }
 });
 
