@@ -12,7 +12,7 @@ class LoginPage extends Component {
     };
 
     render() {
-        const {loading} = this.props;
+        const {loading, loginError} = this.props;
 
         if(loading) {
             return <Preloader />;
@@ -20,7 +20,7 @@ class LoginPage extends Component {
             const formTitle = 'Sign in';
             return (
                 <AuthWrapper title={formTitle}>
-                    <LoginForm handleSubmit={this.handleLoginFormSubmit} />
+                    <LoginForm handleSubmit={this.handleLoginFormSubmit} error={loginError} />
                 </AuthWrapper>
             );
         }
@@ -29,7 +29,8 @@ class LoginPage extends Component {
 
 const mapStateToProps = state => {
     return {
-        loading: state.auth.loading
+        loading: state.auth.loading,
+        loginError: state.error.login
     };
 };
 
