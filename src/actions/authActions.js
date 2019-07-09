@@ -19,9 +19,10 @@ const loginSuccess = data => {
 };
 
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
-const loginFailure = error => {
+const loginFailure = (username, error) => {
     return {
         type: LOGIN_FAILURE,
+        username,
         error
     }
 };
@@ -41,7 +42,7 @@ export const login = (email, password) => {
                 dispatch(loginSuccess(response.data));
                 history.push('/dashboard');
             }).catch(response => {
-                dispatch(loginFailure(response.response.data.error));
+                dispatch(loginFailure(data.username, response.response.data.error));
             });
     };
 };
