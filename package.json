@@ -11,6 +11,7 @@
     "classnames": "^2.2.6",
     "date-fns": "^2.0.0-alpha.36",
     "formik": "^1.5.7",
+    "notistack": "^0.8.8",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
