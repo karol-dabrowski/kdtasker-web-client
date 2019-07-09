@@ -27,7 +27,7 @@ const loginFailure = (username, error) => {
     }
 };
 
-export const login = (email, password) => {
+export const login = (email, password, failSnackbar) => {
     return dispatch => {
         dispatch(loginRequest());
 
@@ -43,6 +43,7 @@ export const login = (email, password) => {
                 history.push('/dashboard');
             }).catch(response => {
                 dispatch(loginFailure(data.username, response.response.data.error));
+                failSnackbar(response.response.data.error.message);
             });
     };
 };

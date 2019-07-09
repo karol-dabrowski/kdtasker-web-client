@@ -6,6 +6,7 @@ import { MuiThemeProvider } from '@material-ui/core/styles';
 import { Provider } from 'react-redux';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
+import { SnackbarProvider } from 'notistack';
 
 import App from './components/App';
 import rootReducer from './reducers';
@@ -24,7 +25,9 @@ ReactDOM.render(
     <Provider store={store}>
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <MuiThemeProvider theme={theme}>
-                <App />
+                <SnackbarProvider>
+                    <App />
+                </SnackbarProvider>
             </MuiThemeProvider>
         </MuiPickersUtilsProvider>
     </Provider>,
