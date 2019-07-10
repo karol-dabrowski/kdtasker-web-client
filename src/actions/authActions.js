@@ -1,5 +1,6 @@
 import path from '../path';
 import history from '../history';
+import {enqueueSnackbar} from "./snackbarActions";
 
 const axios = require('axios');
 
@@ -27,7 +28,7 @@ const loginFailure = (username, error) => {
     }
 };
 
-export const login = (email, password, failSnackbar) => {
+export const login = (email, password) => {
     return dispatch => {
         dispatch(loginRequest());
 
@@ -43,7 +44,19 @@ export const login = (email, password, failSnackbar) => {
                 history.push('/dashboard');
             }).catch(response => {
                 dispatch(loginFailure(data.username, response.response.data.error));
-                failSnackbar(response.response.data.error.message);
+                dispatch(enqueueSnackbar({
+                    message: response.response.data.error.message,
+                    options: {
+                        key: new Date().getTime() + Math.random(),
+                        variant: 'error',
+                        preventDuplicate: true,
+                        anchorOrigin: {
+                            vertical: 'bottom',
+                            horizontal: 'right',
+                        }
+                    }
+
+                }));
             });
     };
 };
