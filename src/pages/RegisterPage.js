@@ -12,7 +12,7 @@ class RegisterPage extends Component {
     };
 
     render() {
-        const {loading, registerError} = this.props;
+        const {loading, previousState} = this.props;
 
         if(loading) {
             return <Preloader />;
@@ -20,7 +20,7 @@ class RegisterPage extends Component {
             const formTitle = 'Sign up';
             return (
                 <AuthWrapper title={formTitle}>
-                    <RegistrationForm handleSubmit={this.handleRegistrationFormSubmit} error={registerError} />
+                    <RegistrationForm handleSubmit={this.handleRegistrationFormSubmit} formState={previousState} />
                 </AuthWrapper>
             );
         }
@@ -30,7 +30,7 @@ class RegisterPage extends Component {
 const mapStateToProps = state => {
     return {
         loading: state.auth.loading,
-        registerError: state.error.register
+        previousState: state.formState.register
     };
 };
 

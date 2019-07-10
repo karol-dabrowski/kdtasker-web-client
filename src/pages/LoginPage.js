@@ -24,7 +24,7 @@ class LoginPage extends Component {
     };
 
     render() {
-        const {loading, loginError} = this.props;
+        const {loading, previousState} = this.props;
 
         if(loading) {
             return <Preloader />;
@@ -32,7 +32,7 @@ class LoginPage extends Component {
             const formTitle = 'Sign in';
             return (
                 <AuthWrapper title={formTitle}>
-                    <LoginForm handleSubmit={this.handleLoginFormSubmit} error={loginError} />
+                    <LoginForm handleSubmit={this.handleLoginFormSubmit} formState={previousState} />
                 </AuthWrapper>
             );
         }
@@ -42,7 +42,7 @@ class LoginPage extends Component {
 const mapStateToProps = state => {
     return {
         loading: state.auth.loading,
-        loginError: state.error.login
+        previousState: state.formState.login
     };
 };
 

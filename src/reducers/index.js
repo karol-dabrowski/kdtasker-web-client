@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 import todaysTasks from './todaysTasks'
 import nextDaysTasks from './nextDaysTasks';
 import auth from './auth'
-import error from './error'
+import formState from './formState'
 import createTask from './createTask'
 import editTask from './editTask'
 
@@ -12,5 +12,5 @@ export default combineReducers({
     nextDaysTasks,
     createTask,
     editTask,
-    error
+    formState
 });

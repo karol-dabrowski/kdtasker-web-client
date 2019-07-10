@@ -45,7 +45,7 @@ const Form = props => {
 
 const LoginForm = withFormik({
     mapPropsToValues: props => ({
-        email: props.error.username ? props.error.username : initialValues.email,
+        email: props.formState.username ? props.formState.username : initialValues.email,
         password: initialValues.password
     }),
     validationSchema: LoginFormSchema,
