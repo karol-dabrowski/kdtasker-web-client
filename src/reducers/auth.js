@@ -1,4 +1,11 @@
-import {LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE} from '../actions/authActions';
+import {
+    LOGIN_REQUEST,
+    LOGIN_SUCCESS,
+    LOGIN_FAILURE,
+    REGISTER_REQUEST,
+    REGISTER_SUCCESS,
+    REGISTER_FAILURE
+} from '../actions/authActions';
 
 const defaultState = {
     authorized: false,
@@ -30,6 +37,18 @@ const auth = (state = defaultState, action) => {
             return Object.assign({}, state, {
                 loading: false,
                 authorized: false
+            });
+        case REGISTER_REQUEST:
+            return Object.assign({}, state, {
+                loading: true
+            });
+        case REGISTER_SUCCESS:
+            return Object.assign({}, state, {
+                loading: false
+            });
+        case REGISTER_FAILURE:
+            return Object.assign({}, state, {
+                loading: false
             });
         default:
             return state;

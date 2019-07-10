@@ -4,7 +4,8 @@ const config = {
         : '',
     auth: {
         auth: '/auth',
-        login: '/login'
+        login: '/login',
+        register: '/register'
     },
     api: {
         api: '/api',

@@ -1,4 +1,4 @@
-import {LOGIN_FAILURE} from '../actions/authActions';
+import {LOGIN_FAILURE, REGISTER_FAILURE} from '../actions/authActions';
 import {CLEAR_FORM_STATE} from '../actions/formStateActions';
 
 const defaultState = {
@@ -18,6 +18,14 @@ const auth = (state = defaultState, action) => {
             return Object.assign({}, state, {
                 login: {
                     username: action.username
+                }
+            });
+        case REGISTER_FAILURE:
+            return Object.assign({}, state, {
+                register: {
+                    email: action.email,
+                    firstName: action.firstName,
+                    lastName: action.lastName,
                 }
             });
         case CLEAR_FORM_STATE:
