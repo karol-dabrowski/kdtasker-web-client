@@ -9,7 +9,7 @@ import Preloader from "../components/Preloader";
 
 class LoginPage extends Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
-        this.props.dispatch(clearPreviousFormState('login'));
+        this.props.dispatch(clearPreviousFormState());
     }
 
     handleLoginFormSubmit = (email, password) => {
