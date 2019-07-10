@@ -1,0 +1,79 @@
+import React from 'react';
+import {withFormik} from 'formik';
+
+import PasswordField from './elements/PasswordField';
+import SubmitButton from './elements/SubmitButton';
+import EmailField from "./elements/EmailField";
+import FirstNameField from "./elements/FirstNameField";
+import LastNameField from "./elements/LastNameField";
+import {RegistrationFormSchema} from '../../validators/RegistrationFormValidator';
+
+const initialValues = {
+    email: '',
+    password: '',
+    firstName: '',
+    lastName: ''
+};
+
+const Form = props => {
+    const {
+        values,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        touched,
+        errors
+    } = props;
+    return (
+        <form onSubmit={handleSubmit}>
+            <EmailField
+                handleChange={handleChange}
+                handleBlur={handleBlur}
+                value={values.email}
+                touched={touched.email}
+                error={errors.email}
+            />
+
+            <PasswordField
+                handleChange={handleChange}
+                handleBlur={handleBlur}
+                value={values.password}
+                touched={touched.password}
+                error={errors.password}
+            />
+
+            <FirstNameField
+                handleChange={handleChange}
+                handleBlur={handleBlur}
+                value={values.firstName}
+                touched={touched.firstName}
+                error={errors.firstName}
+            />
+
+            <LastNameField
+                handleChange={handleChange}
+                handleBlur={handleBlur}
+                value={values.lastName}
+                touched={touched.lastName}
+                error={errors.lastName}
+            />
+
+            <SubmitButton />
+        </form>
+    );
+};
+
+const RegistrationForm = withFormik({
+    mapPropsToValues: props => ({
+        email: props.error.email ? props.error.email : initialValues.email,
+        firstName: props.error.firstName ? props.error.firstName : initialValues.firstName,
+        lastName: props.error.lastName ? props.error.lastName : initialValues.lastName,
+        password: initialValues.password
+    }),
+    validationSchema: RegistrationFormSchema,
+    handleSubmit: (values, {props}) => {
+        props.handleSubmit(values.email, values.password, values.firstName, values.lastName);
+    }
+})(Form);
+
+export default RegistrationForm;

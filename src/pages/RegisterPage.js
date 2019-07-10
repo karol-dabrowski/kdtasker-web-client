@@ -1,13 +1,18 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 
+import RegistrationForm from "../components/Forms/RegistrationForm";
 import AuthWrapper from "../components/AuthWrapper";
 import Preloader from "../components/Preloader";
 
 class RegisterPage extends Component {
+    handleRegistrationFormSubmit = (email, password, firstName, lastName) => {
+        //@TODO implement handler
+        console.log(email, password, firstName, lastName);
+    };
 
     render() {
-        const {loading} = this.props;
+        const {loading, registerError} = this.props;
 
         if(loading) {
             return <Preloader />;
@@ -15,7 +20,7 @@ class RegisterPage extends Component {
             const formTitle = 'Sign up';
             return (
                 <AuthWrapper title={formTitle}>
-
+                    <RegistrationForm handleSubmit={this.handleRegistrationFormSubmit} error={registerError} />
                 </AuthWrapper>
             );
         }
@@ -24,7 +29,8 @@ class RegisterPage extends Component {
 
 const mapStateToProps = state => {
     return {
-        loading: state.auth.loading
+        loading: state.auth.loading,
+        registerError: state.error.register
     };
 };
 
