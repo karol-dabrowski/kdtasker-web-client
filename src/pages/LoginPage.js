@@ -4,6 +4,7 @@ import {withSnackbar} from 'notistack';
 
 import LoginForm from "../components/Forms/LoginForm";
 import {login} from "../actions/authActions";
+import {clearPreviousFormState} from "../actions/formStateActions";
 import AuthWrapper from "../components/AuthWrapper";
 import Preloader from "../components/Preloader";
 
@@ -18,6 +19,10 @@ class LoginPage extends Component {
             },
         });
     };
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        this.props.dispatch(clearPreviousFormState('login'));
+    }
 
     handleLoginFormSubmit = (email, password) => {
         this.props.dispatch(login(email, password, this.showFailedLoginSnackbar));

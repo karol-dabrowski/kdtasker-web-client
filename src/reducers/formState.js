@@ -1,4 +1,5 @@
 import {LOGIN_FAILURE} from '../actions/authActions';
+import {CLEAR_FORM_STATE} from '../actions/formStateActions';
 
 const defaultState = {
     login: {
@@ -19,6 +20,8 @@ const auth = (state = defaultState, action) => {
                     username: action.username
                 }
             });
+        case CLEAR_FORM_STATE:
+            return defaultState;
         default:
             return state;
     }
