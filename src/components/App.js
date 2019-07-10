@@ -12,6 +12,7 @@ import RegisterPage from "../pages/RegisterPage";
 import DashboardPage from "../pages/DashboardPage";
 import HomePage from "../pages/HomePage";
 import NotFoundPage from "../pages/errors/NotFoundPage";
+import Notifier from "./Notifier";
 
 class App extends Component {
     render() {
@@ -20,6 +21,7 @@ class App extends Component {
         return (
             <div className={classes.appWrapper}>
                 <CssBaseline/>
+                <Notifier />
                 <Router history={history}>
                     <Switch>
                         <Route path="/dashboard" exact render={props => {

@@ -5,6 +5,7 @@ import auth from './auth'
 import formState from './formState'
 import createTask from './createTask'
 import editTask from './editTask'
+import snackbar from './snackbar'
 
 export default combineReducers({
     auth,
@@ -12,5 +13,6 @@ export default combineReducers({
     nextDaysTasks,
     createTask,
     editTask,
-    formState
+    formState,
+    snackbar
 });
