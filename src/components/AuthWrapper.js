@@ -2,12 +2,15 @@ import React from 'react';
 import {withStyles, Grid} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 
+import FormLogo from "./Forms/elements/FormLogo";
+
 const AuthWrapper = (props) => {
     const {classes, children, title} = props;
 
     return (
         <Grid container justify="center">
             <Grid className={classes.authWrapper} item xs={10} sm={8} md={6} lg={4} xl={3}>
+                <FormLogo/>
                 <Typography className={classes.wrapperTitle} variant="h6" noWrap>
                     {title}
                 </Typography>
@@ -29,7 +32,7 @@ const styles = theme => ({
         },
     },
     wrapperTitle: {
-        marginBottom: theme.spacing(2)
+        marginBottom: theme.spacing(1)
     }
 });
 
