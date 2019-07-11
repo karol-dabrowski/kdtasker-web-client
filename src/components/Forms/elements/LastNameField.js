@@ -3,7 +3,7 @@ import {TextField, withStyles} from "@material-ui/core";
 import {ErrorMessage} from "formik";
 
 const LastNameField = props => {
-    const {classes, handleChange, handleBlur, value, touched, error} = props;
+    const {classes, handleChange, handleBlur, value, touched, error, t} = props;
     return (
         <div className={classes.lastNameFieldWrapper}>
             <TextField
@@ -13,7 +13,7 @@ const LastNameField = props => {
                 variant="outlined"
                 id="lastName"
                 margin="normal"
-                label="Last name"
+                label={t('form.firstNameLabel')}
                 name="lastName"
                 fullWidth
                 className={touched && error ? classes.errorField : ''}

@@ -17,15 +17,14 @@ class RegisterPage extends Component {
     };
 
     render() {
-        const {loading, previousState} = this.props;
+        const {loading, previousState, t} = this.props;
 
         if(loading) {
             return <Preloader />;
         } else {
-            const formTitle = 'Sign up';
             return (
-                <AuthWrapper title={formTitle}>
-                    <RegistrationForm handleSubmit={this.handleRegistrationFormSubmit} formState={previousState} />
+                <AuthWrapper title={t('form.registrationHeader')}>
+                    <RegistrationForm handleSubmit={this.handleRegistrationFormSubmit} formState={previousState} t={t} />
                 </AuthWrapper>
             );
         }

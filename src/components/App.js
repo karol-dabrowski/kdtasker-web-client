@@ -38,7 +38,7 @@ class App extends Component {
                         <Route path="/register" exact render={props => {
                             return authorized
                                 ? <Redirect to="/dashboard" />
-                                : <Auth {...props}><RegisterPage /></Auth>;
+                                : <Auth {...props}><RegisterPage t={t} /></Auth>;
                         }} />
                         <Route path="/" exact render={props => <Static {...props}><HomePage t={t} /></Static>} />
                         <Route component={NotFoundPage} />
