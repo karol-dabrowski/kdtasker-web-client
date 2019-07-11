@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Router, Route, Switch, Redirect} from 'react-router-dom';
 import {CssBaseline, withStyles} from "@material-ui/core";
 import {connect} from "react-redux";
+import {withTranslation} from 'react-i18next';
 
 import history from '../history';
 import Static from "../pages/layouts/Static";
@@ -16,7 +17,7 @@ import Notifier from "./Notifier";
 
 class App extends Component {
     render() {
-        const {classes, authorized} = this.props;
+        const {classes, authorized, t} = this.props;
 
         return (
             <div className={classes.appWrapper}>
@@ -39,7 +40,7 @@ class App extends Component {
                                 ? <Redirect to="/dashboard" />
                                 : <Auth {...props}><RegisterPage /></Auth>;
                         }} />
-                        <Route path="/" exact render={props => <Static {...props}><HomePage /></Static>} />
+                        <Route path="/" exact render={props => <Static {...props}><HomePage t={t} /></Static>} />
                         <Route component={NotFoundPage} />
                     </Switch>
                 </Router>
@@ -64,4 +65,6 @@ const styles = theme => ({
     },
 });
 
-export default connect(mapStateToProps)(withStyles(styles)(App));
+export default connect(mapStateToProps)(
+    withStyles(styles)(withTranslation()(App))
+);
