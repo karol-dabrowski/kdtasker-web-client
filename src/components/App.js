@@ -33,7 +33,7 @@ class App extends Component {
                         <Route path="/login" exact render={props => {
                             return authorized
                                 ? <Redirect to="/dashboard" />
-                                : <Auth {...props}><LoginPage /></Auth>;
+                                : <Auth {...props}><LoginPage t={t} /></Auth>;
                         }} />
                         <Route path="/register" exact render={props => {
                             return authorized

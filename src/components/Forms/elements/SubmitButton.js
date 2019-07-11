@@ -2,7 +2,7 @@ import React from "react";
 import {Button, withStyles} from "@material-ui/core";
 
 const SubmitButton = (props) => {
-    const {classes} = props;
+    const {classes, t} = props;
     return (
         <Button
             className={classes.submitButton}
@@ -12,7 +12,7 @@ const SubmitButton = (props) => {
             color="primary"
             fullWidth
         >
-            Submit
+            {t('form.submit')}
         </Button>
     );
 };

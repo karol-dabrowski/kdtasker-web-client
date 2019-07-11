@@ -17,15 +17,14 @@ class LoginPage extends Component {
     };
 
     render() {
-        const {loading, previousState} = this.props;
+        const {loading, previousState, t} = this.props;
 
         if(loading) {
             return <Preloader />;
         } else {
-            const formTitle = 'Sign in';
             return (
-                <AuthWrapper title={formTitle}>
-                    <LoginForm handleSubmit={this.handleLoginFormSubmit} formState={previousState} />
+                <AuthWrapper title={t('form.loginHeader')}>
+                    <LoginForm handleSubmit={this.handleLoginFormSubmit} formState={previousState} t={t} />
                 </AuthWrapper>
             );
         }

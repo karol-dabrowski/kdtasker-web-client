@@ -3,7 +3,7 @@ import {TextField, withStyles} from "@material-ui/core";
 import {ErrorMessage} from "formik";
 
 const PasswordField = (props) => {
-    const {classes, handleChange, handleBlur, value, touched, error} = props;
+    const {classes, handleChange, handleBlur, value, touched, error, t} = props;
     return (
         <div className={classes.passwordFieldWrapper}>
             <TextField
@@ -14,7 +14,7 @@ const PasswordField = (props) => {
                 variant="outlined"
                 id="password"
                 margin="normal"
-                label="Password"
+                label={t('form.passwordLabel')}
                 name="password"
                 fullWidth
                 className={touched && error ? classes.errorField : ''}

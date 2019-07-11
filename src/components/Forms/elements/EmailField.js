@@ -3,7 +3,7 @@ import {TextField, withStyles} from "@material-ui/core";
 import {ErrorMessage} from "formik";
 
 const EmailField = (props) => {
-    const {classes, handleChange, handleBlur, value, touched, error} = props;
+    const {classes, handleChange, handleBlur, value, touched, error, t} = props;
     return (
         <div className={classes.emailFieldWrapper}>
             <TextField
@@ -13,7 +13,7 @@ const EmailField = (props) => {
                 variant="outlined"
                 id="email"
                 margin="normal"
-                label="Email"
+                label={t('form.emailLabel')}
                 name="email"
                 fullWidth
                 autoFocus

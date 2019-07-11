@@ -18,7 +18,8 @@ const Form = props => {
         handleBlur,
         handleSubmit,
         touched,
-        errors
+        errors,
+        t
     } = props;
     return (
         <form onSubmit={handleSubmit}>
@@ -28,6 +29,7 @@ const Form = props => {
                 value={values.email}
                 touched={touched.email}
                 error={errors.email}
+                t={t}
             />
 
             <PasswordField
@@ -36,9 +38,10 @@ const Form = props => {
                 value={values.password}
                 touched={touched.password}
                 error={errors.password}
+                t={t}
             />
 
-            <SubmitButton />
+            <SubmitButton t={t} />
         </form>
     );
 };
