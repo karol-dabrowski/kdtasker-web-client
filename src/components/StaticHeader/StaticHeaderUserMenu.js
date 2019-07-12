@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 
 const StaticHeaderUserMenu = props => {
-    const { classes, isLogged } = props;
+    const { classes, isLogged, t } = props;
 
     return isLogged ? (
         ""
     ) : (
         <Fragment>
             <Button color="primary" variant="outlined" component={Link} to="/login">
-                Sign in
+                {t("button.login")}
             </Button>
             <Button
                 className={classes.registerButton}
@@ -20,7 +20,7 @@ const StaticHeaderUserMenu = props => {
                 component={Link}
                 to="/register"
             >
-                Sign up
+                {t("button.register")}
             </Button>
         </Fragment>
     );

@@ -73,7 +73,7 @@ class Dashboard extends Component {
     };
 
     render() {
-        const { classes, children } = this.props;
+        const { classes, children, t } = this.props;
 
         return (
             <Fragment>
@@ -81,6 +81,7 @@ class Dashboard extends Component {
                     drawerIsOpen={this.state.drawerIsOpened}
                     openNewTaskModal={this.openNewTaskModal}
                     toggleDrawer={this.toggleDrawer}
+                    t={t}
                 />
                 <MenuSidebar open={this.state.drawerIsOpened} handleClose={this.handleDrawerClose} />
                 <div

@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core";
 
 const StaticHeaderLogo = props => {
-    const { classes } = props;
+    const { classes, t } = props;
     return (
         <Typography variant="h6" noWrap className={classes.staticToolbarTitle}>
             <Link to="/" className={classes.staticToolbarTitleLink}>
-                Tasker
+                {t("header.brand")}
             </Link>
         </Typography>
     );

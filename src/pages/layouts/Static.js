@@ -5,11 +5,11 @@ import StaticHeader from "../../components/StaticHeader/StaticHeader";
 
 class Static extends Component {
     render() {
-        const { classes, children } = this.props;
+        const { classes, children, t } = this.props;
 
         return (
             <Fragment>
-                <StaticHeader />
+                <StaticHeader t={t} />
                 <div className={classes.staticContainer}>{children}</div>
             </Fragment>
         );

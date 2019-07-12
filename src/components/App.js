@@ -30,7 +30,7 @@ class App extends Component {
                             exact
                             render={props => {
                                 return authorized ? (
-                                    <Dashboard {...props}>
+                                    <Dashboard t={t} {...props}>
                                         <DashboardPage />
                                     </Dashboard>
                                 ) : (
@@ -68,7 +68,7 @@ class App extends Component {
                             path="/"
                             exact
                             render={props => (
-                                <Static {...props}>
+                                <Static t={t} {...props}>
                                     <HomePage t={t} />
                                 </Static>
                             )}

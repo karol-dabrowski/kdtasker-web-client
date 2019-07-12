@@ -8,13 +8,13 @@ import StaticHeaderLogo from "./StaticHeaderLogo";
 
 class StaticHeader extends Component {
     render() {
-        const { authorized } = this.props;
+        const { authorized, t } = this.props;
 
         return (
             <AppBar position="static" color="default">
                 <Toolbar>
-                    <StaticHeaderLogo />
-                    <StaticHeaderUserMenu isLogged={authorized} />
+                    <StaticHeaderLogo t={t} />
+                    <StaticHeaderUserMenu isLogged={authorized} t={t} />
                 </Toolbar>
             </AppBar>
         );

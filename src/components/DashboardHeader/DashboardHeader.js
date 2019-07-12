@@ -8,7 +8,7 @@ import Menu from "@material-ui/icons/Menu";
 import Add from "@material-ui/icons/Add";
 
 const DashboardHeader = props => {
-    const { classes, drawerIsOpen, toggleDrawer, openNewTaskModal } = props;
+    const { classes, drawerIsOpen, toggleDrawer, openNewTaskModal, t } = props;
 
     return (
         <AppBar
@@ -20,7 +20,7 @@ const DashboardHeader = props => {
                 <IconButton aria-label="More" aria-controls="long-menu" aria-haspopup="true" onClick={toggleDrawer}>
                     <Menu />
                 </IconButton>
-                <span>Toolbar</span>
+                <span>{t("header.brand")}</span>
                 <IconButton aria-label="Add" onClick={openNewTaskModal}>
                     <Add className={classes.addTaskButton} />
                 </IconButton>
