@@ -18,7 +18,7 @@ const FirstNameField = props => {
                 fullWidth
                 className={touched && error ? classes.errorField : ''}
             />
-            <ErrorMessage className={classes.errorMessage} component="div" name="firstName" />
+            <ErrorMessage name="firstName" render={msg => <div className={classes.errorMessage}>{t(msg)}</div>} />
         </div>
     );
 };

@@ -13,12 +13,12 @@ const LastNameField = props => {
                 variant="outlined"
                 id="lastName"
                 margin="normal"
-                label={t('form.firstNameLabel')}
+                label={t('form.lastNameLabel')}
                 name="lastName"
                 fullWidth
                 className={touched && error ? classes.errorField : ''}
             />
-            <ErrorMessage className={classes.errorMessage} component="div" name="lastName" />
+            <ErrorMessage name="lastName" render={msg => <div className={classes.errorMessage}>{t(msg)}</div>} />
         </div>
     );
 };

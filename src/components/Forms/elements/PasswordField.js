@@ -19,7 +19,7 @@ const PasswordField = (props) => {
                 fullWidth
                 className={touched && error ? classes.errorField : ''}
             />
-            <ErrorMessage className={classes.errorMessage} component="div" name="password" />
+            <ErrorMessage name="password" render={msg => <div className={classes.errorMessage}>{t(msg)}</div>} />
         </div>
     );
 };

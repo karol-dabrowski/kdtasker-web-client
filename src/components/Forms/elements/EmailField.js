@@ -19,7 +19,7 @@ const EmailField = (props) => {
                 autoFocus
                 className={touched && error ? classes.errorField : ''}
             />
-            <ErrorMessage className={classes.errorMessage} component="div" name="email" />
+            <ErrorMessage name="email" render={msg => <div className={classes.errorMessage}>{t(msg)}</div>} />
         </div>
     );
 };
