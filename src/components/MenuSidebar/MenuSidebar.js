@@ -6,11 +6,11 @@ import background from "../../assets/images/sidebar-background.jpg";
 
 class MenuSidebar extends Component {
     render() {
-        const { classes, open, handleClose } = this.props;
+        const { classes, open, handleClose, t } = this.props;
 
         const sidebarContent = (
             <Fragment>
-                <div className={classes.menuSidebarContent}>Test Drawer Text</div>
+                <div className={classes.menuSidebarContent}>{t("header.brand")}</div>
                 <div className={classes.menuSidebarBackground} style={{ backgroundImage: "url(" + background + ")" }} />
             </Fragment>
         );

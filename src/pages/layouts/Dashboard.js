@@ -83,7 +83,7 @@ class Dashboard extends Component {
                     toggleDrawer={this.toggleDrawer}
                     t={t}
                 />
-                <MenuSidebar open={this.state.drawerIsOpened} handleClose={this.handleDrawerClose} />
+                <MenuSidebar open={this.state.drawerIsOpened} handleClose={this.handleDrawerClose} t={t} />
                 <div
                     className={classNames(classes.dashboardContainer, {
                         [classes.dashboardContainerShift]: this.state.drawerIsOpened
