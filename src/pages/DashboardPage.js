@@ -1,40 +1,43 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 
-import {completeTask, deleteTask} from "../actions/taskActions";
+import { completeTask, deleteTask } from "../actions/taskActions";
 import TodaysTasks from "../components/DashboardWidgets/TodaysTasks/TodaysTasks";
 import NextDaysTasks from "../components/DashboardWidgets/NextDaysTasks/NextDaysTasks";
 
-class DashboardPage extends Component{
-    handleTaskConfirmation = (taskId) => {
-        const {dispatch, jwtToken} = this.props;
+class DashboardPage extends Component {
+    handleTaskConfirmation = taskId => {
+        const { dispatch, jwtToken } = this.props;
         dispatch(completeTask(jwtToken, taskId));
     };
 
-    handleTaskDeletion = (taskId) => {
-        const {dispatch, jwtToken} = this.props;
+    handleTaskDeletion = taskId => {
+        const { dispatch, jwtToken } = this.props;
         dispatch(deleteTask(jwtToken, taskId));
     };
 
     render() {
-        const {handleEditModalOpen} = this.props;
+        const { handleEditModalOpen } = this.props;
 
         return (
             <Grid container spacing={3}>
                 <Grid item xs={12} lg={6}>
-                    <TodaysTasks handleConfirm={this.handleTaskConfirmation} handleDelete={this.handleTaskDeletion} handleEdit={handleEditModalOpen} />
+                    <TodaysTasks
+                        handleConfirm={this.handleTaskConfirmation}
+                        handleDelete={this.handleTaskDeletion}
+                        handleEdit={handleEditModalOpen}
+                    />
                 </Grid>
                 <Grid item xs={12} lg={6}>
                     <NextDaysTasks />
                 </Grid>
             </Grid>
-
         );
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         jwtToken: state.auth.jwt.token
     };

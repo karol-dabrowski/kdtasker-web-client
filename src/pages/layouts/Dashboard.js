@@ -1,12 +1,12 @@
-import React, {Component, Fragment} from 'react';
-import {withStyles} from "@material-ui/core";
+import React, { Component, Fragment } from "react";
+import { withStyles } from "@material-ui/core";
 import classNames from "classnames";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 
 import DashboardHeader from "../../components/DashboardHeader/DashboardHeader";
 import MenuSidebar from "../../components/MenuSidebar/MenuSidebar";
 import TaskModal from "../../components/TaskModal";
-import {createTask, editTask, getTaskToEdit, clearTaskToEdit} from "../../actions/taskActions";
+import { createTask, editTask, getTaskToEdit, clearTaskToEdit } from "../../actions/taskActions";
 
 class Dashboard extends Component {
     state = {
@@ -27,13 +27,13 @@ class Dashboard extends Component {
     };
 
     openNewTaskModal = () => {
-        const {dispatch} = this.props;
+        const { dispatch } = this.props;
         dispatch(clearTaskToEdit());
         this.setState({ newTaskModalIsOpened: true });
     };
 
     openEditTaskModal = taskId => {
-        const {dispatch, jwtToken} = this.props;
+        const { dispatch, jwtToken } = this.props;
         dispatch(getTaskToEdit(jwtToken, taskId));
 
         this.setState({
@@ -55,9 +55,9 @@ class Dashboard extends Component {
     };
 
     handleNewTaskSubmit = (taskId, title, date, time) => {
-        const {dispatch, jwtToken} = this.props;
+        const { dispatch, jwtToken } = this.props;
 
-        if(taskId) {
+        if (taskId) {
             dispatch(editTask(jwtToken, taskId, title, date, time));
         } else {
             dispatch(createTask(jwtToken, title, date, time));
@@ -73,17 +73,22 @@ class Dashboard extends Component {
     };
 
     render() {
-        const {classes, children} = this.props;
+        const { classes, children } = this.props;
 
         return (
             <Fragment>
-                <DashboardHeader drawerIsOpen={this.state.drawerIsOpened} openNewTaskModal={this.openNewTaskModal} toggleDrawer={this.toggleDrawer} />
+                <DashboardHeader
+                    drawerIsOpen={this.state.drawerIsOpened}
+                    openNewTaskModal={this.openNewTaskModal}
+                    toggleDrawer={this.toggleDrawer}
+                />
                 <MenuSidebar open={this.state.drawerIsOpened} handleClose={this.handleDrawerClose} />
-                <div className={classNames(
-                    classes.dashboardContainer,
-                    {[classes.dashboardContainerShift]: this.state.drawerIsOpened}
-                )}>
-                    {React.cloneElement(children, {handleEditModalOpen: this.openEditTaskModal})}
+                <div
+                    className={classNames(classes.dashboardContainer, {
+                        [classes.dashboardContainerShift]: this.state.drawerIsOpened
+                    })}
+                >
+                    {React.cloneElement(children, { handleEditModalOpen: this.openEditTaskModal })}
                 </div>
                 <TaskModal
                     isOpened={this.state.newTaskModalIsOpened || this.state.editTaskModal.isOpened}
@@ -96,7 +101,7 @@ class Dashboard extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         jwtToken: state.auth.jwt.token
     };
@@ -105,18 +110,18 @@ const mapStateToProps = (state) => {
 const styles = theme => ({
     dashboardContainer: {
         backgroundColor: theme.palette.background.default,
-        width: '100%',
+        width: "100%",
         paddingLeft: theme.spacing(3),
         paddingRight: theme.spacing(3)
     },
     dashboardContainerShift: {
-        [theme.breakpoints.up('lg')]: {
+        [theme.breakpoints.up("lg")]: {
             width: `calc(100% - ${theme.props.SidebarMenu.width}px)`,
             marginLeft: theme.props.SidebarMenu.width,
-            transition: theme.transitions.create(['margin', 'width'], {
+            transition: theme.transitions.create(["margin", "width"], {
                 easing: theme.transitions.easing.easeOut,
-                duration: theme.transitions.duration.enteringScreen,
-            }),
+                duration: theme.transitions.duration.enteringScreen
+            })
         }
     }
 });

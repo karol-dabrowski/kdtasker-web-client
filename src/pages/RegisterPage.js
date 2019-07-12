@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-import {connect} from "react-redux";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import RegistrationForm from "../components/Forms/RegistrationForm";
 import AuthWrapper from "../components/AuthWrapper";
 import Preloader from "../components/Preloader";
-import {register} from "../actions/authActions";
-import {clearPreviousFormState} from "../actions/formStateActions";
+import { register } from "../actions/authActions";
+import { clearPreviousFormState } from "../actions/formStateActions";
 
 class RegisterPage extends Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -17,14 +17,18 @@ class RegisterPage extends Component {
     };
 
     render() {
-        const {loading, previousState, t} = this.props;
+        const { loading, previousState, t } = this.props;
 
-        if(loading) {
+        if (loading) {
             return <Preloader />;
         } else {
             return (
-                <AuthWrapper title={t('form.registration_header')}>
-                    <RegistrationForm handleSubmit={this.handleRegistrationFormSubmit} formState={previousState} t={t} />
+                <AuthWrapper title={t("form.registration_header")}>
+                    <RegistrationForm
+                        handleSubmit={this.handleRegistrationFormSubmit}
+                        formState={previousState}
+                        t={t}
+                    />
                 </AuthWrapper>
             );
         }
