@@ -73,7 +73,7 @@ class App extends Component {
                                 </Static>
                             )}
                         />
-                        <Route component={NotFoundPage} />
+                        <Route render={() => <NotFoundPage t={t} />} />
                     </Switch>
                 </Router>
             </div>

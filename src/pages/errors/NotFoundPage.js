@@ -1,7 +1,8 @@
 import React from "react";
 
-const NotFoundPage = () => {
-    return <div className="main-container">Temporary 404 page content</div>;
+const NotFoundPage = props => {
+    const { t } = props;
+    return <div className="main-container">{t("page.not_found.title")}</div>;
 };
 
 export default NotFoundPage;
