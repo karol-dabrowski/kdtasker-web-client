@@ -1,9 +1,9 @@
 import React from "react";
-import {TextField, withStyles} from "@material-ui/core";
-import {ErrorMessage} from "formik";
+import { TextField, withStyles } from "@material-ui/core";
+import { ErrorMessage } from "formik";
 
-const EmailField = (props) => {
-    const {classes, handleChange, handleBlur, value, touched, error, t} = props;
+const EmailField = props => {
+    const { classes, handleChange, handleBlur, value, touched, error, t } = props;
     return (
         <div className={classes.emailFieldWrapper}>
             <TextField
@@ -13,11 +13,11 @@ const EmailField = (props) => {
                 variant="outlined"
                 id="email"
                 margin="normal"
-                label={t('form.email_label')}
+                label={t("form.email_label")}
                 name="email"
                 fullWidth
                 autoFocus
-                className={touched && error ? classes.errorField : ''}
+                className={touched && error ? classes.errorField : ""}
             />
             <ErrorMessage name="email" render={msg => <div className={classes.errorMessage}>{t(msg)}</div>} />
         </div>
@@ -32,8 +32,8 @@ const style = theme => ({
         color: theme.palette.error.main
     },
     errorField: {
-        '& .MuiOutlinedInput-root': {
-            '& fieldset, &:hover fieldset, &.Mui-focused fieldset': {
+        "& .MuiOutlinedInput-root": {
+            "& fieldset, &:hover fieldset, &.Mui-focused fieldset": {
                 borderColor: theme.palette.error.main
             }
         }

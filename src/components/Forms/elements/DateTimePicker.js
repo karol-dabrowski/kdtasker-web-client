@@ -1,11 +1,11 @@
 import React from "react";
-import {DatePicker, TimePicker} from "@material-ui/pickers";
+import { DatePicker, TimePicker } from "@material-ui/pickers";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import {withStyles} from "@material-ui/core";
+import { withStyles } from "@material-ui/core";
 
-const DateTimePicker = (props) => {
-    const {classes, dateValue, timeValue, setFieldValue, disableTime} = props;
+const DateTimePicker = props => {
+    const { classes, dateValue, timeValue, setFieldValue, disableTime } = props;
     return (
         <div className={classes.dateTimeWrapper}>
             <DatePicker
@@ -58,13 +58,13 @@ const DateTimePicker = (props) => {
 const style = theme => ({
     dateTimeWrapper: {
         marginBottom: theme.spacing(2),
-        textAlign: 'center'
+        textAlign: "center"
     },
     datePicker: {
-        float: 'left'
+        float: "left"
     },
     timePicker: {
-        float: 'right'
+        float: "right"
     },
     timeCheckbox: {
         padding: theme.spacing(0.5)

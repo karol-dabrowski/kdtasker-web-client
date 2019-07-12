@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import {Router, Route, Switch, Redirect} from 'react-router-dom';
-import {CssBaseline, withStyles} from "@material-ui/core";
-import {connect} from "react-redux";
-import {withTranslation} from 'react-i18next';
+import React, { Component } from "react";
+import { Router, Route, Switch, Redirect } from "react-router-dom";
+import { CssBaseline, withStyles } from "@material-ui/core";
+import { connect } from "react-redux";
+import { withTranslation } from "react-i18next";
 
-import history from '../history';
+import history from "../history";
 import Static from "../pages/layouts/Static";
 import Dashboard from "../pages/layouts/Dashboard";
 import Auth from "../pages/layouts/Auth";
@@ -17,39 +17,71 @@ import Notifier from "./Notifier";
 
 class App extends Component {
     render() {
-        const {classes, authorized, t} = this.props;
+        const { classes, authorized, t } = this.props;
 
         return (
             <div className={classes.appWrapper}>
-                <CssBaseline/>
+                <CssBaseline />
                 <Notifier />
                 <Router history={history}>
                     <Switch>
-                        <Route path="/dashboard" exact render={props => {
-                            return authorized
-                                ? <Dashboard {...props}><DashboardPage /></Dashboard>
-                                : <Redirect to="/login" />;
-                        }} />
-                        <Route path="/login" exact render={props => {
-                            return authorized
-                                ? <Redirect to="/dashboard" />
-                                : <Auth {...props}><LoginPage t={t} /></Auth>;
-                        }} />
-                        <Route path="/register" exact render={props => {
-                            return authorized
-                                ? <Redirect to="/dashboard" />
-                                : <Auth {...props}><RegisterPage t={t} /></Auth>;
-                        }} />
-                        <Route path="/" exact render={props => <Static {...props}><HomePage t={t} /></Static>} />
+                        <Route
+                            path="/dashboard"
+                            exact
+                            render={props => {
+                                return authorized ? (
+                                    <Dashboard {...props}>
+                                        <DashboardPage />
+                                    </Dashboard>
+                                ) : (
+                                    <Redirect to="/login" />
+                                );
+                            }}
+                        />
+                        <Route
+                            path="/login"
+                            exact
+                            render={props => {
+                                return authorized ? (
+                                    <Redirect to="/dashboard" />
+                                ) : (
+                                    <Auth {...props}>
+                                        <LoginPage t={t} />
+                                    </Auth>
+                                );
+                            }}
+                        />
+                        <Route
+                            path="/register"
+                            exact
+                            render={props => {
+                                return authorized ? (
+                                    <Redirect to="/dashboard" />
+                                ) : (
+                                    <Auth {...props}>
+                                        <RegisterPage t={t} />
+                                    </Auth>
+                                );
+                            }}
+                        />
+                        <Route
+                            path="/"
+                            exact
+                            render={props => (
+                                <Static {...props}>
+                                    <HomePage t={t} />
+                                </Static>
+                            )}
+                        />
                         <Route component={NotFoundPage} />
                     </Switch>
                 </Router>
             </div>
         );
-    };
+    }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         authorized: state.auth.authorized
     };
@@ -57,14 +89,12 @@ const mapStateToProps = (state) => {
 
 const styles = theme => ({
     appWrapper: {
-        display: 'flex',
-        minHeight: '100vh',
-        width: '100vw',
-        maxWidth: '100%',
-        'flex-direction': 'column'
-    },
+        display: "flex",
+        minHeight: "100vh",
+        width: "100vw",
+        maxWidth: "100%",
+        flexDirection: "column"
+    }
 });
 
-export default connect(mapStateToProps)(
-    withStyles(styles)(withTranslation()(App))
-);
+export default connect(mapStateToProps)(withStyles(styles)(withTranslation()(App)));

@@ -1,13 +1,14 @@
 // Based on https://github.com/iamhosseindhv/notistack/tree/master/examples/redux-example
-import { Component } from 'react';
-import { connect } from 'react-redux';
-import { withSnackbar } from 'notistack';
-import { removeSnackbar } from '../actions/snackbarActions';
+import { Component } from "react";
+import { connect } from "react-redux";
+import { withSnackbar } from "notistack";
+
+import { removeSnackbar } from "../actions/snackbarActions";
 
 class Notifier extends Component {
     displayed = [];
 
-    storeDisplayed = (id) => {
+    storeDisplayed = id => {
         this.displayed = [...this.displayed, id];
     };
 
@@ -17,7 +18,7 @@ class Notifier extends Component {
             return false;
         }
 
-        const {notifications: currentSnacks} = this.props;
+        const { notifications: currentSnacks } = this.props;
         let notExists = false;
         for (let i = 0; i < newSnacks.length; i += 1) {
             const newSnack = newSnacks[i];
@@ -28,7 +29,7 @@ class Notifier extends Component {
     }
 
     componentDidUpdate() {
-        const {notifications = [], dispatch} = this.props;
+        const { notifications = [], dispatch } = this.props;
 
         notifications.forEach(({ key, message, options = {} }) => {
             if (this.displayed.includes(key)) return;
@@ -51,7 +52,7 @@ class Notifier extends Component {
 }
 
 const mapStateToProps = state => ({
-    notifications: state.snackbar.notifications,
+    notifications: state.snackbar.notifications
 });
 
 export default withSnackbar(connect(mapStateToProps)(Notifier));

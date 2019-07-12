@@ -1,15 +1,17 @@
 import React from "react";
-import {withStyles} from "@material-ui/core";
+import { withStyles } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const FormLogo = (props) => {
-    const {classes} = props;
+const FormLogo = props => {
+    const { classes } = props;
 
     return (
         <div className={classes.logoWrapper}>
             <Typography className={classes.logoHeader} variant="h5" noWrap>
-                <Link className={classes.logoHeaderLink} to='/'>Tasker</Link>
+                <Link className={classes.logoHeaderLink} to="/">
+                    Tasker
+                </Link>
             </Typography>
         </div>
     );
@@ -17,18 +19,18 @@ const FormLogo = (props) => {
 
 const style = theme => ({
     logoWrapper: {
-        width: '100%',
-        textAlign: 'center',
+        width: "100%",
+        textAlign: "center",
         marginBottom: theme.spacing(3)
     },
     logoHeader: {
         margin: theme.spacing(0),
-        display: 'inline'
+        display: "inline"
     },
     logoHeaderLink: {
         outline: 0,
         color: theme.palette.primary.main,
-        textDecoration: 'none'
+        textDecoration: "none"
     }
 });
 

@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {connect} from "react-redux";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 
@@ -9,7 +9,7 @@ import StaticHeaderLogo from "./StaticHeaderLogo";
 
 class StaticHeader extends Component {
     render() {
-        const {authorized} = this.props;
+        const { authorized } = this.props;
 
         return (
             <AppBar position="static" color="default">
@@ -20,10 +20,10 @@ class StaticHeader extends Component {
                 </Toolbar>
             </AppBar>
         );
-    };
+    }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         authorized: state.auth.authorized
     };

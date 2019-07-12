@@ -1,9 +1,9 @@
-import React, {Fragment} from "react";
+import React, { Fragment } from "react";
 import Typography from "@material-ui/core/Typography";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const StaticHeaderMenu = (props) => {
-    const {isLogged} = props;
+const StaticHeaderMenu = props => {
+    const { isLogged } = props;
 
     return (
         <Fragment>
@@ -12,7 +12,7 @@ const StaticHeaderMenu = (props) => {
                     Dashboard
                 </Typography>
             ) : (
-                ''
+                ""
             )}
         </Fragment>
     );

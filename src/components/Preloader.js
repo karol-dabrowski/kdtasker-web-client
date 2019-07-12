@@ -1,9 +1,9 @@
 import React from "react";
-import {withStyles} from "@material-ui/core";
-import CircularProgress from '@material-ui/core/CircularProgress';
+import { withStyles } from "@material-ui/core";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
-const Preloader = (props) => {
-    const {classes} = props;
+const Preloader = props => {
+    const { classes } = props;
     return (
         <div className={classes.preloaderWrapper}>
             <CircularProgress />
@@ -13,8 +13,8 @@ const Preloader = (props) => {
 
 const styles = theme => ({
     preloaderWrapper: {
-        display: 'flex',
-        justifyContent: 'center',
+        display: "flex",
+        justifyContent: "center",
         minHeight: theme.spacing(8)
     }
 });

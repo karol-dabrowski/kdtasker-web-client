@@ -1,9 +1,9 @@
 import React from "react";
-import {TextField, withStyles} from "@material-ui/core";
-import {ErrorMessage} from "formik";
+import { TextField, withStyles } from "@material-ui/core";
+import { ErrorMessage } from "formik";
 
-const PasswordField = (props) => {
-    const {classes, handleChange, handleBlur, value, touched, error, t} = props;
+const PasswordField = props => {
+    const { classes, handleChange, handleBlur, value, touched, error, t } = props;
     return (
         <div className={classes.passwordFieldWrapper}>
             <TextField
@@ -14,10 +14,10 @@ const PasswordField = (props) => {
                 variant="outlined"
                 id="password"
                 margin="normal"
-                label={t('form.password_label')}
+                label={t("form.password_label")}
                 name="password"
                 fullWidth
-                className={touched && error ? classes.errorField : ''}
+                className={touched && error ? classes.errorField : ""}
             />
             <ErrorMessage name="password" render={msg => <div className={classes.errorMessage}>{t(msg)}</div>} />
         </div>
@@ -32,8 +32,8 @@ const style = theme => ({
         color: theme.palette.error.main
     },
     errorField: {
-        '& .MuiOutlinedInput-root': {
-            '& fieldset, &:hover fieldset, &.Mui-focused fieldset': {
+        "& .MuiOutlinedInput-root": {
+            "& fieldset, &:hover fieldset, &.Mui-focused fieldset": {
                 borderColor: theme.palette.error.main
             }
         }

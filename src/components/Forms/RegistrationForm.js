@@ -1,30 +1,22 @@
-import React from 'react';
-import {withFormik} from 'formik';
+import React from "react";
+import { withFormik } from "formik";
 
-import PasswordField from './elements/PasswordField';
-import SubmitButton from './elements/SubmitButton';
+import PasswordField from "./elements/PasswordField";
+import SubmitButton from "./elements/SubmitButton";
 import EmailField from "./elements/EmailField";
 import FirstNameField from "./elements/FirstNameField";
 import LastNameField from "./elements/LastNameField";
-import {RegistrationFormSchema} from '../../validators/RegistrationFormValidator';
+import { RegistrationFormSchema } from "../../validators/RegistrationFormValidator";
 
 const initialValues = {
-    email: '',
-    password: '',
-    firstName: '',
-    lastName: ''
+    email: "",
+    password: "",
+    firstName: "",
+    lastName: ""
 };
 
 const Form = props => {
-    const {
-        values,
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        touched,
-        errors,
-        t
-    } = props;
+    const { values, handleChange, handleBlur, handleSubmit, touched, errors, t } = props;
     return (
         <form onSubmit={handleSubmit}>
             <EmailField
@@ -76,7 +68,7 @@ const RegistrationForm = withFormik({
         password: initialValues.password
     }),
     validationSchema: RegistrationFormSchema,
-    handleSubmit: (values, {props}) => {
+    handleSubmit: (values, { props }) => {
         props.handleSubmit(values.email, values.password, values.firstName, values.lastName);
     }
 })(Form);

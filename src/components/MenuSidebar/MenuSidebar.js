@@ -1,22 +1,19 @@
-import React, {Component, Fragment} from 'react';
+import React, { Component, Fragment } from "react";
 import Drawer from "@material-ui/core/Drawer";
-import {withStyles, Hidden} from "@material-ui/core";
+import { withStyles, Hidden } from "@material-ui/core";
 
-import background from '../../assets/images/sidebar-background.jpg';
+import background from "../../assets/images/sidebar-background.jpg";
 
 class MenuSidebar extends Component {
     render() {
-        const {classes, open, handleClose} = this.props;
+        const { classes, open, handleClose } = this.props;
 
-        const sidebarContent = <Fragment>
-            <div className={classes.menuSidebarContent}>
-                Test Drawer Text
-            </div>
-            <div
-                className={classes.menuSidebarBackground}
-                style={{ backgroundImage: "url(" + background + ")" }}
-            />
-        </Fragment>;
+        const sidebarContent = (
+            <Fragment>
+                <div className={classes.menuSidebarContent}>Test Drawer Text</div>
+                <div className={classes.menuSidebarBackground} style={{ backgroundImage: "url(" + background + ")" }} />
+            </Fragment>
+        );
 
         return (
             <Fragment>
@@ -27,7 +24,7 @@ class MenuSidebar extends Component {
                         open={open}
                         className={classes.menuSidebar}
                         classes={{
-                            paper: classes.menuSidebarPaper,
+                            paper: classes.menuSidebarPaper
                         }}
                     >
                         {sidebarContent}
@@ -43,7 +40,7 @@ class MenuSidebar extends Component {
                         onBackdropClick={handleClose}
                         className={classes.menuSidebar}
                         classes={{
-                            paper: classes.menuSidebarPaper,
+                            paper: classes.menuSidebarPaper
                         }}
                     >
                         {sidebarContent}
@@ -68,7 +65,7 @@ const styles = theme => ({
         position: "fixed",
         top: "0",
         bottom: "0",
-        left: "0",
+        left: "0"
     },
     menuSidebarBackground: {
         position: "absolute",

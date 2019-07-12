@@ -1,8 +1,8 @@
 import React from "react";
-import {Button, withStyles} from "@material-ui/core";
+import { Button, withStyles } from "@material-ui/core";
 
-const SubmitButton = (props) => {
-    const {classes, t} = props;
+const SubmitButton = props => {
+    const { classes, t } = props;
     return (
         <Button
             className={classes.submitButton}
@@ -12,14 +12,14 @@ const SubmitButton = (props) => {
             color="primary"
             fullWidth
         >
-            {t('form.submit')}
+            {t("form.submit")}
         </Button>
     );
 };
 
 const style = theme => ({
     submitButton: {
-        'margin-top': theme.spacing(1)
+        marginTop: theme.spacing(1)
     }
 });
 
