@@ -1,6 +1,7 @@
 const button = {
     login: "Sign in",
-    register: "Sign up"
+    register: "Sign up",
+    close: "Close"
 };
 
 export default button;

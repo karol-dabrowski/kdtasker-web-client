@@ -17,6 +17,11 @@ const validation = {
         is_required: "Last name is required",
         is_too_short: "Last name is too short",
         is_too_long: "Last name is too long"
+    },
+    task_title: {
+        is_required: "Title is required",
+        is_too_short: "Title is too short",
+        is_too_long: "Title is too long"
     }
 };
 

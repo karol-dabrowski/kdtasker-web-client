@@ -11,8 +11,8 @@ import Preloader from "./Preloader";
 
 class TaskModal extends Component {
     render() {
-        const { isOpened, handleClose, handleSubmit, loading, taskId, taskToEdit } = this.props;
-        const title = taskId ? "Edit task" : "New task";
+        const { isOpened, handleClose, handleSubmit, loading, taskId, taskToEdit, t } = this.props;
+        const title = taskId ? t("form.edit_task_modal_header") : t("form.new_task_modal_header");
 
         return (
             <Dialog open={isOpened || loading} maxWidth={"sm"} fullWidth>
@@ -22,11 +22,11 @@ class TaskModal extends Component {
                     <Fragment>
                         <DialogTitle>{title}</DialogTitle>
                         <DialogContent>
-                            <TaskForm handleSubmit={handleSubmit} task={taskToEdit} />
+                            <TaskForm handleSubmit={handleSubmit} task={taskToEdit} t={t} />
                         </DialogContent>
                         <DialogActions>
                             <Button onClick={handleClose} color="primary">
-                                Close
+                                {t("button.close")}
                             </Button>
                         </DialogActions>
                     </Fragment>

@@ -5,12 +5,12 @@ import Checkbox from "@material-ui/core/Checkbox";
 import { withStyles } from "@material-ui/core";
 
 const DateTimePicker = props => {
-    const { classes, dateValue, timeValue, setFieldValue, disableTime } = props;
+    const { classes, dateValue, timeValue, setFieldValue, disableTime, t } = props;
     return (
         <div className={classes.dateTimeWrapper}>
             <DatePicker
                 name="date"
-                label="Deadline date"
+                label={t("form.deadline_date_label")}
                 format="dd.MM.yyyy"
                 inputVariant="outlined"
                 className={classes.datePicker}
@@ -34,13 +34,13 @@ const DateTimePicker = props => {
                         className={classes.timeCheckbox}
                     />
                 }
-                label="Time"
+                label={t("form.deadline_time_checkbox_label")}
                 labelPlacement="top"
             />
 
             <TimePicker
                 name="time"
-                label="Deadline time"
+                label={t("form.deadline_time_label")}
                 format="HH:mm"
                 inputVariant="outlined"
                 className={classes.timePicker}

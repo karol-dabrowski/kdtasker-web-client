@@ -3,7 +3,7 @@ import { TextField, withStyles } from "@material-ui/core";
 import { ErrorMessage } from "formik";
 
 const TitleField = props => {
-    const { classes, handleChange, handleBlur, value, touched, error } = props;
+    const { classes, handleChange, handleBlur, value, touched, error, t } = props;
     return (
         <div className={classes.titleFieldWrapper}>
             <TextField
@@ -13,13 +13,13 @@ const TitleField = props => {
                 variant="outlined"
                 id="title"
                 margin="normal"
-                label="Title"
+                label={t("form.title_label")}
                 name="title"
                 fullWidth
                 autoFocus
                 className={touched && error ? classes.errorField : ""}
             />
-            <ErrorMessage className={classes.errorMessage} component="div" name="title" />
+            <ErrorMessage name="title" render={msg => <div className={classes.errorMessage}>{t(msg)}</div>} />
         </div>
     );
 };

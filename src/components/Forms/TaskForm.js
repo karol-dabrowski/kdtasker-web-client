@@ -15,7 +15,7 @@ const initialValues = {
 };
 
 const Form = props => {
-    const { values, handleChange, handleBlur, handleSubmit, touched, errors, setFieldValue } = props;
+    const { values, handleChange, handleBlur, handleSubmit, touched, errors, setFieldValue, t } = props;
     return (
         <form onSubmit={handleSubmit}>
             <TaskTitleField
@@ -24,14 +24,16 @@ const Form = props => {
                 value={values.title}
                 touched={touched.title}
                 error={errors.title}
+                t={t}
             />
             <DateTimePicker
                 dateValue={values.date}
                 timeValue={values.time}
                 setFieldValue={setFieldValue}
                 disableTime={!values.useTime}
+                t={t}
             />
-            <SubmitButton />
+            <SubmitButton t={t} />
         </form>
     );
 };

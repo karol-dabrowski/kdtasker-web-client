@@ -96,6 +96,7 @@ class Dashboard extends Component {
                     taskId={this.state.editTaskModal.taskId}
                     handleClose={this.closeTaskModal}
                     handleSubmit={this.handleNewTaskSubmit}
+                    t={t}
                 />
             </Fragment>
         );
