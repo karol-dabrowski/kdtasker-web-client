@@ -23,7 +23,7 @@ class RegisterPage extends Component {
             return <Preloader />;
         } else {
             return (
-                <AuthWrapper title={t("form.registration_header")}>
+                <AuthWrapper title={t("form.registration_header")} t={t}>
                     <RegistrationForm
                         handleSubmit={this.handleRegistrationFormSubmit}
                         formState={previousState}

@@ -23,7 +23,7 @@ class LoginPage extends Component {
             return <Preloader />;
         } else {
             return (
-                <AuthWrapper title={t("form.login_header")}>
+                <AuthWrapper title={t("form.login_header")} t={t}>
                     <LoginForm handleSubmit={this.handleLoginFormSubmit} formState={previousState} t={t} />
                 </AuthWrapper>
             );

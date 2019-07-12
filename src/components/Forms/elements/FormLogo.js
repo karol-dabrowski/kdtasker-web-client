@@ -4,13 +4,13 @@ import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
 
 const FormLogo = props => {
-    const { classes } = props;
+    const { classes, t } = props;
 
     return (
         <div className={classes.logoWrapper}>
             <Typography className={classes.logoHeader} variant="h5" noWrap>
                 <Link className={classes.logoHeaderLink} to="/">
-                    Tasker
+                    {t("header.brand")}
                 </Link>
             </Typography>
         </div>
