@@ -1,4 +1,4 @@
-import * as Yup from 'yup';
+import * as Yup from "yup";
 
 import emailValidator from "./fields/email";
 import passwordValidator from "./fields/password";
