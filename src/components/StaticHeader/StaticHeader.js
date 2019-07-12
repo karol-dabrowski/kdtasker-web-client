@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 
-import StaticHeaderMenu from "./StaticHeaderMenu";
 import StaticHeaderUserMenu from "./StaticHeaderUserMenu";
 import StaticHeaderLogo from "./StaticHeaderLogo";
 
@@ -15,7 +14,6 @@ class StaticHeader extends Component {
             <AppBar position="static" color="default">
                 <Toolbar>
                     <StaticHeaderLogo />
-                    <StaticHeaderMenu isLogged={authorized} />
                     <StaticHeaderUserMenu isLogged={authorized} />
                 </Toolbar>
             </AppBar>
