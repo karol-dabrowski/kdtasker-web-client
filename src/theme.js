@@ -1,13 +1,13 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
     palette: {
         primary: {
-            main: '#0000B7'
+            main: "#0000B7"
         },
         background: {
-            auth: '#fafafa',
-            authWrapper: '#ffffff'
+            auth: "#fafafa",
+            authWrapper: "#ffffff"
         }
     },
     props: {
@@ -16,7 +16,7 @@ const theme = createMuiTheme({
         }
     },
     typography: {
-        useNextVariants: true,
+        useNextVariants: true
     },
     overrides: {
         MuiTableRow: {
@@ -29,7 +29,7 @@ const theme = createMuiTheme({
         MuiCardContent: {
             root: {
                 "&:last-child": {
-                    paddingBottom: '16px'
+                    paddingBottom: "16px"
                 }
             }
         }
