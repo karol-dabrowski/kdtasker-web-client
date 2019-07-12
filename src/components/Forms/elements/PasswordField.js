@@ -14,7 +14,7 @@ const PasswordField = (props) => {
                 variant="outlined"
                 id="password"
                 margin="normal"
-                label={t('form.passwordLabel')}
+                label={t('form.password_label')}
                 name="password"
                 fullWidth
                 className={touched && error ? classes.errorField : ''}

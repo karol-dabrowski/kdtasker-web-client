@@ -13,7 +13,7 @@ const LastNameField = props => {
                 variant="outlined"
                 id="lastName"
                 margin="normal"
-                label={t('form.lastNameLabel')}
+                label={t('form.last_name_label')}
                 name="lastName"
                 fullWidth
                 className={touched && error ? classes.errorField : ''}

@@ -13,7 +13,7 @@ const EmailField = (props) => {
                 variant="outlined"
                 id="email"
                 margin="normal"
-                label={t('form.emailLabel')}
+                label={t('form.email_label')}
                 name="email"
                 fullWidth
                 autoFocus

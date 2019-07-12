@@ -13,7 +13,7 @@ const FirstNameField = props => {
                 variant="outlined"
                 id="firstName"
                 margin="normal"
-                label={t('form.firstNameLabel')}
+                label={t('form.first_name_label')}
                 name="firstName"
                 fullWidth
                 className={touched && error ? classes.errorField : ''}
