@@ -1,4 +1,9 @@
-import {GET_TASK_TO_EDIT_REQUEST, GET_TASK_TO_EDIT_SUCCESS, GET_TASK_TO_EDIT_FAILURE, CLEAR_TASK_TO_EDIT_REQUEST} from '../actions/taskActions';
+import {
+    GET_TASK_TO_EDIT_REQUEST,
+    GET_TASK_TO_EDIT_SUCCESS,
+    GET_TASK_TO_EDIT_FAILURE,
+    CLEAR_TASK_TO_EDIT_REQUEST
+} from "../actions/taskActions";
 
 const defaultState = {
     loading: false,
@@ -20,12 +25,12 @@ const editTask = (state = defaultState, action) => {
         case GET_TASK_TO_EDIT_SUCCESS:
             return Object.assign({}, state, {
                 loading: false,
-                canBeEdited: action.data && (action.data.status === 1),
+                canBeEdited: action.data && action.data.status === 1,
                 task: {
                     taskId: action.data.task_id ? action.data.task_id : null,
                     deadlineDate: action.data.deadline_date ? action.data.deadline_date : null,
                     deadlineTime: action.data.deadline_time ? action.data.deadline_time : null,
-                    title: action.data.title ? action.data.title : null,
+                    title: action.data.title ? action.data.title : null
                 }
             });
         case GET_TASK_TO_EDIT_FAILURE:

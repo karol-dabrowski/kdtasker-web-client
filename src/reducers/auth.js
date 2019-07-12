@@ -5,7 +5,7 @@ import {
     REGISTER_REQUEST,
     REGISTER_SUCCESS,
     REGISTER_FAILURE
-} from '../actions/authActions';
+} from "../actions/authActions";
 
 const defaultState = {
     authorized: false,

@@ -2,7 +2,7 @@ import {
     GET_TASKS_FOR_NEXT_DAYS_REQUEST,
     GET_TASKS_FOR_NEXT_DAYS_SUCCESS,
     GET_TASKS_FOR_NEXT_DAYS_FAILURE
-} from '../actions/taskActions';
+} from "../actions/taskActions";
 
 const defaultState = {
     loading: false,

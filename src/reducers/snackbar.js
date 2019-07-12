@@ -1,7 +1,7 @@
-import { ENQUEUE_SNACKBAR, REMOVE_SNACKBAR } from '../actions/snackbarActions';
+import { ENQUEUE_SNACKBAR, REMOVE_SNACKBAR } from "../actions/snackbarActions";
 
 const defaultState = {
-    notifications: [],
+    notifications: []
 };
 
 const snackbar = (state = defaultState, action) => {
@@ -13,17 +13,15 @@ const snackbar = (state = defaultState, action) => {
                     ...state.notifications,
                     {
                         key: action.key,
-                        ...action.notification,
-                    },
-                ],
+                        ...action.notification
+                    }
+                ]
             };
 
         case REMOVE_SNACKBAR:
             return {
                 ...state,
-                notifications: state.notifications.filter(
-                    notification => notification.key !== action.key,
-                ),
+                notifications: state.notifications.filter(notification => notification.key !== action.key)
             };
 
         default:

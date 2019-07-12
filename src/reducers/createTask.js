@@ -1,4 +1,4 @@
-import {CREATE_TASK_REQUEST, CREATE_TASK_SUCCESS, CREATE_TASK_FAILURE} from '../actions/taskActions';
+import { CREATE_TASK_REQUEST, CREATE_TASK_SUCCESS, CREATE_TASK_FAILURE } from "../actions/taskActions";
 
 const defaultState = {
     loading: false
