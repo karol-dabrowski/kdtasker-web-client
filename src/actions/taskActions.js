@@ -1,6 +1,7 @@
 import uuid from "uuid";
 
 import path from "../path";
+import { enqueueSnackbar } from "./snackbarActions";
 
 const axios = require("axios");
 
@@ -272,9 +273,41 @@ export const createTask = (token, title, date, time) => {
         })
             .then(response => {
                 dispatch(createTaskSuccess(data.payload));
+                dispatch(
+                    enqueueSnackbar({
+                        message: "notification.task_creation_success",
+                        options: {
+                            key: new Date().getTime() + Math.random(),
+                            variant: "success",
+                            preventDuplicate: true,
+                            anchorOrigin: {
+                                vertical: "bottom",
+                                horizontal: "right"
+                            }
+                        }
+                    })
+                );
             })
             .catch(response => {
                 dispatch(createTaskFailure());
+                const notificationMessage =
+                    response.response.data.error.type === "validation_error"
+                        ? response.response.data.error.property + "." + response.response.data.error.message
+                        : response.response.data.error.message;
+                dispatch(
+                    enqueueSnackbar({
+                        message: "notification." + notificationMessage,
+                        options: {
+                            key: new Date().getTime() + Math.random(),
+                            variant: "error",
+                            preventDuplicate: true,
+                            anchorOrigin: {
+                                vertical: "bottom",
+                                horizontal: "right"
+                            }
+                        }
+                    })
+                );
             });
     };
 };
@@ -302,9 +335,41 @@ export const editTask = (token, taskId, title, date, time) => {
         })
             .then(response => {
                 dispatch(editTaskSuccess(taskId, data.payload));
+                dispatch(
+                    enqueueSnackbar({
+                        message: "notification.task_edition_success",
+                        options: {
+                            key: new Date().getTime() + Math.random(),
+                            variant: "success",
+                            preventDuplicate: true,
+                            anchorOrigin: {
+                                vertical: "bottom",
+                                horizontal: "right"
+                            }
+                        }
+                    })
+                );
             })
             .catch(response => {
                 dispatch(editTaskFailure());
+                const notificationMessage =
+                    response.response.data.error.type === "validation_error"
+                        ? response.response.data.error.property + "." + response.response.data.error.message
+                        : response.response.data.error.message;
+                dispatch(
+                    enqueueSnackbar({
+                        message: "notification." + notificationMessage,
+                        options: {
+                            key: new Date().getTime() + Math.random(),
+                            variant: "error",
+                            preventDuplicate: true,
+                            anchorOrigin: {
+                                vertical: "bottom",
+                                horizontal: "right"
+                            }
+                        }
+                    })
+                );
             });
     };
 };
@@ -324,9 +389,41 @@ export const completeTask = (token, taskId) => {
         })
             .then(response => {
                 dispatch(completeTaskSuccess(taskId));
+                dispatch(
+                    enqueueSnackbar({
+                        message: "notification.task_completion_success",
+                        options: {
+                            key: new Date().getTime() + Math.random(),
+                            variant: "success",
+                            preventDuplicate: true,
+                            anchorOrigin: {
+                                vertical: "bottom",
+                                horizontal: "right"
+                            }
+                        }
+                    })
+                );
             })
             .catch(response => {
                 dispatch(completeTaskFailure());
+                const notificationMessage =
+                    response.response.data.error.type === "validation_error"
+                        ? response.response.data.error.property + "." + response.response.data.error.message
+                        : response.response.data.error.message;
+                dispatch(
+                    enqueueSnackbar({
+                        message: "notification." + notificationMessage,
+                        options: {
+                            key: new Date().getTime() + Math.random(),
+                            variant: "error",
+                            preventDuplicate: true,
+                            anchorOrigin: {
+                                vertical: "bottom",
+                                horizontal: "right"
+                            }
+                        }
+                    })
+                );
             });
     };
 };
@@ -346,9 +443,41 @@ export const deleteTask = (token, taskId) => {
         })
             .then(response => {
                 dispatch(deleteTaskSuccess(taskId));
+                dispatch(
+                    enqueueSnackbar({
+                        message: "notification.task_deletion_success",
+                        options: {
+                            key: new Date().getTime() + Math.random(),
+                            variant: "success",
+                            preventDuplicate: true,
+                            anchorOrigin: {
+                                vertical: "bottom",
+                                horizontal: "right"
+                            }
+                        }
+                    })
+                );
             })
             .catch(response => {
                 dispatch(deleteTaskFailure());
+                const notificationMessage =
+                    response.response.data.error.type === "validation_error"
+                        ? response.response.data.error.property + "." + response.response.data.error.message
+                        : response.response.data.error.message;
+                dispatch(
+                    enqueueSnackbar({
+                        message: "notification." + notificationMessage,
+                        options: {
+                            key: new Date().getTime() + Math.random(),
+                            variant: "error",
+                            preventDuplicate: true,
+                            anchorOrigin: {
+                                vertical: "bottom",
+                                horizontal: "right"
+                            }
+                        }
+                    })
+                );
             });
     };
 };
