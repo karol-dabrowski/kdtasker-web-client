@@ -76,7 +76,7 @@ export const login = (email, password) => {
                 dispatch(loginFailure(data.username, response.response.data.error));
                 dispatch(
                     enqueueSnackbar({
-                        message: response.response.data.error.message,
+                        message: "notification." + response.response.data.error.message,
                         options: {
                             key: new Date().getTime() + Math.random(),
                             variant: "error",
@@ -114,7 +114,7 @@ export const register = (email, password, firstName, lastName) => {
                 history.push("/");
                 dispatch(
                     enqueueSnackbar({
-                        message: "Now you can log in.",
+                        message: "notification.registration_success",
                         options: {
                             key: new Date().getTime() + Math.random(),
                             variant: "success",
@@ -135,7 +135,7 @@ export const register = (email, password, firstName, lastName) => {
                         : response.response.data.error.message;
                 dispatch(
                     enqueueSnackbar({
-                        message: notificationMessage,
+                        message: "notification." + notificationMessage,
                         options: {
                             key: new Date().getTime() + Math.random(),
                             variant: "error",
