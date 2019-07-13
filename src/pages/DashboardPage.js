@@ -18,7 +18,7 @@ class DashboardPage extends Component {
     };
 
     render() {
-        const { handleEditModalOpen } = this.props;
+        const { handleEditModalOpen, t } = this.props;
 
         return (
             <Grid container spacing={3}>
@@ -27,10 +27,11 @@ class DashboardPage extends Component {
                         handleConfirm={this.handleTaskConfirmation}
                         handleDelete={this.handleTaskDeletion}
                         handleEdit={handleEditModalOpen}
+                        t={t}
                     />
                 </Grid>
                 <Grid item xs={12} lg={6}>
-                    <NextDaysTasks />
+                    <NextDaysTasks t={t} />
                 </Grid>
             </Grid>
         );

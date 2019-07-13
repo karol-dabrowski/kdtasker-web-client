@@ -16,10 +16,15 @@ class TodaysTasks extends Component {
     };
 
     render() {
-        const { loading, list, handleConfirm, handleDelete, handleEdit } = this.props;
+        const { loading, list, handleConfirm, handleDelete, handleEdit, t } = this.props;
 
         return (
-            <WidgetWrapper title="Today" loading={loading} refreshButton={true} handleRefresh={this.refresh}>
+            <WidgetWrapper
+                title={t("widget.todays_tasks.title")}
+                loading={loading}
+                refreshButton={true}
+                handleRefresh={this.refresh}
+            >
                 {loading ? (
                     <Preloader />
                 ) : (
@@ -28,6 +33,7 @@ class TodaysTasks extends Component {
                         handleConfirm={handleConfirm}
                         handleDelete={handleDelete}
                         handleEdit={handleEdit}
+                        t={t}
                     />
                 )}
             </WidgetWrapper>

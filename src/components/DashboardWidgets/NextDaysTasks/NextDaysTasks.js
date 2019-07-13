@@ -16,7 +16,7 @@ class NextDaysTasks extends Component {
     };
 
     render() {
-        const { loading, list } = this.props;
+        const { loading, list, t } = this.props;
 
         const sortedTaskList = list.reduce((accumulator, task) => {
             if (!accumulator.hasOwnProperty(task.deadline_date)) {
@@ -31,8 +31,13 @@ class NextDaysTasks extends Component {
         ));
 
         return (
-            <WidgetWrapper title="Next 7 days" loading={loading} refreshButton={true} handleRefresh={this.refresh}>
-                {loading ? <Preloader /> : list.length > 0 ? dailyLists : "You don't have any tasks for next 7 days"}
+            <WidgetWrapper
+                title={t("widget.next_days_tasks.title")}
+                loading={loading}
+                refreshButton={true}
+                handleRefresh={this.refresh}
+            >
+                {loading ? <Preloader /> : list.length > 0 ? dailyLists : t("widget.next_days_tasks.empty_tasks_list")}
             </WidgetWrapper>
         );
     }

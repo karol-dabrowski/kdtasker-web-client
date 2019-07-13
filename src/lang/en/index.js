@@ -4,6 +4,7 @@ import form from "./form";
 import validation from "./validation";
 import header from "./header";
 import notification from "./notification";
+import widget from "./widget";
 
 export default {
     button,
@@ -11,5 +12,6 @@ export default {
     form,
     validation,
     header,
-    notification
+    notification,
+    widget
 };

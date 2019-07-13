@@ -9,7 +9,7 @@ import { withStyles } from "@material-ui/core";
 import TodaysTasksTableRow from "./TodaysTasksTableRow";
 
 const TodaysTasksTable = props => {
-    const { tasks, classes, handleConfirm, handleDelete, handleEdit } = props;
+    const { tasks, classes, handleConfirm, handleDelete, handleEdit, t } = props;
 
     const rows = tasks.map(task => (
         <TodaysTasksTableRow
@@ -28,16 +28,16 @@ const TodaysTasksTable = props => {
                     <TableHead>
                         <TableRow>
                             <TableCell className={classes.deadlineCell} align="left">
-                                Time
+                                {t("widget.todays_tasks.time_column_heading")}
                             </TableCell>
-                            <TableCell align="left">Title</TableCell>
-                            <TableCell align="left">Actions</TableCell>
+                            <TableCell align="left">{t("widget.todays_tasks.title_column_heading")}</TableCell>
+                            <TableCell align="left">{t("widget.todays_tasks.actions_column_heading")}</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>{rows}</TableBody>
                 </Table>
             ) : (
-                "You don't have any tasks for today"
+                t("widget.todays_tasks.empty_tasks_list")
             )}
         </Fragment>
     );

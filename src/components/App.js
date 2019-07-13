@@ -31,7 +31,7 @@ class App extends Component {
                             render={props => {
                                 return authorized ? (
                                     <Dashboard t={t} {...props}>
-                                        <DashboardPage />
+                                        <DashboardPage t={t} />
                                     </Dashboard>
                                 ) : (
                                     <Redirect to="/login" />
