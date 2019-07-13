@@ -29,11 +29,11 @@ class Notifier extends Component {
     }
 
     componentDidUpdate() {
-        const { notifications = [], dispatch } = this.props;
+        const { notifications = [], dispatch, t } = this.props;
 
         notifications.forEach(({ key, message, options = {} }) => {
             if (this.displayed.includes(key)) return;
-            this.props.enqueueSnackbar(message, {
+            this.props.enqueueSnackbar(t(message), {
                 ...options,
                 onClose: (event, reason, key) => {
                     if (options.onClose) {

@@ -22,7 +22,7 @@ class App extends Component {
         return (
             <div className={classes.appWrapper}>
                 <CssBaseline />
-                <Notifier />
+                <Notifier t={t} />
                 <Router history={history}>
                     <Switch>
                         <Route
