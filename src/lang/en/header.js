@@ -1,5 +1,5 @@
 const header = {
-    brand: "Tasker"
+    brand: "KD Tasker"
 };
 
 export default header;

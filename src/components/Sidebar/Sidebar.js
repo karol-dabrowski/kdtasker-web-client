@@ -3,14 +3,17 @@ import Drawer from "@material-ui/core/Drawer";
 import { withStyles, Hidden } from "@material-ui/core";
 
 import background from "../../assets/images/sidebar-background.jpg";
+import MenuSidebarTitle from "./SidebarTitle";
 
-class MenuSidebar extends Component {
+class Sidebar extends Component {
     render() {
         const { classes, open, handleClose, t } = this.props;
 
         const sidebarContent = (
             <Fragment>
-                <div className={classes.menuSidebarContent}>{t("header.brand")}</div>
+                <div className={classes.menuSidebarContent}>
+                    <MenuSidebarTitle t={t} />
+                </div>
                 <div className={classes.menuSidebarBackground} style={{ backgroundImage: "url(" + background + ")" }} />
             </Fragment>
         );
@@ -62,7 +65,8 @@ const styles = theme => ({
         zIndex: 4,
         backgroundColor: "transparent",
         border: "none",
-        position: "fixed",
+        position: "absolute",
+        width: "100%",
         top: "0",
         bottom: "0",
         left: "0"
@@ -90,4 +94,4 @@ const styles = theme => ({
     }
 });
 
-export default withStyles(styles)(MenuSidebar);
+export default withStyles(styles)(Sidebar);

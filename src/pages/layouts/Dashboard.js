@@ -4,7 +4,7 @@ import classNames from "classnames";
 import { connect } from "react-redux";
 
 import DashboardHeader from "../../components/DashboardHeader/DashboardHeader";
-import MenuSidebar from "../../components/MenuSidebar/MenuSidebar";
+import Sidebar from "../../components/Sidebar/Sidebar";
 import TaskModal from "../../components/TaskModal";
 import { createTask, editTask, getTaskToEdit, clearTaskToEdit } from "../../actions/taskActions";
 
@@ -83,7 +83,7 @@ class Dashboard extends Component {
                     toggleDrawer={this.toggleDrawer}
                     t={t}
                 />
-                <MenuSidebar open={this.state.drawerIsOpened} handleClose={this.handleDrawerClose} t={t} />
+                <Sidebar open={this.state.drawerIsOpened} handleClose={this.handleDrawerClose} t={t} />
                 <div
                     className={classNames(classes.dashboardContainer, {
                         [classes.dashboardContainerShift]: this.state.drawerIsOpened
