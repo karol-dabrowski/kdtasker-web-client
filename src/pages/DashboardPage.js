@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import { completeTask, deleteTask } from "../actions/taskActions";
 import TodaysTasks from "../components/DashboardWidgets/TodaysTasks/TodaysTasks";
@@ -37,6 +38,13 @@ class DashboardPage extends Component {
         );
     }
 }
+
+DashboardPage.propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    jwtToken: PropTypes.string.isRequired,
+    handleEditModalOpen: PropTypes.func.isRequired,
+    t: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => {
     return {

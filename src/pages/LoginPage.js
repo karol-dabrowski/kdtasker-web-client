@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import LoginForm from "../components/Forms/LoginForm";
 import { login } from "../actions/authActions";
@@ -30,6 +31,12 @@ class LoginPage extends Component {
         }
     }
 }
+
+LoginPage.propTypes = {
+    loading: PropTypes.bool.isRequired,
+    previousState: PropTypes.object.isRequired,
+    t: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => {
     return {

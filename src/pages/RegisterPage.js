@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import RegistrationForm from "../components/Forms/RegistrationForm";
 import AuthWrapper from "../components/AuthWrapper";
@@ -34,6 +35,12 @@ class RegisterPage extends Component {
         }
     }
 }
+
+RegisterPage.propTypes = {
+    loading: PropTypes.bool.isRequired,
+    previousState: PropTypes.object.isRequired,
+    t: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => {
     return {

@@ -2,6 +2,7 @@ import React from "react";
 import { withStyles } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const HomePage = props => {
     const { classes, t } = props;
@@ -30,6 +31,11 @@ const HomePage = props => {
             </Button>
         </div>
     );
+};
+
+HomePage.propTypes = {
+    classes: PropTypes.object.isRequired,
+    t: PropTypes.func.isRequired
 };
 
 const styles = theme => ({
