@@ -4,6 +4,7 @@ import { withStyles, Hidden } from "@material-ui/core";
 
 import background from "../../assets/images/sidebar-background.jpg";
 import MenuSidebarTitle from "./SidebarTitle";
+import SidebarMenu from "./SidebarMenu";
 
 class Sidebar extends Component {
     render() {
@@ -13,6 +14,7 @@ class Sidebar extends Component {
             <Fragment>
                 <div className={classes.menuSidebarContent}>
                     <MenuSidebarTitle t={t} />
+                    <SidebarMenu t={t} />
                 </div>
                 <div className={classes.menuSidebarBackground} style={{ backgroundImage: "url(" + background + ")" }} />
             </Fragment>
@@ -88,8 +90,8 @@ const styles = theme => ({
             height: "100%",
             content: '""',
             display: "block",
-            background: theme.palette.common.black,
-            opacity: ".2"
+            background: theme.palette.primary.main,
+            opacity: ".6"
         }
     }
 });
