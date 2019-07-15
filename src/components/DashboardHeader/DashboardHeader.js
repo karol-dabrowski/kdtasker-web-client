@@ -6,6 +6,7 @@ import { withStyles } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/icons/Menu";
 import Add from "@material-ui/icons/Add";
+import PropTypes from "prop-types";
 
 const DashboardHeader = props => {
     const { classes, drawerIsOpen, toggleDrawer, openNewTaskModal, t } = props;
@@ -27,6 +28,14 @@ const DashboardHeader = props => {
             </Toolbar>
         </AppBar>
     );
+};
+
+DashboardHeader.propTypes = {
+    classes: PropTypes.object.isRequired,
+    drawerIsOpen: PropTypes.bool.isRequired,
+    toggleDrawer: PropTypes.func.isRequired,
+    openNewTaskModal: PropTypes.func.isRequired,
+    t: PropTypes.func.isRequired
 };
 
 const styles = theme => ({
