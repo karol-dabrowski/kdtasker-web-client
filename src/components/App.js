@@ -3,6 +3,7 @@ import { Router, Route, Switch, Redirect } from "react-router-dom";
 import { CssBaseline, withStyles } from "@material-ui/core";
 import { connect } from "react-redux";
 import { withTranslation } from "react-i18next";
+import PropTypes from 'prop-types';
 
 import history from "../history";
 import Static from "../pages/layouts/Static";
@@ -80,6 +81,12 @@ class App extends Component {
         );
     }
 }
+
+App.propTypes = {
+    classes: PropTypes.object.isRequired,
+    authorized: PropTypes.bool.isRequired,
+    t: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => {
     return {
