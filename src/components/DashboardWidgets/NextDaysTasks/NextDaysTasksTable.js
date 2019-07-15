@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import TableBody from "@material-ui/core/TableBody";
 import Table from "@material-ui/core/Table";
+import PropTypes from "prop-types";
 
 import NextDaysTasksTitle from "./NextDaysTasksTitle";
 import NextDaysTasksTableRow from "./NextDaysTasksTableRow";
@@ -20,6 +21,11 @@ const NextDaysTasksTable = props => {
             </Table>
         </Fragment>
     );
+};
+
+NextDaysTasksTable.propTypes = {
+    day: PropTypes.string.isRequired,
+    dayTasks: PropTypes.array.isRequired
 };
 
 export default NextDaysTasksTable;

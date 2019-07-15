@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import WidgetWrapper from "../WidgetWrapper";
 import NextDaysTasksTable from "./NextDaysTasksTable";
@@ -8,11 +9,13 @@ import Preloader from "../../Preloader";
 
 class NextDaysTasks extends Component {
     componentDidMount() {
-        this.props.dispatch(getTasksForNextDays(this.props.jwtToken, 7));
+        const { dispatch, jwtToken } = this.props;
+        dispatch(getTasksForNextDays(jwtToken, 7));
     }
 
     refresh = () => {
-        this.props.dispatch(getTasksForNextDays(this.props.jwtToken, 7));
+        const { dispatch, jwtToken } = this.props;
+        dispatch(getTasksForNextDays(jwtToken, 7));
     };
 
     render() {
@@ -42,6 +45,14 @@ class NextDaysTasks extends Component {
         );
     }
 }
+
+NextDaysTasks.propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    jwtToken: PropTypes.string.isRequired,
+    loading: PropTypes.bool.isRequired,
+    list: PropTypes.array.isRequired,
+    t: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => {
     return {
