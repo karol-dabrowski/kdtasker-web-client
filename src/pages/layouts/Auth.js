@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withStyles } from "@material-ui/core";
+import PropTypes from "prop-types";
 
 class Auth extends Component {
     render() {
@@ -8,6 +9,11 @@ class Auth extends Component {
         return <div className={classes.authContainer}>{children}</div>;
     }
 }
+
+Auth.propTypes = {
+    classes: PropTypes.object.isRequired,
+    children: PropTypes.element.isRequired
+};
 
 const styles = theme => ({
     authContainer: {

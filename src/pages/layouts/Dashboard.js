@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import { withStyles } from "@material-ui/core";
 import classNames from "classnames";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import DashboardHeader from "../../components/DashboardHeader/DashboardHeader";
 import Sidebar from "../../components/Sidebar/Sidebar";
@@ -102,6 +103,14 @@ class Dashboard extends Component {
         );
     }
 }
+
+Dashboard.propTypes = {
+    classes: PropTypes.object.isRequired,
+    dispatch: PropTypes.func.isRequired,
+    jwtToken: PropTypes.string.isRequired,
+    children: PropTypes.element.isRequired,
+    t: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => {
     return {
