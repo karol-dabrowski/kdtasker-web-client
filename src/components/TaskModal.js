@@ -5,6 +5,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import TaskForm from "./Forms/TaskForm";
 import Preloader from "./Preloader";
@@ -35,6 +36,16 @@ class TaskModal extends Component {
         );
     }
 }
+
+TaskModal.propTypes = {
+    isOpened: PropTypes.bool.isRequired,
+    handleClose: PropTypes.func.isRequired,
+    handleSubmit: PropTypes.func.isRequired,
+    loading: PropTypes.bool.isRequired,
+    taskId: PropTypes.string,
+    taskToEdit: PropTypes.object,
+    t: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => {
     return {

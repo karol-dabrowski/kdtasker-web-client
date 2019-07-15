@@ -2,6 +2,7 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import { withSnackbar } from "notistack";
+import PropTypes from "prop-types";
 
 import { removeSnackbar } from "../actions/snackbarActions";
 
@@ -50,6 +51,12 @@ class Notifier extends Component {
         return null;
     }
 }
+
+Notifier.propTypes = {
+    notifications: PropTypes.array.isRequired,
+    dispatch: PropTypes.func.isRequired,
+    t: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => ({
     notifications: state.snackbar.notifications

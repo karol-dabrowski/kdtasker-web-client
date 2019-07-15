@@ -1,6 +1,7 @@
 import React from "react";
 import { withStyles, Grid } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
+import PropTypes from "prop-types";
 
 import FormLogo from "./Forms/elements/FormLogo";
 
@@ -18,6 +19,13 @@ const AuthWrapper = props => {
             </Grid>
         </Grid>
     );
+};
+
+AuthWrapper.propTypes = {
+    classes: PropTypes.object.isRequired,
+    children: PropTypes.element.isRequired,
+    title: PropTypes.string.isRequired,
+    t: PropTypes.func.isRequired
 };
 
 const styles = theme => ({
