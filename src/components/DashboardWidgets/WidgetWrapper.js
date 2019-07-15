@@ -49,7 +49,7 @@ WidgetWrapper.propTypes = {
     widgetMenu: PropTypes.bool,
     refreshButton: PropTypes.bool,
     handleRefresh: PropTypes.func.isRequired,
-    children: PropTypes.element.isRequired,
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.object, PropTypes.array, PropTypes.element]).isRequired,
     loading: PropTypes.bool.isRequired
 };
 
