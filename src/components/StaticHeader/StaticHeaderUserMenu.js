@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { withStyles } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
+import PropTypes from "prop-types";
 
 const StaticHeaderUserMenu = props => {
     const { classes, isLogged, t } = props;
@@ -24,6 +25,12 @@ const StaticHeaderUserMenu = props => {
             </Button>
         </Fragment>
     );
+};
+
+StaticHeaderUserMenu.propTypes = {
+    classes: PropTypes.object.isRequired,
+    isLogged: PropTypes.bool.isRequired,
+    t: PropTypes.func.isRequired
 };
 
 const styles = theme => ({

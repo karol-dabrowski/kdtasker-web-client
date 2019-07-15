@@ -2,6 +2,7 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core";
+import PropTypes from "prop-types";
 
 const StaticHeaderLogo = props => {
     const { classes, t } = props;
@@ -12,6 +13,11 @@ const StaticHeaderLogo = props => {
             </Link>
         </Typography>
     );
+};
+
+StaticHeaderLogo.propTypes = {
+    classes: PropTypes.object.isRequired,
+    t: PropTypes.func.isRequired
 };
 
 const styles = theme => ({
