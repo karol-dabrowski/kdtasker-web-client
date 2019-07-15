@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import WidgetWrapper from "../WidgetWrapper";
 import TodaysTasksTable from "./TodayTasksTable";
@@ -40,6 +41,15 @@ class TodaysTasks extends Component {
         );
     }
 }
+
+TodaysTasks.propTypes = {
+    loading: PropTypes.bool.isRequired,
+    list: PropTypes.array.isRequired,
+    handleConfirm: PropTypes.func.isRequired,
+    handleDelete: PropTypes.func.isRequired,
+    handleEdit: PropTypes.func.isRequired,
+    t: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => {
     return {

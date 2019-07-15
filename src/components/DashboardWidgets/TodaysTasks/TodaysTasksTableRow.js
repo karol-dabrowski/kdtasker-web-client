@@ -5,6 +5,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Done from "@material-ui/icons/Done";
 import Edit from "@material-ui/icons/Edit";
 import Delete from "@material-ui/icons/Delete";
+import PropTypes from "prop-types";
 
 const TodaysTasksTableRow = props => {
     const { task, handleConfirm, handleDelete, handleEdit } = props;
@@ -41,6 +42,13 @@ const TodaysTasksTableRow = props => {
             </TableCell>
         </TableRow>
     );
+};
+
+TodaysTasksTableRow.propTypes = {
+    task: PropTypes.object.isRequired,
+    handleConfirm: PropTypes.func.isRequired,
+    handleDelete: PropTypes.func.isRequired,
+    handleEdit: PropTypes.func.isRequired
 };
 
 export default TodaysTasksTableRow;

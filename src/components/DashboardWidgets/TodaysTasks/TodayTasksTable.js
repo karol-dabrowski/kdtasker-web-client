@@ -5,11 +5,12 @@ import TableCell from "@material-ui/core/TableCell";
 import TableBody from "@material-ui/core/TableBody";
 import Table from "@material-ui/core/Table";
 import { withStyles } from "@material-ui/core";
+import PropTypes from "prop-types";
 
 import TodaysTasksTableRow from "./TodaysTasksTableRow";
 
 const TodaysTasksTable = props => {
-    const { tasks, classes, handleConfirm, handleDelete, handleEdit, t } = props;
+    const { classes, tasks, handleConfirm, handleDelete, handleEdit, t } = props;
 
     const rows = tasks.map(task => (
         <TodaysTasksTableRow
@@ -41,6 +42,15 @@ const TodaysTasksTable = props => {
             )}
         </Fragment>
     );
+};
+
+TodaysTasksTable.propTypes = {
+    classes: PropTypes.object.isRequired,
+    tasks: PropTypes.array.isRequired,
+    handleConfirm: PropTypes.func.isRequired,
+    handleDelete: PropTypes.func.isRequired,
+    handleEdit: PropTypes.func.isRequired,
+    t: PropTypes.func.isRequired
 };
 
 const styles = theme => ({
