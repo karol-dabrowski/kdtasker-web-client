@@ -2,6 +2,7 @@ import React from "react";
 import { withStyles } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const FormLogo = props => {
     const { classes, t } = props;
@@ -15,6 +16,11 @@ const FormLogo = props => {
             </Typography>
         </div>
     );
+};
+
+FormLogo.propTypes = {
+    classes: PropTypes.object.isRequired,
+    t: PropTypes.func.isRequired
 };
 
 const style = theme => ({

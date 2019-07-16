@@ -1,9 +1,11 @@
 import React from "react";
 import { TextField, withStyles } from "@material-ui/core";
 import { ErrorMessage } from "formik";
+import PropTypes from "prop-types";
 
 const EmailField = props => {
     const { classes, handleChange, handleBlur, value, touched, error, t } = props;
+
     return (
         <div className={classes.emailFieldWrapper}>
             <TextField
@@ -22,6 +24,16 @@ const EmailField = props => {
             <ErrorMessage name="email" render={msg => <div className={classes.errorMessage}>{t(msg)}</div>} />
         </div>
     );
+};
+
+EmailField.propTypes = {
+    classes: PropTypes.object.isRequired,
+    handleChange: PropTypes.func.isRequired,
+    handleBlur: PropTypes.func.isRequired,
+    value: PropTypes.string.isRequired,
+    touched: PropTypes.bool,
+    error: PropTypes.string,
+    t: PropTypes.func.isRequired
 };
 
 const style = theme => ({
