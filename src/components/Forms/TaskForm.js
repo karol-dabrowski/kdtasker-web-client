@@ -1,6 +1,7 @@
 import React from "react";
 import { withFormik } from "formik";
 import { addDays } from "date-fns";
+import PropTypes from "prop-types";
 
 import TaskTitleField from "./elements/TaskTitleField";
 import DateTimePicker from "./elements/DateTimePicker";
@@ -16,6 +17,7 @@ const initialValues = {
 
 const Form = props => {
     const { values, handleChange, handleBlur, handleSubmit, touched, errors, setFieldValue, t } = props;
+
     return (
         <form onSubmit={handleSubmit}>
             <TaskTitleField
@@ -36,6 +38,17 @@ const Form = props => {
             <SubmitButton t={t} />
         </form>
     );
+};
+
+Form.propTypes = {
+    values: PropTypes.object.isRequired,
+    handleChange: PropTypes.func.isRequired,
+    handleBlur: PropTypes.func.isRequired,
+    handleSubmit: PropTypes.func.isRequired,
+    touched: PropTypes.object,
+    errors: PropTypes.object,
+    setFieldValue: PropTypes.func.isRequired,
+    t: PropTypes.func.isRequired
 };
 
 const TaskForm = withFormik({

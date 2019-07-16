@@ -1,5 +1,6 @@
 import React from "react";
 import { withFormik } from "formik";
+import PropTypes from "prop-types";
 
 import PasswordField from "./elements/PasswordField";
 import SubmitButton from "./elements/SubmitButton";
@@ -13,6 +14,7 @@ const initialValues = {
 
 const Form = props => {
     const { values, handleChange, handleBlur, handleSubmit, touched, errors, t } = props;
+
     return (
         <form onSubmit={handleSubmit}>
             <EmailField
@@ -36,6 +38,16 @@ const Form = props => {
             <SubmitButton t={t} />
         </form>
     );
+};
+
+Form.propTypes = {
+    values: PropTypes.object.isRequired,
+    handleChange: PropTypes.func.isRequired,
+    handleBlur: PropTypes.func.isRequired,
+    handleSubmit: PropTypes.func.isRequired,
+    touched: PropTypes.object,
+    errors: PropTypes.object,
+    t: PropTypes.func.isRequired
 };
 
 const LoginForm = withFormik({
