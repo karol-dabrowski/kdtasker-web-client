@@ -1,5 +1,6 @@
 import React from "react";
 import { withStyles } from "@material-ui/core";
+import PropTypes from "prop-types";
 
 import menuList from "../../menus/sidebarMenuItems";
 import SidebarMenuItem from "./SidebarMenuItem";
@@ -14,6 +15,11 @@ const SidebarMenu = props => {
             ))}
         </div>
     );
+};
+
+SidebarMenu.propTypes = {
+    classes: PropTypes.object.isRequired,
+    t: PropTypes.func.isRequired
 };
 
 const styles = theme => ({

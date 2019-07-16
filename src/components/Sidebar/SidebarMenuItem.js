@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, withStyles } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const SidebarMenuItem = props => {
     const { classes, menuItem, t } = props;
@@ -10,6 +11,12 @@ const SidebarMenuItem = props => {
             {t(menuItem.name)}
         </Button>
     );
+};
+
+SidebarMenuItem.propTypes = {
+    classes: PropTypes.object.isRequired,
+    menuItem: PropTypes.object.isRequired,
+    t: PropTypes.func.isRequired
 };
 
 const styles = theme => ({

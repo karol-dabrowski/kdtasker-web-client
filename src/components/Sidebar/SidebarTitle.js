@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import { withStyles } from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
+import PropTypes from "prop-types";
 
 const SidebarTitle = props => {
     const { classes, t } = props;
@@ -13,6 +14,11 @@ const SidebarTitle = props => {
             </div>
         </Fragment>
     );
+};
+
+SidebarTitle.propTypes = {
+    classes: PropTypes.object.isRequired,
+    t: PropTypes.func.isRequired
 };
 
 const styles = theme => ({

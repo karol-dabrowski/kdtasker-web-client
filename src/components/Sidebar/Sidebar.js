@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import Drawer from "@material-ui/core/Drawer";
 import { withStyles, Hidden } from "@material-ui/core";
+import PropTypes from "prop-types";
 
 import background from "../../assets/images/sidebar-background.jpg";
 import MenuSidebarTitle from "./SidebarTitle";
@@ -55,6 +56,13 @@ class Sidebar extends Component {
         );
     }
 }
+
+Sidebar.propTypes = {
+    classes: PropTypes.object.isRequired,
+    open: PropTypes.bool.isRequired,
+    handleClose: PropTypes.func.isRequired,
+    t: PropTypes.func.isRequired
+};
 
 const styles = theme => ({
     menuSidebar: {
