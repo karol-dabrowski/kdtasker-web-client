@@ -41,19 +41,19 @@ const todaysTasks = (state = defaultState, action) => {
                 loading: true
             });
         case CREATE_TASK_SUCCESS:
-            const newStateForCreateTaskSuccess = Object.assign({}, state, {
-                loading: false
+            return Object.assign({}, state, {
+                loading: false,
+                list:
+                    new Date(action.newTask.deadline_date).toDateString() === new Date().toDateString()
+                        ? state.list.concat(action.newTask).sort((a, b) => {
+                              let result =
+                                  a.deadline_time === null && b.deadline_time !== null
+                                      ? true
+                                      : a.deadline_time > b.deadline_time;
+                              return +result;
+                          })
+                        : state.list
             });
-            const createdTaskDate = new Date(action.newTask.deadline_date);
-            if (createdTaskDate.toDateString() === new Date().toDateString()) {
-                newStateForCreateTaskSuccess.list.push(action.newTask);
-                newStateForCreateTaskSuccess.list.sort((a, b) => {
-                    const result =
-                        a.deadline_time === null && b.deadline_time !== null ? true : a.deadline_time > b.deadline_time;
-                    return +result;
-                });
-            }
-            return newStateForCreateTaskSuccess;
         case CREATE_TASK_FAILURE:
             return Object.assign({}, state, {
                 loading: false
