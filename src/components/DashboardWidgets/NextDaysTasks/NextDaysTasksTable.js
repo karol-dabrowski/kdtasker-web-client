@@ -7,11 +7,19 @@ import NextDaysTasksTitle from "./NextDaysTasksTitle";
 import NextDaysTasksTableRow from "./NextDaysTasksTableRow";
 
 const NextDaysTasksTable = props => {
-    const { day, dayTasks } = props;
+    const { day, dayTasks, handleConfirm, handleDelete, handleEdit } = props;
     const weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     const currentDayOfTheWeek = new Date(day).getDay();
 
-    const rows = dayTasks.map(task => <NextDaysTasksTableRow key={task.task_id} task={task} />);
+    const rows = dayTasks.map(task => (
+        <NextDaysTasksTableRow
+            key={task.task_id}
+            task={task}
+            handleConfirm={handleConfirm}
+            handleDelete={handleDelete}
+            handleEdit={handleEdit}
+        />
+    ));
 
     return (
         <Fragment>
@@ -25,7 +33,10 @@ const NextDaysTasksTable = props => {
 
 NextDaysTasksTable.propTypes = {
     day: PropTypes.string.isRequired,
-    dayTasks: PropTypes.array.isRequired
+    dayTasks: PropTypes.array.isRequired,
+    handleConfirm: PropTypes.func.isRequired,
+    handleDelete: PropTypes.func.isRequired,
+    handleEdit: PropTypes.func.isRequired
 };
 
 export default NextDaysTasksTable;

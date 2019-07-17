@@ -32,7 +32,12 @@ class DashboardPage extends Component {
                     />
                 </Grid>
                 <Grid item xs={12} lg={6}>
-                    <NextDaysTasks t={t} />
+                    <NextDaysTasks
+                        handleConfirm={this.handleTaskConfirmation}
+                        handleDelete={this.handleTaskDeletion}
+                        handleEdit={handleEditModalOpen}
+                        t={t}
+                    />
                 </Grid>
             </Grid>
         );

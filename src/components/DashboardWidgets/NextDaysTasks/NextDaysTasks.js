@@ -19,7 +19,7 @@ class NextDaysTasks extends Component {
     };
 
     render() {
-        const { loading, list, t } = this.props;
+        const { loading, list, handleConfirm, handleDelete, handleEdit, t } = this.props;
 
         const sortedTaskList = list.reduce((accumulator, task) => {
             if (!accumulator.hasOwnProperty(task.deadline_date)) {
@@ -30,7 +30,14 @@ class NextDaysTasks extends Component {
         }, {});
 
         const dailyLists = Object.keys(sortedTaskList).map(day => (
-            <NextDaysTasksTable key={day} day={day} dayTasks={sortedTaskList[day]} />
+            <NextDaysTasksTable
+                key={day}
+                day={day}
+                dayTasks={sortedTaskList[day]}
+                handleConfirm={handleConfirm}
+                handleDelete={handleDelete}
+                handleEdit={handleEdit}
+            />
         ));
 
         return (
@@ -51,6 +58,9 @@ NextDaysTasks.propTypes = {
     jwtToken: PropTypes.string.isRequired,
     loading: PropTypes.bool.isRequired,
     list: PropTypes.array.isRequired,
+    handleConfirm: PropTypes.func.isRequired,
+    handleDelete: PropTypes.func.isRequired,
+    handleEdit: PropTypes.func.isRequired,
     t: PropTypes.func.isRequired
 };
 
