@@ -20,7 +20,11 @@ NextDaysTasksTitle.propTypes = {
 
 const styles = theme => ({
     dayTableHeader: {
-        marginTop: theme.spacing(0)
+        marginTop: theme.spacing(4.5),
+        marginBottom: theme.spacing(0),
+        "&:first-of-type": {
+            marginTop: theme.spacing(2)
+        }
     }
 });
 

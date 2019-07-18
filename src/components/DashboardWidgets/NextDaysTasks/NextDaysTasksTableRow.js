@@ -17,7 +17,7 @@ const NextDaysTasksTableRow = props => {
                 {task.deadline_time}
             </TableCell>
             <TableCell align="left">{task.title}</TableCell>
-            <TableCell align="left">
+            <TableCell className={classes.actionsCell} align="left">
                 <IconButton
                     aria-label="Done"
                     onClick={() => {
@@ -58,6 +58,9 @@ NextDaysTasksTableRow.propTypes = {
 const styles = theme => ({
     deadlineCell: {
         width: theme.spacing(12)
+    },
+    actionsCell: {
+        width: theme.spacing(23)
     }
 });
 
