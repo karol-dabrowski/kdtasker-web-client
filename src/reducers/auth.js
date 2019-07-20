@@ -28,7 +28,7 @@ const auth = (state = defaultState, action) => {
                 loading: false,
                 authorized: true,
                 jwt: {
-                    token: action.data.token,
+                    token: "Bearer " + action.data.token,
                     refreshToken: action.data.refresh_token,
                     tokenTtl: action.data.token_expiration_time
                 }
