@@ -1,5 +1,8 @@
+const devApiUrl = "http://localhost:8000";
+const prodApiUrl = "";
+
 const config = {
-    apiUrl: process.env.NODE_ENV === "development" ? "http://localhost:8000" : "",
+    apiUrl: process.env.NODE_ENV === "development" ? devApiUrl : prodApiUrl,
     auth: {
         auth: "/auth",
         login: "/login",
