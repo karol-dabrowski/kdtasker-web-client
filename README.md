@@ -1,6 +1,6 @@
 # KD Tasker web client
 
-Front-end of KD Tasker, todo application based on React and Redux.
+Front-end of KD Tasker, application based on React and Redux.
 
 ## Requirements
 
