@@ -30,11 +30,11 @@ Run development server
 npm start
 ```
 
-**Done! Application has been run in development mode.**
+**Done! Application has been running in development mode.**
 
 ## Production environment setup
 
-**This is alpha version of application. Running in production mode is not recommended. This part of README will be completed in beta release.**
+**This is alpha version of the application. Running in production mode is not recommended. This part of README will be completed in beta release.**
 
 ## License
 Released under the MIT license.
