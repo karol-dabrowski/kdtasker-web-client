@@ -5,6 +5,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ## [0.1.0-alpha] - 2019-07-30
+**Compatible with 0.1.0-alpha version of [API]**
 ### Added
 - Login form
 - Login page
@@ -25,4 +26,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Material UI theme
 
 [Unreleased]: https://github.com/karol-dabrowski/kdtasker-web-client/compare/v0.1.0-alpha...HEAD
+[API]: https://github.com/karol-dabrowski/kdtasker/releases
 [0.1.0-alpha]: https://github.com/karol-dabrowski/kdtasker-web-client/releases/tag/v0.1.0-alpha
