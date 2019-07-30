@@ -7,14 +7,25 @@ import Edit from "@material-ui/icons/Edit";
 import Delete from "@material-ui/icons/Delete";
 import { withStyles } from "@material-ui/core";
 import PropTypes from "prop-types";
+import LinesEllipsis from 'react-lines-ellipsis'
+import responsiveHOC from 'react-lines-ellipsis/lib/responsiveHOC'
 
 const TodaysTasksTableRow = props => {
     const { classes, task, handleConfirm, handleDelete, handleEdit } = props;
+    const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
     return (
         <TableRow>
             <TableCell align="left" className={classes.deadlineCell}>{task.deadline_time}</TableCell>
-            <TableCell align="left" className={classes.titleCell}>{task.title}</TableCell>
+            <TableCell align="left" className={classes.titleCell}>
+                <ResponsiveEllipsis
+                    text={task.title}
+                    maxLine='3'
+                    ellipsis='...'
+                    trimRight
+                    basedOn='letters'
+                />
+            </TableCell>
             <TableCell align="left">
                 <IconButton
                     aria-label="Done"
