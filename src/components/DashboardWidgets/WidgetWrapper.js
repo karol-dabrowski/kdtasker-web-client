@@ -38,7 +38,9 @@ const WidgetWrapper = props => {
     return (
         <Card>
             <CardHeader className={classes.wrapperHeader} title={title} action={actions} />
-            <CardContent>{children}</CardContent>
+            <CardContent className={classes.wrapperContent}>
+                {children}
+            </CardContent>
         </Card>
     );
 };
@@ -63,6 +65,12 @@ const styles = theme => ({
     },
     wrapperRefreshIcon: {
         color: theme.palette.common.white
+    },
+    wrapperContent: {
+        [theme.breakpoints.down('sm')]: {
+            paddingLeft: theme.spacing(1),
+            paddingRight: theme.spacing(1)
+        }
     }
 });
 

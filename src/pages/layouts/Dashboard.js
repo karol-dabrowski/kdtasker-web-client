@@ -123,7 +123,15 @@ const styles = theme => ({
         backgroundColor: theme.palette.background.default,
         width: "100%",
         paddingLeft: theme.spacing(3),
-        paddingRight: theme.spacing(3)
+        paddingRight: theme.spacing(3),
+        [theme.breakpoints.down('sm')]: {
+            paddingLeft: theme.spacing(2),
+            paddingRight: theme.spacing(2)
+        },
+        [theme.breakpoints.down('xs')]: {
+            paddingLeft: theme.spacing(1),
+            paddingRight: theme.spacing(1)
+        }
     },
     dashboardContainerShift: {
         [theme.breakpoints.up("lg")]: {

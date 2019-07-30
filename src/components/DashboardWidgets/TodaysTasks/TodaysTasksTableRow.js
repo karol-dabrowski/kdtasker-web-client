@@ -5,18 +5,20 @@ import IconButton from "@material-ui/core/IconButton";
 import Done from "@material-ui/icons/Done";
 import Edit from "@material-ui/icons/Edit";
 import Delete from "@material-ui/icons/Delete";
+import { withStyles } from "@material-ui/core";
 import PropTypes from "prop-types";
 
 const TodaysTasksTableRow = props => {
-    const { task, handleConfirm, handleDelete, handleEdit } = props;
+    const { classes, task, handleConfirm, handleDelete, handleEdit } = props;
 
     return (
         <TableRow>
-            <TableCell align="left">{task.deadline_time}</TableCell>
-            <TableCell align="left">{task.title}</TableCell>
+            <TableCell align="left" className={classes.deadlineCell}>{task.deadline_time}</TableCell>
+            <TableCell align="left" className={classes.titleCell}>{task.title}</TableCell>
             <TableCell align="left">
                 <IconButton
                     aria-label="Done"
+                    className={classes.actionButton}
                     onClick={() => {
                         handleConfirm(task.task_id);
                     }}
@@ -25,6 +27,7 @@ const TodaysTasksTableRow = props => {
                 </IconButton>
                 <IconButton
                     aria-label="Edit"
+                    className={classes.actionButton}
                     onClick={() => {
                         handleEdit(task.task_id);
                     }}
@@ -33,6 +36,7 @@ const TodaysTasksTableRow = props => {
                 </IconButton>
                 <IconButton
                     aria-label="Delete"
+                    className={classes.actionButton}
                     onClick={() => {
                         handleDelete(task.task_id);
                     }}
@@ -51,4 +55,20 @@ TodaysTasksTableRow.propTypes = {
     handleEdit: PropTypes.func.isRequired
 };
 
-export default TodaysTasksTableRow;
+const styles = theme => ({
+    deadlineCell: {
+        paddingRight: theme.spacing(3.5),
+        [theme.breakpoints.down('xs')]: {
+            paddingLeft: theme.spacing(1)
+        },
+    },
+    titleCell: {
+        paddingRight: theme.spacing(4)
+    },
+    actionButton: {
+        paddingLeft: theme.spacing(1),
+        paddingRight: theme.spacing(1)
+    }
+});
+
+export default withStyles(styles)(TodaysTasksTableRow);

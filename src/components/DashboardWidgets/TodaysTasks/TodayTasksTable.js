@@ -31,7 +31,9 @@ const TodaysTasksTable = props => {
                             <TableCell className={classes.deadlineCell} align="left">
                                 {t("widget.todays_tasks.time_column_heading")}
                             </TableCell>
-                            <TableCell align="left">{t("widget.todays_tasks.title_column_heading")}</TableCell>
+                            <TableCell className={classes.titleCell} align="left">
+                                {t("widget.todays_tasks.title_column_heading")}
+                            </TableCell>
                             <TableCell className={classes.actionsCell} align="left">
                                 {t("widget.todays_tasks.actions_column_heading")}
                             </TableCell>
@@ -57,10 +59,19 @@ TodaysTasksTable.propTypes = {
 
 const styles = theme => ({
     deadlineCell: {
-        width: theme.spacing(12)
+        width: theme.spacing(10),
+        paddingRight: theme.spacing(3.5),
+        [theme.breakpoints.down('xs')]: {
+            paddingLeft: theme.spacing(1),
+            width: theme.spacing(9),
+            paddingRight: theme.spacing(2.5),
+        },
+    },
+    titleCell: {
+        paddingRight: theme.spacing(4)
     },
     actionsCell: {
-        width: theme.spacing(23)
+        width: theme.spacing(19.5)
     }
 });
 
