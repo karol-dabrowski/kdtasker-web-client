@@ -15,7 +15,7 @@ const TodaysTasksTableRow = props => {
     const ResponsiveEllipsis = responsiveHOC()(LinesEllipsis);
 
     return (
-        <TableRow>
+        <TableRow className={classes.todaysTasksRow}>
             <TableCell align="left" className={classes.deadlineCell}>{task.deadline_time}</TableCell>
             <TableCell align="left" className={classes.titleCell}>
                 <ResponsiveEllipsis
@@ -26,7 +26,7 @@ const TodaysTasksTableRow = props => {
                     basedOn='letters'
                 />
             </TableCell>
-            <TableCell align="left">
+            <TableCell className={classes.actionsCell} align="left">
                 <IconButton
                     aria-label="Done"
                     className={classes.actionButton}
@@ -67,14 +67,30 @@ TodaysTasksTableRow.propTypes = {
 };
 
 const styles = theme => ({
+    todaysTasksRow: {
+        "& td:last-child": {
+            [theme.breakpoints.down('xs')]: {
+                paddingRight: theme.spacing(1)
+            }
+        }
+    },
     deadlineCell: {
         paddingRight: theme.spacing(3.5),
         [theme.breakpoints.down('xs')]: {
             paddingLeft: theme.spacing(1)
-        },
+        }
     },
     titleCell: {
-        paddingRight: theme.spacing(4)
+        paddingRight: theme.spacing(4),
+        [theme.breakpoints.down('xs')]: {
+            paddingLeft: theme.spacing(0),
+            paddingRight: theme.spacing(3)
+        }
+    },
+    actionsCell: {
+        [theme.breakpoints.down('xs')]: {
+            paddingLeft: theme.spacing(0)
+        }
     },
     actionButton: {
         paddingLeft: theme.spacing(1),

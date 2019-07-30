@@ -27,7 +27,7 @@ const TodaysTasksTable = props => {
             {rows.length > 0 ? (
                 <Table>
                     <TableHead>
-                        <TableRow>
+                        <TableRow className={classes.todaysTasksRow}>
                             <TableCell className={classes.deadlineCell} align="left">
                                 {t("widget.todays_tasks.time_column_heading")}
                             </TableCell>
@@ -58,6 +58,13 @@ TodaysTasksTable.propTypes = {
 };
 
 const styles = theme => ({
+    todaysTasksRow: {
+        "& th:last-child": {
+            [theme.breakpoints.down('xs')]: {
+                paddingRight: theme.spacing(1)
+            }
+        }
+    },
     deadlineCell: {
         width: theme.spacing(10),
         paddingRight: theme.spacing(3.5),
@@ -68,10 +75,18 @@ const styles = theme => ({
         },
     },
     titleCell: {
-        paddingRight: theme.spacing(4)
+        paddingRight: theme.spacing(4),
+        [theme.breakpoints.down('xs')]: {
+            paddingLeft: theme.spacing(0),
+            paddingRight: theme.spacing(3)
+        }
     },
     actionsCell: {
-        width: theme.spacing(19.5)
+        width: theme.spacing(19.5),
+        [theme.breakpoints.down('xs')]: {
+            paddingLeft: theme.spacing(0),
+            width: theme.spacing(16),
+        }
     }
 });
 
