@@ -60,7 +60,7 @@ TodaysTasksTable.propTypes = {
 const styles = theme => ({
     todaysTasksRow: {
         "& th:last-child": {
-            [theme.breakpoints.down('xs')]: {
+            [theme.breakpoints.down("xs")]: {
                 paddingRight: theme.spacing(1)
             }
         }
@@ -68,24 +68,24 @@ const styles = theme => ({
     deadlineCell: {
         width: theme.spacing(10),
         paddingRight: theme.spacing(3.5),
-        [theme.breakpoints.down('xs')]: {
+        [theme.breakpoints.down("xs")]: {
             paddingLeft: theme.spacing(1),
             width: theme.spacing(9),
-            paddingRight: theme.spacing(2.5),
-        },
+            paddingRight: theme.spacing(2.5)
+        }
     },
     titleCell: {
         paddingRight: theme.spacing(4),
-        [theme.breakpoints.down('xs')]: {
+        [theme.breakpoints.down("xs")]: {
             paddingLeft: theme.spacing(0),
             paddingRight: theme.spacing(3)
         }
     },
     actionsCell: {
         width: theme.spacing(19.5),
-        [theme.breakpoints.down('xs')]: {
+        [theme.breakpoints.down("xs")]: {
             paddingLeft: theme.spacing(0),
-            width: theme.spacing(16),
+            width: theme.spacing(16)
         }
     }
 });
