@@ -1,6 +1,16 @@
 {
   "name": "kdtasker",
-  "version": "0.1.0",
+  "version": "0.1.0-alpha",
+  "license": "MIT",
+  "author": {
+    "name": "Karol Dąbrowski",
+    "email": "contact@karoldabrowski.com",
+    "url": "http://karoldabrowski.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/karol-dabrowski/kdtasker-web-client.git"
+  },
   "private": false,
   "dependencies": {
     "@date-io/date-fns": "^1.3.7",
