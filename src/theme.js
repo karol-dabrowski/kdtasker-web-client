@@ -32,6 +32,14 @@ const theme = createMuiTheme({
                     paddingBottom: "16px"
                 }
             }
+        },
+        MuiDialog: {
+            paperFullWidth: {
+                width: "calc(100% - 32px)"
+            },
+            paper: {
+                margin: "16px"
+            }
         }
     }
 });

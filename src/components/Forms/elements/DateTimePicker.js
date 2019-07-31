@@ -37,6 +37,7 @@ const DateTimePicker = props => {
                     />
                 }
                 label={t("form.deadline_time_checkbox_label")}
+                className={classes.timeCheckboxLabel}
                 labelPlacement="top"
             />
 
@@ -72,10 +73,29 @@ const style = theme => ({
         textAlign: "center"
     },
     datePicker: {
-        float: "left"
+        float: "left",
+        [theme.breakpoints.down("sm")]: {
+            width: theme.spacing(26)
+        },
+        [theme.breakpoints.down("xs")]: {
+            width: "100%",
+            marginBottom: theme.spacing(3)
+        }
     },
     timePicker: {
-        float: "right"
+        float: "right",
+        [theme.breakpoints.down("sm")]: {
+            width: theme.spacing(26)
+        },
+        [theme.breakpoints.down("xs")]: {
+            width: "calc(100% - 64px)"
+        }
+    },
+    timeCheckboxLabel: {
+        [theme.breakpoints.down("xs")]: {
+            float: "left",
+            marginLeft: 0
+        }
     },
     timeCheckbox: {
         padding: theme.spacing(0.5)
