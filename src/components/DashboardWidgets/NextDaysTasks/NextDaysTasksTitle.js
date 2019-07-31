@@ -24,6 +24,9 @@ const styles = theme => ({
         marginBottom: theme.spacing(0),
         "&:first-of-type": {
             marginTop: theme.spacing(2)
+        },
+        [theme.breakpoints.down("md")]: {
+            paddingLeft: theme.spacing(1)
         }
     }
 });
